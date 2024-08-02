@@ -1,30 +1,30 @@
 # Directory pattern
-API:
+🌐 API:
   - changed-files:
       - any-glob-to-any-file: 'apps/api/**'
 
-Web:
+🕸️ Web:
   - changed-files:
       - any-glob-to-any-file: 'apps/web/**'
 
-Docs:
+📚 Docs:
   - changed-files:
       - any-glob-to-any-file: 'apps/docs/**'
 
-DB:
+💾 DB:
   - changed-files:
       - any-glob-to-any-file: 'supabase/**'
 
-CI/CD:
+🔧 CI/CD:
   - changed-files:
       - any-glob-to-any-file: '.github/**'
 
 # Branch pattern
-Feature:
-  - head-branch: ['^feature/']
-Fix:
+🚀 Feature:
+  - head-branch: ['^feature/', '^feat/']
+🛠️ Fix:
   - head-branch: ['^fix/']
-Hotfix:
+🚨 Hot Fix:
   - head-branch: ['^hotfix/']
-Refactor:
+🔄 Refactor:
   - head-branch: ['^refactor/']
