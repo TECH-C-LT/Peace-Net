@@ -4,6 +4,24 @@
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
+  "exports": {
+    "./core/*": {
+      "import": "./src/core/*.ts",
+      "types": "./src/core/*.ts"
+    },
+    "./schemas/*": {
+      "import": "./src/schemas/*.ts",
+      "types": "./src/schemas/*.ts"
+    },
+    "./types/*": {
+      "import": "./src/types/*.ts",
+      "types": "./src/types/*.ts"
+    },
+    "./utils/*": {
+      "import": "./src/utils/*.ts",
+      "types": "./src/utils/*.ts"
+    }
+  },
   "scripts": {
     "lint": "eslint . --max-warnings 0"
   },
