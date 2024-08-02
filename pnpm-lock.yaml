@@ -94,6 +94,9 @@ importers:
       '@peace-net/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@peace-net/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       next:
         specifier: 15.0.0-rc.0
         version: 15.0.0-rc.0(react-dom@19.0.0-rc-f994737d14-20240522)(react@19.0.0-rc-f994737d14-20240522)
@@ -104,6 +107,12 @@ importers:
         specifier: 19.0.0-rc-f994737d14-20240522
         version: 19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522)
     devDependencies:
+      '@peace-net/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@peace-net/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^20
         version: 20.11.24
