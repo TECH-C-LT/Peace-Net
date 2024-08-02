@@ -6,7 +6,11 @@ app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
 
-app.get('/text', (c) => {
+app.get('/guardian', (c) => {
+  return c.text('text')
+})
+
+app.get('/sunshine', (c) => {
   return c.text('text')
 })
 
@@ -14,6 +18,7 @@ app.get('/usage', (c) => {
   return c.text('usage')
 })
 
+// apikey
 const apikey = new Hono()
 const auth = new Hono()
 auth.get('/', (c) => {
