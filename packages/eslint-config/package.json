@@ -1,11 +1,12 @@
 {
-  "name": "@repo/eslint-config",
+  "name": "@peace-net/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [
     "library.js",
     "next.js",
-    "react-internal.js"
+    "react-internal.js",
+    "hono.js"
   ],
   "devDependencies": {
     "@vercel/style-guide": "^5.2.0",
