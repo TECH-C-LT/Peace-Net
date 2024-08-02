@@ -1,28 +1,22 @@
 import { Hono } from 'hono'
 
-const app = new Hono()
+import { guardianRoutes } from '~/features/guardians/guardian.route'
+import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const app = new Hono()
+const api = new Hono()
 
 const v1 = new Hono()
-v1.get('/', (c) => {
-  return c.text('v1')
+
+v1.get('/health', (c) => {
+  return c.text('Peace Net API is up and running 🚀')
 })
 
-const guardian = new Hono()
-guardian.get('/', (c) => {
-  return c.text('guardian')
-})
-v1.route('guardian', guardian)
+v1.route('/guardians', guardianRoutes)
+v1.route('/sunshines', sunshineRoutes)
 
-const sunshine = new Hono()
-sunshine.get('/', (c) => {
-  return c.text('sunshine')
-})
-v1.route('/sunshine', sunshine)
+api.route('/v1', v1)
 
-app.route('/v1', v1)
+app.route('/api', api)
 
 export default app
