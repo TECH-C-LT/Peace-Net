@@ -11,6 +11,14 @@ Docs:
   - changed-files:
       - any-glob-to-any-file: 'apps/docs/**'
 
+DB:
+  - changed-files:
+      - any-glob-to-any-file: 'supabase/**'
+
+CI/CD:
+  - changed-files:
+      - any-glob-to-any-file: '.github/**'
+
 # Branch pattern
 Feature:
   - head-branch: ['^feature/']
