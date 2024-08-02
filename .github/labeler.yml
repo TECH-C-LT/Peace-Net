@@ -1,0 +1,22 @@
+# Directory pattern
+API:
+  - changed-files:
+      - any-glob-to-any-file: 'apps/api/**'
+
+Web:
+  - changed-files:
+      - any-glob-to-any-file: 'apps/web/**'
+
+Docs:
+  - changed-files:
+      - any-glob-to-any-file: 'apps/docs/**'
+
+# Branch pattern
+Feature:
+  - head-branch: ['^feature/']
+Fix:
+  - head-branch: ['^fix/']
+Hotfix:
+  - head-branch: ['^hotfix/']
+Refactor:
+  - head-branch: ['^refactor/']
