@@ -1,0 +1,20 @@
+{
+  "name": "@peace-net/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "hono": "^4.5.3",
+    "@peace-net/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "@peace-net/eslint-config": "workspace:*",
+    "@peace-net/typescript-config": "workspace:*",
+    "wrangler": "^3.57.2"
+  }
+}

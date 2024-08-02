@@ -1,0 +1,13 @@
+{
+  "extends": "@peace-net/typescript-config/hono.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "hono"
+      }
+    ],
+    "baseUrl": ".",
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
