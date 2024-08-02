@@ -9,7 +9,12 @@
   },
   "dependencies": {
     "hono": "^4.5.3",
-    "@peace-net/shared": "workspace:*"
+    "@peace-net/shared": "workspace:*",
+    "@ai-sdk/openai": "^0.0.40",
+    "@hono/zod-validator": "^0.2.2",
+    "ai": "^3.2.40",
+    "openai": "^4.53.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
