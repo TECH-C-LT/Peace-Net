@@ -6,33 +6,23 @@ app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
 
-app.get('/guardian', (c) => {
-  return c.text('text')
+const v1 = new Hono()
+v1.get('/', (c) => {
+  return c.text('v1')
 })
 
-app.get('/sunshine', (c) => {
-  return c.text('text')
+const guardian = new Hono()
+guardian.get('/', (c) => {
+  return c.text('guardian')
 })
+v1.route('guardian', guardian)
 
-app.get('/usage', (c) => {
-  return c.text('usage')
+const sunshine = new Hono()
+sunshine.get('/', (c) => {
+  return c.text('sunshine')
 })
+v1.route('/sunshine', sunshine)
 
-// apikey
-const apikey = new Hono()
-const auth = new Hono()
-auth.get('/', (c) => {
-  return c.text('apikey auth')
-})
-
-apikey.route('/auth', auth)
-
-const generate = new Hono()
-generate.get('/', (c) => {
-  return c.text('apikey generate')
-})
-apikey.route('/generate', generate)
-
-app.route('/apikey', apikey)
+app.route('/v1', v1)
 
 export default app
