@@ -4,6 +4,24 @@
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
+  "exports": {
+    "./core/*": {
+      "import": "./src/core/*.ts",
+      "types": "./src/core/*.ts"
+    },
+    "./schemas/*": {
+      "import": "./src/schemas/*.ts",
+      "types": "./src/schemas/*.ts"
+    },
+    "./types/*": {
+      "import": "./src/types/*.ts",
+      "types": "./src/types/*.ts"
+    },
+    "./utils/*": {
+      "import": "./src/utils/*.ts",
+      "types": "./src/utils/*.ts"
+    }
+  },
   "scripts": {
     "lint": "eslint . --max-warnings 0"
   },
@@ -15,6 +33,8 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "tailwind-merge": "^2.4.0"
+    "hono": "^4.5.3",
+    "tailwind-merge": "^2.4.0",
+    "zod": "^3.23.8"
   }
 }
