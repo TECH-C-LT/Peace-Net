@@ -39,3 +39,11 @@ pnpm i
 ```bash
 pnpm dev
 ```
+
+**Add ui components**
+
+This works just like the add command in the [shadcn/ui CLI.](https://ui.shadcn.com/docs/cli)
+
+```bash
+pnpm ui:add <component-name>
+```
