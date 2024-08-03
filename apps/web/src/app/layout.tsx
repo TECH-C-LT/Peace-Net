@@ -8,8 +8,8 @@ const notoSansJp = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: {
-    default: '平和ネット',
-    template: '%s | 平和ネット',
+    default: '平和ネット API',
+    template: '%s | 平和ネット API',
   },
   description: '平和なインターネットを目指すAPIを提供します。',
 }
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja">
+    <html lang="en">
       <body className={`${notoSansJp.className}`}>{children}</body>
     </html>
   )
