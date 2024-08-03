@@ -12,12 +12,31 @@ gh repo clone TECH-C-LT/Peace-Net
 
 ### Environment variables
 
+**/.env.local**
+
+[How to get GitHub OAuth credentials](https://supabase.com/docs/guides/auth/social-login/auth-github?queryGroups=environment&environment=client#register-a-new-oauth-application-on-github:~:text=Register%20a%20new%20OAuth,your%20Client%20secret.)
+
+```env
+SUPABASE_AUTH_GITHUB_CLIENT_ID=xxx
+SUPABASE_AUTH_GITHUB_SECRET=xxx
+```
+
 **/apps/api/.dev.vars**
 
 [OpenAI API Key Dashboard](https://platform.openai.com/api-keys)
 
 ```env
 OPENAI_API_KEY = "sk-proj-xxx"
+```
+
+**/apps/web/.env.local**
+
+```env
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Local Supabase URL and Anon Key
+NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJh...
 ```
 
 ## Getting Started
@@ -33,6 +52,18 @@ pnpm i
 ```
 
 ### Development
+
+**Supabase**
+
+[How to Supabase Local Development Setup](https://supabase.com/docs/guides/cli/local-development?queryGroups=access-method&access-method=postgres)
+
+```bash
+# Start the Supabase database
+pnpm db:start
+
+# Stop the Supabase database
+pnpm db:stop
+```
 
 **Start the all apps**
 
