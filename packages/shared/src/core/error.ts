@@ -1,5 +1,8 @@
 const prefix = '[Peace Net]:'
 
+/**
+ * 未実装の機能を表すエラー
+ */
 export class NotImplementedError extends Error {
   constructor(message: string = 'Not implemented') {
     super(message)
@@ -7,6 +10,9 @@ export class NotImplementedError extends Error {
   }
 }
 
+/**
+ * 入力値が不正であることを表すエラー
+ */
 export class ValidationError extends Error {
   constructor(message: string = 'Invalid input') {
     super(message)
@@ -14,6 +20,9 @@ export class ValidationError extends Error {
   }
 }
 
+/**
+ * リソースが見つからないことを表すエラー
+ */
 export class NotFoundError extends Error {
   constructor(message: string = 'Not found') {
     super(message)
@@ -21,6 +30,9 @@ export class NotFoundError extends Error {
   }
 }
 
+/**
+ * 認証エラーを表すエラー
+ */
 export class UnauthorizedError extends Error {
   constructor(message: string = 'Unauthorized') {
     super(message)
@@ -28,6 +40,9 @@ export class UnauthorizedError extends Error {
   }
 }
 
+/**
+ * サーバーエラーを表すエラー
+ */
 export class InternalServerError extends Error {
   constructor(message: string = 'Internal server error') {
     super(message)

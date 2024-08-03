@@ -13,6 +13,12 @@ import { GuardianController } from './guardian.controller'
 import { GuardianService } from './guardian.service'
 import { GuardianUseCase } from './guardian.usecase'
 
+/**
+ * Guardian APIのルーティングを定義します
+ * テキストと画像のコンテンツモデレーション用エンドポイントを提供
+ * - POST /text: テキスト分析
+ * - POST /image: 画像分析(未実装)
+ */
 const guardianRoutes = new Hono()
 
 guardianRoutes.post(

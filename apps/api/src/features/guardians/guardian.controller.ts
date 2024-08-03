@@ -5,6 +5,18 @@ import { Context } from 'hono'
 
 import { IGuardianUseCase } from './guardian.usecase'
 
+/**
+ * テキストの不適切な内容を分析し、カテゴリー別のスコアを提供するコントローラー
+ *
+ * このコントローラーは、GuardianUseCaseを使用してテキストの不適切な内容を分析し、結果をクライアントに返します。
+ *
+ * @class GuardianController
+ * @method guardianText - 指定されたテキストを分析し、不適切な内容の有無を判定します
+ * @method guardianImage - 指定された画像を分析し、不適切な内容の有無を判定します
+ * @param guardianUseCase - GuardianUseCaseのインスタンス
+ * @returns 分析結果を含むJSONレスポンス
+ * @throws エラーが発生した場合はエラーレスポンスを返します
+ */
 export class GuardianController {
   constructor(private guardianUseCase: IGuardianUseCase) {}
 

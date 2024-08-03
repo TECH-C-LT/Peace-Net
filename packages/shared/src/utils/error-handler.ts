@@ -29,6 +29,13 @@ function isCustomError(error: unknown): error is CustomError {
   )
 }
 
+/**
+ * エラーを処理し、エラーレスポンスを返します
+ *
+ * @param c - コンテキスト
+ * @param error - エラーオブジェクト
+ * @returns エラーレスポンス
+ */
 export function handleError(c: Context, error: unknown): Response {
   let statusCode: 400 | 401 | 404 | 500 | 501 = 500
   let errorMessage = '[Peace Net]: Internal Server Error'

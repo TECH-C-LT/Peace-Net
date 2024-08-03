@@ -10,6 +10,13 @@ const envSchema = z.object({
 
 type envType = z.infer<typeof envSchema>
 
+/**
+ * 環境変数を取得します
+ *
+ * @param c - コンテキスト
+ * @returns 環境変数
+ * @throws 環境変数の取得に失敗した場合はエラーをスローします
+ */
 export const getEnv = (c: Context) => {
   const environment = env<envType>(c)
 
