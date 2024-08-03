@@ -13,6 +13,7 @@ import { TooltipProvider } from '@peace-net/ui/components/ui/tooltip'
 import { Dock, DockIcon } from '@peace-net/ui/components/magicui/dock'
 import { Separator } from '@peace-net/ui/components/ui/separator'
 import NavItem from './nav-item'
+import UserIcon from './user-icon'
 
 export type NavItemProps = {
   href: string
@@ -50,6 +51,9 @@ export function Navigation() {
             <NavItem item={item} isBrank />
           </DockIcon>
         ))}
+        <DockIcon>
+          <UserIcon />
+        </DockIcon>
       </Dock>
     </TooltipProvider>
   )
