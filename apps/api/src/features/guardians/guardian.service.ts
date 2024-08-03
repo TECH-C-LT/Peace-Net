@@ -5,6 +5,7 @@ import { generateObject } from 'ai'
 import { z } from 'zod'
 
 // TODO: プロンプトを最適化する。
+// TODO: https://github.com/TECH-C-LT/Peace-Net/issues/47
 
 const systemPrompt = `あなたは日本語のコンテンツモデレーションの専門家です。
 与えられたテキストを分析し、不適切な内容のカテゴリーとその深刻度を0から1の範囲で評価してください。
