@@ -17,7 +17,7 @@ export class ValidationError extends Error {
 export class NotFoundError extends Error {
   constructor(message: string = 'Not found') {
     super(message)
-    this.name = `${prefix} Not Found Error`
+    this.name = `${prefix} Invalid Request Error`
   }
 }
 
@@ -25,5 +25,12 @@ export class UnauthorizedError extends Error {
   constructor(message: string = 'Unauthorized') {
     super(message)
     this.name = `${prefix} Unauthorized Error`
+  }
+}
+
+export class InternalServerError extends Error {
+  constructor(message: string = 'Internal server error') {
+    super(message)
+    this.name = `${prefix} Internal Server Error`
   }
 }

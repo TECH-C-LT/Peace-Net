@@ -1,6 +1,7 @@
 import { Context } from 'hono'
 import { ZodError } from 'zod'
 import {
+  InternalServerError,
   NotFoundError,
   NotImplementedError,
   UnauthorizedError,
@@ -23,26 +24,37 @@ function isCustomError(error: unknown): error is CustomError {
     error instanceof NotFoundError ||
     error instanceof NotImplementedError ||
     error instanceof UnauthorizedError ||
-    error instanceof ValidationError
+    error instanceof ValidationError ||
+    error instanceof InternalServerError
   )
 }
 
 export function handleError(c: Context, error: unknown): Response {
   let statusCode: 400 | 401 | 404 | 500 | 501 = 500
   let errorMessage = '[Peace Net]: Internal Server Error'
-  let details: any
+  let details: any = 'Sorry, something went wrong. Please try again later.'
 
   if (isCustomError(error)) {
-    statusCode =
-      error instanceof NotImplementedError
-        ? 501
-        : error instanceof ValidationError
-          ? 400
-          : error instanceof NotFoundError
-            ? 404
-            : error instanceof UnauthorizedError
-              ? 401
-              : 500
+    switch (error.constructor) {
+      case NotImplementedError:
+        statusCode = 501
+        break
+      case ValidationError:
+        statusCode = 400
+        break
+      case NotFoundError:
+        statusCode = 404
+        break
+      case UnauthorizedError:
+        statusCode = 401
+        break
+      case InternalServerError:
+        statusCode = 500
+        break
+      default:
+        statusCode = 500
+        break
+    }
     errorMessage = error.name
     details = error.message
   } else if (error instanceof ZodError) {
@@ -54,7 +66,7 @@ export function handleError(c: Context, error: unknown): Response {
       code: e.code,
     }))
   } else if (error instanceof Error) {
-    errorMessage = error.name
+    errorMessage = `[Peace Net]: ${error.name}`
     details = error.message
   }
 
