@@ -23,6 +23,8 @@ export function GetStartedButton() {
               ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
               : 'http://localhost:3000'
 
+            console.log('URL', URL)
+
             await supabase.auth.signInWithOAuth({
               provider: 'github',
               options: {
