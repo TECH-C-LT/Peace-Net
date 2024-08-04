@@ -56,7 +56,7 @@ export class GuardianService implements IGuardianService {
 
   async guardianText(text: string): Promise<CategoryScores> {
     const { object } = await generateObject({
-      model: this.openai('gpt-4o-miniaaa'),
+      model: this.openai('gpt-4o-mini'),
       schema: z.object({ category_scores: categoryScoresSchema }),
       messages: [
         { role: 'system', content: systemPrompt },
