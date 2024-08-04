@@ -30,11 +30,6 @@ export default function UserIcon() {
         data: { user },
       } = await supabase.auth.getUser()
 
-      if (!user) {
-        router.push('/')
-        return
-      }
-
       setUser(user)
     }
 

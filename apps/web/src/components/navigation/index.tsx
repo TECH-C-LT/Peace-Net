@@ -7,6 +7,7 @@ import {
   SettingsIcon,
   FileCode2Icon,
   LucideProps,
+  GithubIcon,
 } from 'lucide-react'
 
 import { TooltipProvider } from '@peace-net/ui/components/ui/tooltip'
@@ -30,7 +31,14 @@ const DATA: { navbar: NavItemProps[]; outNavbar: NavItemProps[] } = {
     { href: '/dashboard/usage', icon: AlignEndHorizontalIcon, label: 'Usage' },
     { href: '/settings', icon: SettingsIcon, label: 'Settings' },
   ],
-  outNavbar: [{ href: '#', icon: FileCode2Icon, label: 'API Reference' }],
+  outNavbar: [
+    { href: '#', icon: FileCode2Icon, label: 'API Reference' },
+    {
+      href: 'https://github.com/TECH-C-LT/Peace-Net',
+      icon: GithubIcon,
+      label: 'GitHub',
+    },
+  ],
 }
 
 export function Navigation() {
