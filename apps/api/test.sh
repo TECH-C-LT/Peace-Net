@@ -1,30 +1,38 @@
 #!/bin/bash
-
 set -euo pipefail
 
-function assert {
-    # $1 request body
-    # $2 got flagged value
-    # $3 want flagged value
-    trimmed=$(echo $2 |tr -d ',')
-    if [ $trimmed != $3 ]; then
-        printf "[Unexpected] body %s got: %s want: %s.\n" $1 $2 $3 
-    fi
-}
+# --- Prerequisite
+# api-server is running on localhost:8787
+#
 
-function peacenet-guardians {
-    res=$(
-    curl -s --location 'http://localhost:8787/api/v1/guardians/text' \
-        --header 'Content-Type: application/json' \
-        --data '{
-            "text": "'$1'",
-            "score_threshold": 0.3
-        }' \
-            |jq '.flagged'
-        )
-    assert $1, $res, $2
-}
+source ./helpers.sh
 
 ### テストケース
-# peacenet-guardians "学校くるな" true
-# peacenet-guardians "チョコになっちゃえ" false
+#
+# テストケースであれ特定の人物を指すことのないように架空の"T君", "Sちゃん"などを使用する。
+#
+###
+
+## sexual
+#
+
+## hate
+assert-top-scores "東大医学部頭悪くないか？" hate
+
+## harassment
+assert-top-scores "プロジェクトから外すぞ?" harassment
+
+## self_halm
+assert-top-scores "俺生きてる意味ないよな。" self_harm
+
+## violence
+assert-top-scores "戦争大賛成！！" violence
+
+## discrimination
+#
+
+## No problem case
+assert-flagged "君のパスはよかったけど、シュートは全然ダメだったね。" false
+assert-flagged "ゲームばかりしてるとろくな大人にならないよ。" false
+assert-flagged "それってあなたの感想ですよね？" false
+assert-flagged "君の意見は間違っている！" false
