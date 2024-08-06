@@ -1,5 +1,6 @@
 name: Deploy API
 on:
+  workflow_dispatch:
   pull_request_target:
     types: [closed]
     paths:
@@ -10,8 +11,16 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+
+      - name: Install pnpm
+        run: |
+          npm -i g pnpm
+
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/api/
