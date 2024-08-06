@@ -1,12 +1,19 @@
 import { NotFoundError } from '@peace-net/shared/core/error'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
+import { logger } from 'hono/logger'
 
 import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
 
 const app = new Hono()
+
+// logger
+// sample custom logger code
+// export const customLogger = function Logger()
+app.use(logger())
+
 const api = new Hono()
 
 const v1 = new Hono()

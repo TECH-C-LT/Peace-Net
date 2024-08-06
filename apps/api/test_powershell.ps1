@@ -1,0 +1,2 @@
+# test for windows powershell
+Invoke-WebRequest -Uri "http://localhost:8787/api/v1/guardians/text" -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"text":"こんにちは","score_threshold":0.3}'
