@@ -1,6 +1,7 @@
 import { NotFoundError } from '@peace-net/shared/core/error'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 
 import { getEnv } from '~/config/environment'
@@ -13,6 +14,15 @@ const app = new Hono()
 // sample custom logger code
 // export const customLogger = function Logger()
 app.use(logger())
+app.use(
+  '/api/*',
+  cors({
+    origin: '*',
+    allowMethods: ['POST'],
+    allowHeaders: ['Content-Type', 'Authorization'],
+    maxAge: 864000, // ブラウザにキャッシュさせる有効時間
+  }),
+)
 
 const api = new Hono()
 
