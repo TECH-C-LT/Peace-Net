@@ -17,6 +17,7 @@ jobs:
       - name: Install pnpm and Install dependency
         run: |
           npm -i g pnpm
+          corepack enable pnpm
           pnpm i
 
       - name: Build & Deploy Worker
