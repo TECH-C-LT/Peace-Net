@@ -26,7 +26,14 @@ SUPABASE_AUTH_GITHUB_SECRET=xxx
 [OpenAI API Key Dashboard](https://platform.openai.com/api-keys)
 
 ```env
-OPENAI_API_KEY = "sk-proj-xxx"
+PEACE_NET_API_DOCS_URL = "https://xxx"
+
+# OpenAI
+OPENAI_API_KEY = ""
+
+# Local Supabase URL and Anon Key
+SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_ANON_KEY=eyJh...
 ```
 
 **/apps/web/.env.local**
