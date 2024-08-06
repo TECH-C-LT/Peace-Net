@@ -17,7 +17,7 @@ app.use(logger())
 app.use(
   '/api/*',
   cors({
-    origin: '*',
+    origin: 'https://peace-net.vercel.app/',
     allowMethods: ['POST'],
     allowHeaders: ['Content-Type', 'Authorization'],
     maxAge: 864000, // ブラウザにキャッシュさせる有効時間
