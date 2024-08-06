@@ -15,7 +15,7 @@ const app = new Hono()
 // export const customLogger = function Logger()
 app.use(logger())
 app.use(
-  '/api/*',
+  '/*',
   cors({
     origin: 'https://peace-net.vercel.app/',
     allowMethods: ['POST'],
@@ -24,16 +24,12 @@ app.use(
   }),
 )
 
-const api = new Hono()
-
 const v1 = new Hono()
 
 v1.route('/guardians', guardianRoutes)
 v1.route('/sunshines', sunshineRoutes)
 
-api.route('/v1', v1)
-
-app.route('/api', api)
+app.route('/v1', v1)
 
 app.all('/', (c) =>
   c.json({
