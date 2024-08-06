@@ -14,9 +14,10 @@ jobs:
 
       - uses: actions/setup-node@v4
 
-      - name: Install pnpm
+      - name: Install pnpm and Install dependency
         run: |
           npm -i g pnpm
+          pnpm i
 
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
