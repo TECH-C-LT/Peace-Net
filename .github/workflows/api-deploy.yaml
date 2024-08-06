@@ -1,7 +1,8 @@
 name: Deploy API
 on:
   pull_request_target:
-    paths: 
+    types: [closed]
+    paths:
       - "apps/api/**"
 jobs:
   deploy:
