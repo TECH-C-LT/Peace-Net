@@ -8,6 +8,8 @@ import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
 
+import { authenticateMiddleware } from './middleware/authenticate.middleware'
+
 const app = new Hono()
 
 // logger
@@ -26,6 +28,10 @@ app.use(
 
 const v1 = new Hono()
 
+v1.use('/*', async (c, next) => {
+  await authenticateMiddleware(c, next)
+})
+
 v1.route('/guardians', guardianRoutes)
 v1.route('/sunshines', sunshineRoutes)
 
@@ -33,7 +39,7 @@ app.route('/v1', v1)
 
 app.all('/', (c) =>
   c.json({
-    message: `Welcome to the Peace Net API! Documentation is available at ${getEnv(c).PEACE_NET_API_DOCS_URL}`,
+    message: `Welcome to the Peace Net API! Documentation is available at ${getEnv(c).DOCS_URL}`,
   }),
 )
 
@@ -44,7 +50,7 @@ app.notFound((c) => {
   return handleError(
     c,
     new NotFoundError(
-      `Unknown request URL: ${method} ${path}. Please check the URL for typos, or see the docs at ${getEnv(c).PEACE_NET_API_DOCS_URL}`,
+      `Unknown request URL: ${method} ${path}. Please check the URL for typos, or see the docs at ${getEnv(c).DOCS_URL}`,
     ),
   )
 })
