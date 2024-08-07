@@ -21,7 +21,7 @@ function assert {
 }
 
 function peacenet-guardians {
-    curl -s --location 'http://localhost:8787/api/v1/guardians/text' \
+    curl -s --location 'http://localhost:8787/v1/guardians/text' \
         --header 'Content-Type: application/json' \
         --data '{
             "text": "'$1'",
