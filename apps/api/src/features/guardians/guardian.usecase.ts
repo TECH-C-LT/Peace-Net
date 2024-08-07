@@ -1,11 +1,11 @@
 import {
-  Category,
   GuardianResult,
   GuardianTextDTO,
 } from '@peace-net/shared/types/guardian'
 import { failure, success, type Result } from '@peace-net/shared/utils/result'
 
 import { IGuardianService } from './guardian.service'
+import { checkFlagged, createCategories } from './guardian.utils'
 
 /**
  * テキストの不適切な内容を分析し、カテゴリー別のスコアを提供するユースケースのインターフェース
@@ -44,16 +44,9 @@ export class GuardianUseCase implements IGuardianUseCase {
 
       // TODO: 使用回数をカウントする
 
-      const flagged = Object.values(categoryScores).some(
-        (score) => score >= score_threshold,
-      )
+      const flagged = checkFlagged(categoryScores, score_threshold)
 
-      const categories = Object.fromEntries(
-        Object.entries(categoryScores).map(([category, score]) => [
-          category as Category,
-          score >= score_threshold,
-        ]),
-      )
+      const categories = createCategories(categoryScores, score_threshold)
 
       return success({
         flagged,
