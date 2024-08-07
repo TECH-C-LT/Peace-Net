@@ -4,10 +4,11 @@ import { env } from 'hono/adapter'
 import { z } from 'zod'
 
 const envSchema = z.object({
-  PEACE_NET_API_DOCS_URL: z.string(),
+  DOCS_URL: z.string(),
   OPENAI_API_KEY: z.string(),
   SUPABASE_URL: z.string(),
-  SUPABASE_ANON_KEY: z.string(),
+  SUPABASE_SERVICE_ROLE_KEY: z.string(),
+  ENCRYPTION_KEY: z.string(),
 })
 
 type envType = z.infer<typeof envSchema>
