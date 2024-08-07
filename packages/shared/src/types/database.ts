@@ -36,10 +36,10 @@ export type Database = {
     Tables: {
       api_keys: {
         Row: {
-          api_key: string | null
           created_at: string | null
           description: string | null
           expires_at: string | null
+          encrypted_key: string | null
           id: string
           is_active: boolean | null
           last_used: string | null
@@ -47,10 +47,10 @@ export type Database = {
           user_id: string | null
         }
         Insert: {
-          api_key?: string | null
           created_at?: string | null
           description?: string | null
           expires_at?: string | null
+          encrypted_key?: string | null
           id?: string
           is_active?: boolean | null
           last_used?: string | null
@@ -58,10 +58,10 @@ export type Database = {
           user_id?: string | null
         }
         Update: {
-          api_key?: string | null
           created_at?: string | null
           description?: string | null
           expires_at?: string | null
+          encrypted_key?: string | null
           id?: string
           is_active?: boolean | null
           last_used?: string | null
