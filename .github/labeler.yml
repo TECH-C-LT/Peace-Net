@@ -9,7 +9,7 @@
 
 📚 Docs:
   - changed-files:
-      - any-glob-to-any-file: 'docs/**'
+      - any-glob-to-any-file: 'apps/docs/**'
 
 💾 DB:
   - changed-files:
