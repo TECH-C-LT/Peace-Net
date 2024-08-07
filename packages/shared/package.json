@@ -28,11 +28,13 @@
   "devDependencies": {
     "@peace-net/eslint-config": "workspace:*",
     "@peace-net/typescript-config": "workspace:*",
+    "@types/crypto-js": "^4.2.2",
     "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "crypto-js": "^4.2.0",
     "hono": "^4.5.3",
     "tailwind-merge": "^2.4.0",
     "zod": "^3.23.8"
