@@ -24,7 +24,7 @@ export class ApiKeyService implements IApiKeyService {
       await this.apiKeyRepository.getApiKeyWithEncryptedKey(encryptedApiKey)
 
     // 取得できなかった場合はエラー
-    if (!apiKeyInfo) {
+    if (!apiKeyInfo || !apiKeyInfo.id || !apiKeyInfo.user_id) {
       return { isValid: false, error: 'Invalid API key' }
     }
 
@@ -42,6 +42,10 @@ export class ApiKeyService implements IApiKeyService {
       return { isValid: false, error: 'Expired API key' }
     }
 
-    return { isValid: true }
+    return {
+      isValid: true,
+      apiKeyId: apiKeyInfo.id,
+      userId: apiKeyInfo.user_id,
+    }
   }
 }

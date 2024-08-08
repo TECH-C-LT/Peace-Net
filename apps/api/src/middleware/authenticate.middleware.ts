@@ -1,5 +1,5 @@
 import { UnauthorizedError } from '@peace-net/shared/core/error'
-import { Context, Next } from 'hono'
+import { Context } from 'hono'
 
 import { getEnv } from '~/config/environment'
 import { ApiKeyRepository } from '~/features/apiKeys/apiKey.repository'
@@ -7,7 +7,7 @@ import { ApiKeyService } from '~/features/apiKeys/apiKey.service'
 import { ApiKeyUsecase } from '~/features/apiKeys/apiKey.usecase'
 import { SupabaseClient } from '~/libs/supabase'
 
-export const authenticateMiddleware = async (c: Context, next: Next) => {
+export const authenticateMiddleware = async (c: Context) => {
   const authHeader = c.req.header('Authorization')
   const apiKey =
     authHeader && authHeader.startsWith('Bearer ')
@@ -34,7 +34,10 @@ export const authenticateMiddleware = async (c: Context, next: Next) => {
       throw result.error
     }
 
-    return next()
+    c.set('apiKeyId', result.value.apiKeyId)
+    c.set('userId', result.value.userId)
+
+    return
   } catch (error: any) {
     throw new UnauthorizedError(error?.message || 'Invalid API key')
   }
