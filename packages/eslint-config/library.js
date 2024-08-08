@@ -26,6 +26,10 @@ module.exports = {
     "node_modules/",
     "dist/",
   ],
+  rules: {
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-unused-vars": "off"
+  },
   overrides: [
     {
       files: ["*.js?(x)", "*.ts?(x)"],
