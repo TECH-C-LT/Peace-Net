@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { MainDescription, MainTitle } from '~/app/(main)/components/text'
 import GenerateApiKeyButton from '~/app/(main)/dashboard/api-keys/components/generate-api-key/button'
 import ApiKeyTable from './components/api-key-table'
+import { Suspense } from 'react'
+import { Skeleton } from '@peace-net/ui/components/ui/skeleton'
 
 export const metadata: Metadata = {
   title: 'API Keys',
@@ -19,7 +21,9 @@ export default function ApiKeys() {
         <br />
         APIキーを他人と共有したり、ブラウザやその他のクライアント側のコードで公開したりしないでください。
       </MainDescription>
-      <ApiKeyTable />
+      <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+        <ApiKeyTable />
+      </Suspense>
     </section>
   )
 }
