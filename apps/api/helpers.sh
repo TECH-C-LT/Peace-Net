@@ -3,7 +3,6 @@ set -euo pipefail
 
 sexual="sexual"
 hate="hate"
-harassment="harassment"
 self_harm="self_harm"
 violence="violence"
 defamation="defamation"

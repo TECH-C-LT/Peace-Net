@@ -3,7 +3,6 @@ import { z } from 'zod'
 export const categoryScoresSchema = z.object({
   sexual: z.number(),
   hate: z.number(),
-  harassment: z.number(),
   self_harm: z.number(),
   violence: z.number(),
   defamation: z.number(),
