@@ -1,7 +1,3 @@
-import { Database } from '@peace-net/shared/types/database'
-
-export type ApiKeyInfo = Database['public']['Tables']['api_keys']['Row']
-
 export type VerifyApiKeyInput = {
   apiKey: string
   encryptionKey: string
@@ -9,5 +5,7 @@ export type VerifyApiKeyInput = {
 
 export type VerifyApiKeyOutput = {
   isValid: boolean
+  apiKeyId?: string
+  userId?: string
   error?: string
 }

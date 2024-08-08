@@ -3,7 +3,7 @@ import { GuardianTextDTO } from '@peace-net/shared/types/guardian'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Context } from 'hono'
 
-import { IGuardianUseCase } from './guardian.usecase'
+import { IGuardianUseCase } from '~/features/guardians/guardian.usecase'
 
 /**
  * テキストの不適切な内容を分析し、カテゴリー別のスコアを提供するコントローラー

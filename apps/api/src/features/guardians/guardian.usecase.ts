@@ -42,8 +42,6 @@ export class GuardianUseCase implements IGuardianUseCase {
       const { text, score_threshold } = dto
       const categoryScores = await this.guardianService.guardianText(text)
 
-      // TODO: 使用回数をカウントする
-
       const flagged = checkFlagged(categoryScores, score_threshold)
 
       const categories = createCategories(categoryScores, score_threshold)

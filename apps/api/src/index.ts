@@ -7,8 +7,7 @@ import { logger } from 'hono/logger'
 import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
-
-import { authenticateMiddleware } from './middleware/authenticate.middleware'
+import { authenticateMiddleware } from '~/middleware/authenticate.middleware'
 
 const app = new Hono()
 

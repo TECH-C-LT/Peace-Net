@@ -1,7 +1,10 @@
 import { encryptApiKey } from '@peace-net/shared/utils/encryptions'
 
-import { IApiKeyRepository } from './apiKey.repository'
-import type { VerifyApiKeyInput, VerifyApiKeyOutput } from './apiKey.type'
+import { IApiKeyRepository } from '~/features/apiKeys/apiKey.repository'
+import type {
+  VerifyApiKeyInput,
+  VerifyApiKeyOutput,
+} from '~/features/apiKeys/apiKey.type'
 
 export interface IApiKeyService {
   verifyApiKey(input: VerifyApiKeyInput): Promise<VerifyApiKeyOutput>

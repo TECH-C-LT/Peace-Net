@@ -7,11 +7,10 @@ import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
 
 import { getEnv } from '~/config/environment'
+import { GuardianController } from '~/features/guardians/guardian.controller'
+import { GuardianService } from '~/features/guardians/guardian.service'
+import { GuardianUseCase } from '~/features/guardians/guardian.usecase'
 import { OpenAIClient } from '~/libs/openai'
-
-import { GuardianController } from './guardian.controller'
-import { GuardianService } from './guardian.service'
-import { GuardianUseCase } from './guardian.usecase'
 
 /**
  * Guardian APIのルーティングを定義します
