@@ -12,8 +12,6 @@ import { revalidatePath } from 'next/cache'
 export async function generateApiKey(prevState: unknown, formData: FormData) {
   const submission = parseWithZod(formData, { schema: generateApiKeySchema })
 
-  console.log('submission', submission)
-
   if (submission.status !== 'success') {
     return submission.reply()
   }
