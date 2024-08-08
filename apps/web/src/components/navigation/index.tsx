@@ -46,7 +46,7 @@ export function Navigation() {
     <TooltipProvider>
       <Dock
         direction="middle"
-        className="bg-background/50 fixed bottom-6 right-1/2 flex translate-x-1/2 border backdrop-blur"
+        className="bg-background/50 fixed bottom-6 right-1/2 z-40 flex translate-x-1/2 border backdrop-blur"
       >
         {DATA.navbar.map((item) => (
           <DockIcon key={item.label}>

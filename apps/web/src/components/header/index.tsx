@@ -6,7 +6,7 @@ export default async function Header() {
   const session = await getSession()
 
   return (
-    <header className="bg-background/50 fixed top-0 flex w-full items-center justify-between border p-1 backdrop-blur">
+    <header className="bg-background/50 fixed top-0 z-40 flex w-full items-center justify-between border p-1 backdrop-blur">
       <Logo />
       {!session && <GetStartedButton />}
     </header>

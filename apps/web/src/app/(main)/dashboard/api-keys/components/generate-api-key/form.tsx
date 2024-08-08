@@ -43,7 +43,7 @@ export function GenerateApiKeyForm() {
         <form {...getFormProps(form)} action={action} className="space-y-4">
           <Field>
             <Label htmlFor={fields.name.id}>名前</Label>
-            <InputConform meta={fields.name} type="text" />
+            <InputConform meta={fields.name} type="text" autoFocus />
             {fields.name.errors && (
               <FieldError>{fields.name.errors}</FieldError>
             )}
