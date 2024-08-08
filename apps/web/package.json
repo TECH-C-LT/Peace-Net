@@ -9,15 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@conform-to/react": "^1.1.5",
+    "@conform-to/zod": "^1.1.5",
     "@peace-net/shared": "workspace:*",
     "@peace-net/ui": "workspace:*",
     "@supabase/ssr": "^0.4.0",
     "@supabase/supabase-js": "^2.45.0",
+    "@tanstack/react-table": "^8.20.1",
+    "date-fns": "^3.6.0",
     "lucide-react": "^0.395.0",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-8269d55d-20240802",
     "react-dom": "19.0.0-rc-8269d55d-20240802",
-    "react-hook-form": "^7.52.2"
+    "react-hook-form": "^7.52.2",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@peace-net/eslint-config": "workspace:*",
@@ -25,6 +31,7 @@
     "@types/node": "^20",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.0-rc.0",
     "postcss": "^8",
