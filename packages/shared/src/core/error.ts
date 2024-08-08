@@ -41,6 +41,16 @@ export class UnauthorizedError extends Error {
 }
 
 /**
+ * 使用回数の上限を超えたことを表すエラー
+ */
+export class UsageLimitExceededError extends Error {
+  constructor(message: string = 'Usage limit exceeded') {
+    super(message)
+    this.name = `${prefix} Usage Limit Exceeded Error`
+  }
+}
+
+/**
  * サーバーエラーを表すエラー
  */
 export class InternalServerError extends Error {
