@@ -1,6 +1,6 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from 'prism-react-renderer'
+import type { Config } from '@docusaurus/types'
+import type * as Preset from '@docusaurus/preset-classic'
 
 const config: Config = {
   title: 'Peace Net Document',
@@ -58,7 +58,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/peacenet.png',
     navbar: {
-      title: 'Peace Net',
+      title: '平和ネットAPI',
       logo: {
         alt: 'PeaceNet logo',
         src: 'img/peacenet.png',
@@ -66,18 +66,15 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {
-          type: 'docSidebar',
           sidebarId: 'apiSidebar',
           position: 'left',
-          label: 'API',
+          label: 'API Reference',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/blog', label: 'FAQ', position: 'left'},
+        {
+          href: 'https://peeace.net/',
+          label: 'Website',
+          position: 'right',
+        },
         {
           href: 'https://github.com/TECH-C-LT/Peace-Net',
           label: 'GitHub',
@@ -92,29 +89,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'API Reference',
               to: '/docs/intro',
-            },
-            {
-              label: 'API',
-              to: '/docs/api/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
             },
           ],
         },
@@ -122,8 +98,8 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Website',
+              href: 'https://peeace.net/',
             },
             {
               label: 'GitHub',
@@ -132,13 +108,12 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
-};
+}
 
-export default config;
+export default config
