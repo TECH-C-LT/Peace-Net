@@ -6,7 +6,7 @@ export const categoryScoresSchema = z.object({
   harassment: z.number(),
   self_harm: z.number(),
   violence: z.number(),
-  discrimination: z.number(),
+  defamation: z.number(),
 })
 
 export const guardianTextRequestSchema = z.object({
