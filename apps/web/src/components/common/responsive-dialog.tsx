@@ -22,17 +22,20 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@peace-net/ui/components/ui/drawer'
+import { LucideIcon } from 'lucide-react'
 
 export function ResponsiveDialog({
   title,
   description,
   buttonText = title,
+  Icon,
   closeText = 'Cancel',
   children,
 }: {
   title: string
   description?: string
   buttonText?: string
+  Icon?: LucideIcon
   closeText?: string
   children: React.ReactNode
 }) {
@@ -43,7 +46,10 @@ export function ResponsiveDialog({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">{buttonText}</Button>
+          <Button className="bg-teal-500 hover:bg-teal-600">
+            {Icon && <Icon className="mr-1 h-5 w-5" />}
+            {buttonText}
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
@@ -61,15 +67,18 @@ export function ResponsiveDialog({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant="outline">{buttonText}</Button>
+        <Button className="bg-teal-500 hover:bg-teal-600">
+          {Icon && <Icon className="mr-1 h-5 w-5" />}
+          {buttonText}
+        </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <div className="mx-auto max-w-md">
+        <div className="mx-auto w-full max-w-md">
           <DrawerHeader className="text-left">
             <DrawerTitle>{title}</DrawerTitle>
             <DrawerDescription>{description}</DrawerDescription>
           </DrawerHeader>
-          {children}
+          <div className="w-full px-4 py-2">{children}</div>
           <DrawerFooter className="pt-2">
             <DrawerClose asChild>
               <Button variant="outline">{closeText}</Button>

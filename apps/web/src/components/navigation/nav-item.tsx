@@ -38,7 +38,7 @@ export default function NavItem({
             strokeWidth={isActive ? 2 : 1.5}
             className={cn(
               'size-5 transition-all duration-200',
-              isActive ? 'text-green-600' : 'text-primary',
+              isActive ? 'text-teal-500' : 'text-primary',
             )}
           />
         </Link>
@@ -47,7 +47,7 @@ export default function NavItem({
         <p
           className={cn(
             'text-xs font-medium',
-            isActive ? 'text-green-600' : 'text-primary',
+            isActive ? 'text-teal-500' : 'text-primary',
           )}
         >
           {item.label}

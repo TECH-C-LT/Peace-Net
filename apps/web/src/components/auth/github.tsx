@@ -9,7 +9,7 @@ export default function GitHub() {
   const [_, signInAction, isPending] = useActionState(signInWithGithub, null)
 
   return (
-    <form action={signInAction} className="flex justify-center px-4 py-3">
+    <form action={signInAction} className="flex justify-center">
       <Button className="w-full" size="lg" disabled={isPending}>
         <GithubIcon className="mr-2 h-5 w-5" />
         GitHubでログイン
