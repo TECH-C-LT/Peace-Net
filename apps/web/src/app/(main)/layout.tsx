@@ -7,7 +7,7 @@ export default function MainLayout({
 }>) {
   return (
     <article>
-      <div className="mx-auto max-w-7xl px-6">{children}</div>
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-16">{children}</div>
       <Navigation />
     </article>
   )

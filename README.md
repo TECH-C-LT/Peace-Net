@@ -33,7 +33,7 @@ OPENAI_API_KEY = ""
 SUPABASE_URL= "http://127.0.0.1:54321"
 SUPABASE_SERVICE_ROLE_KEY= "eyJh..."
 
-# ENCRYPTION
+# Encryption key
 ENCRYPTION_KEY = ""
 ```
 
@@ -45,6 +45,9 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 # Local Supabase URL and Anon Key
 NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJh...
+
+# Encryption key
+ENCRYPTION_KEY=
 ```
 
 ## Getting Started
