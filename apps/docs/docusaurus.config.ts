@@ -4,8 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Peace Net Document',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  // tagline: 'Dinosaurs are cool',
+  favicon: 'img/peacenet.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -56,12 +56,12 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/peacenet.png',
     navbar: {
       title: 'Peace Net',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'PeaceNet logo',
+        src: 'img/peacenet.png',
       },
       items: [
         {
@@ -72,7 +72,7 @@ const config: Config = {
         },
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'apiSidebar',
           position: 'left',
           label: 'API',
         },
@@ -97,7 +97,7 @@ const config: Config = {
             },
             {
               label: 'API',
-              to: '/docs/intro',
+              to: '/docs/api/intro',
             },
           ],
         },
