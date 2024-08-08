@@ -37,7 +37,12 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  const PROTECTED_PATHS = ['/dashboard', '/settings']
+  const PROTECTED_PATHS = [
+    '/dashboard',
+    '/dashboard/api-keys',
+    '/dashboard/usage',
+    '/settings',
+  ]
 
   if (
     !user &&
