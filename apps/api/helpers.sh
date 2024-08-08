@@ -6,7 +6,7 @@ hate="hate"
 harassment="harassment"
 self_harm="self_harm"
 violence="violence"
-discrimination="discrimination"
+defamation="defamation"
 
 score_threshold=0.5
 
