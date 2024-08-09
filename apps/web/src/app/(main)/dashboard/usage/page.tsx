@@ -18,14 +18,14 @@ export default async function Usage() {
           fallback={
             <div className="flex flex-col items-center justify-center gap-4 p-6">
               <h3 className="font-semibold">合計使用回数</h3>
-              <Skeleton className="h-[144] w-[144] rounded-full" />
+              <Skeleton className="h-[144px] w-[144px] rounded-full" />
             </div>
           }
         >
           <PlanRequestChart />
         </Suspense>
         <Suspense
-          fallback={<Skeleton className="h-[300] w-[550] rounded-md" />}
+          fallback={<Skeleton className="h-[300px] w-[550px] rounded-md" />}
         >
           <UsageLogChart />
         </Suspense>
