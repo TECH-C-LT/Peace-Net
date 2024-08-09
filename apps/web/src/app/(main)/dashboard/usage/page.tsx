@@ -6,7 +6,6 @@ import { Skeleton } from '@peace-net/ui/components/ui/skeleton'
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@peace-net/ui/components/ui/card'
@@ -21,7 +20,6 @@ export default async function Usage() {
       <Card>
         <CardHeader>
           <CardTitle>Usage</CardTitle>
-          <CardDescription>使用状況を確認できます。</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-row-reverse flex-wrap justify-center overflow-hidden rounded-lg border p-4">
