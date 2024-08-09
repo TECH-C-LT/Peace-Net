@@ -18,8 +18,11 @@ export async function getApiKeys() {
   // APIキーをDBから取得
   const { data, error } = await supabase
     .from('api_keys')
-    .select('name, description, expires_at, last_used, created_at')
+    .select('name, description, expires_at, last_used, created_at, id')
     .eq('user_id', user.id)
+    .eq('is_active', true)
+    .order('created_at', { ascending: false })
+
   if (error) {
     console.error(error)
     return null
