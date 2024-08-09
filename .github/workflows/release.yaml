@@ -1,0 +1,51 @@
+name: release
+on:
+  push:
+    branches:
+     - main
+    tags:
+     - 'v*.*.*'
+  pull_request:
+    types:
+     - labeled
+jobs:
+  release:
+    if: github.event.action != 'labeled'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: bump
+        if: "!startsWith(github.ref, 'refs/tags/')"
+        uses: haya14busa/action-bumpr@v1
+
+      - uses: haya14busa/action-update-semver@1
+        if: "!steps.bump.outputs.skip"
+        with:
+          github_token: ${{ secrets.github_token }}
+          tag: ${{ steps.bump.outputs.next_version }}
+
+      - id: tag
+        uses: haya14busa/action-cond@v1
+        with:
+          cond: "${{ startsWith(github.ref, 'refs/tags/') }}"
+          if_true: ${{ .github.ref }}
+          if_false: ${{ steps.bump.outputs.next_version }}
+
+      - uses: actions/create-release
+        if: "steps.tag.outputs.value != ''"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Release ${{ steps.tag.outputs.value }}
+          tag_name: ${{ steps.tag.outputs.value }}
+          body: ${{ steps.bump.outputs.message }}
+          draft: false
+          prerelease: false
+  labeling:
+    if: github.event.action == 'labeled'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haya14busa/action-bumpr@v1
+
