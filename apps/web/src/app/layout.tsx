@@ -3,6 +3,7 @@ import '@peace-net/ui/globals.css'
 import { Noto_Sans_JP } from 'next/font/google'
 import Header from '~/components/header'
 import { ScrollArea } from '@peace-net/ui/components/ui/scroll-area'
+import { Analytics } from '@vercel/analytics/next'
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function RootLayout({
           <Header />
           {children}
         </ScrollArea>
+        <Analytics />
       </body>
     </html>
   )
