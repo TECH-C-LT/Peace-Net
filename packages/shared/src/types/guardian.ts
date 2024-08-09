@@ -12,6 +12,11 @@ export type CategoryScores = z.infer<typeof categoryScoresSchema>
 
 export type GuardianTextDTO = z.infer<typeof guardianTextRequestSchema>
 
+export type GuardianTextInput = GuardianTextDTO & {
+  userId: string
+  totalRequestsUsed: number
+}
+
 export type GuardianImageDTO = z.infer<typeof guardianImageRequestSchema>
 
 export type GuardianResult = z.infer<typeof guardianResultSchema>

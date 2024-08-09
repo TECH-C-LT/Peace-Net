@@ -24,7 +24,14 @@ export class GuardianController {
     try {
       const dto = (await c.req.json()) as GuardianTextDTO
 
-      const result = await this.guardianUseCase.guardianText(dto)
+      const userId = c.get('userId') as string
+      const totalRequestsUsed = c.get('totalRequestsUsed') as number
+
+      const result = await this.guardianUseCase.guardianText({
+        ...dto,
+        userId,
+        totalRequestsUsed,
+      })
 
       if (!result.ok) {
         throw result.error

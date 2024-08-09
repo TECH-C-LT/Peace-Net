@@ -26,6 +26,8 @@ export const usageMiddleware = async (c: Context, next: Next) => {
       throw new UsageLimitExceededError(result.error.message)
     }
 
+    c.set('totalRequestsUsed', result.value.totalRequestsUsed)
+
     return next()
   } catch (error: any) {
     throw new UsageLimitExceededError(error.message)
