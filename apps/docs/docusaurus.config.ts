@@ -2,6 +2,14 @@ import { themes as prismThemes } from 'prism-react-renderer'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 
+///// disable comment out when created archive version
+// import versions from './versions.json'
+//
+// const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived).splice(
+//   0,
+//   5,
+// );
+
 const config: Config = {
   title: 'Peace Net Document',
   // tagline: 'Dinosaurs are cool',
@@ -35,6 +43,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: '1.0.0',
+              path: '/',
+            },
+          },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -74,6 +89,33 @@ const config: Config = {
           href: 'https://peeace.net/',
           label: 'Website',
           position: 'right',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              type: 'html',
+              value: '<hr class="dropdown-separator">',
+            },
+            ///// disable comment out when created archive version
+            // {
+            //   type: 'html',
+            //   className: 'dropdown-archived-versions',
+            //   value: '<b>Archived versions</b>',
+            // },
+            // ...ArchivedVersionsDropdownItems.map(
+            //   ([versionName, versionUrl]) => ({
+            //     label: versionName,
+            //     href: versionUrl,
+            //   }),
+            // ),
+            // {
+            //   to: '/versions',
+            //   label: 'All versions',
+            // },
+          ],
         },
         {
           href: 'https://github.com/TECH-C-LT/Peace-Net',
