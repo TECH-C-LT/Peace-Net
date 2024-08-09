@@ -24,7 +24,14 @@ export class GuardianController {
     try {
       const dto = (await c.req.json()) as GuardianTextDTO
 
-      const result = await this.guardianUseCase.guardianText(dto)
+      const userId = c.get('userId') as string
+      const apiKeyId = c.get('apiKeyId') as string
+
+      const result = await this.guardianUseCase.guardianText({
+        ...dto,
+        userId,
+        apiKeyId,
+      })
 
       if (!result.ok) {
         throw result.error

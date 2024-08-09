@@ -10,7 +10,12 @@ import { getEnv } from '~/config/environment'
 import { GuardianController } from '~/features/guardians/guardian.controller'
 import { GuardianService } from '~/features/guardians/guardian.service'
 import { GuardianUseCase } from '~/features/guardians/guardian.usecase'
+import { UsageLogRepository } from '~/features/usageLogs/usageLog.repository'
+import { UsageLogService } from '~/features/usageLogs/usageLog.service'
+import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
+import { UserPlanService } from '~/features/userPlans/userPlan.service'
 import { OpenAIClient } from '~/libs/openai'
+import { SupabaseClient } from '~/libs/supabase'
 
 /**
  * Guardian APIのルーティングを定義します
@@ -32,6 +37,22 @@ guardianRoutes.post(
     return new GuardianController(
       new GuardianUseCase(
         new GuardianService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
+        new UserPlanService(
+          new UserPlanRepository(
+            SupabaseClient(
+              getEnv(c).SUPABASE_URL,
+              getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+            ),
+          ),
+        ),
+        new UsageLogService(
+          new UsageLogRepository(
+            SupabaseClient(
+              getEnv(c).SUPABASE_URL,
+              getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+            ),
+          ),
+        ),
       ),
     ).guardianText(c)
   },
@@ -49,6 +70,22 @@ guardianRoutes.post(
     return new GuardianController(
       new GuardianUseCase(
         new GuardianService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
+        new UserPlanService(
+          new UserPlanRepository(
+            SupabaseClient(
+              getEnv(c).SUPABASE_URL,
+              getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+            ),
+          ),
+        ),
+        new UsageLogService(
+          new UsageLogRepository(
+            SupabaseClient(
+              getEnv(c).SUPABASE_URL,
+              getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+            ),
+          ),
+        ),
       ),
     ).guardianImage(c)
   },
