@@ -1,4 +1,4 @@
-import { getApiKeys } from '../../data'
+import { getApiKeys } from '~/app/(main)/dashboard/api-keys/data'
 import { columns } from './columns'
 import { DataTable } from './data-table'
 

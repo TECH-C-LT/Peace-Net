@@ -13,7 +13,7 @@ import { Input } from '@peace-net/ui/components/ui/input'
 import { Label } from '@peace-net/ui/components/ui/label'
 import { Trash2Icon } from 'lucide-react'
 import { Field } from '~/components/common/field'
-import { deleteApiKey } from '../../actions'
+import { deleteApiKey } from '~/app/(main)/dashboard/api-keys/actions'
 
 export default function DeleteDialog({
   id,
