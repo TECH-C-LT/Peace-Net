@@ -1,6 +1,7 @@
 'use client'
 
 import { Database } from '@peace-net/shared/types/database'
+import { ApiKey } from '@peace-net/shared/types/entities'
 import { Button } from '@peace-net/ui/components/ui/button'
 import {
   Dialog,
@@ -31,7 +32,7 @@ import {
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type ApiKeyTable = Omit<
-  Database['public']['Tables']['api_keys']['Row'],
+  ApiKey,
   'id' | 'user_id' | 'encrypted_key' | 'is_active'
 >
 

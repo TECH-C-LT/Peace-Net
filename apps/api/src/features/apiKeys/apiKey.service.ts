@@ -1,7 +1,10 @@
 import { encryptApiKey } from '@peace-net/shared/utils/encryptions'
 
-import { IApiKeyRepository } from './apiKey.repository'
-import type { VerifyApiKeyInput, VerifyApiKeyOutput } from './apiKey.type'
+import { IApiKeyRepository } from '~/features/apiKeys/apiKey.repository'
+import type {
+  VerifyApiKeyInput,
+  VerifyApiKeyOutput,
+} from '~/features/apiKeys/apiKey.type'
 
 export interface IApiKeyService {
   verifyApiKey(input: VerifyApiKeyInput): Promise<VerifyApiKeyOutput>
@@ -21,7 +24,7 @@ export class ApiKeyService implements IApiKeyService {
       await this.apiKeyRepository.getApiKeyWithEncryptedKey(encryptedApiKey)
 
     // 取得できなかった場合はエラー
-    if (!apiKeyInfo) {
+    if (!apiKeyInfo || !apiKeyInfo.id || !apiKeyInfo.user_id) {
       return { isValid: false, error: 'Invalid API key' }
     }
 
@@ -39,6 +42,10 @@ export class ApiKeyService implements IApiKeyService {
       return { isValid: false, error: 'Expired API key' }
     }
 
-    return { isValid: true }
+    return {
+      isValid: true,
+      apiKeyId: apiKeyInfo.id,
+      userId: apiKeyInfo.user_id,
+    }
   }
 }

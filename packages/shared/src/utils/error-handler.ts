@@ -5,6 +5,7 @@ import {
   NotFoundError,
   NotImplementedError,
   UnauthorizedError,
+  UsageLimitExceededError,
   ValidationError,
 } from '../core/error'
 
@@ -18,6 +19,7 @@ type CustomError =
   | NotImplementedError
   | UnauthorizedError
   | ValidationError
+  | UsageLimitExceededError
 
 function isCustomError(error: unknown): error is CustomError {
   return (
@@ -25,6 +27,7 @@ function isCustomError(error: unknown): error is CustomError {
     error instanceof NotImplementedError ||
     error instanceof UnauthorizedError ||
     error instanceof ValidationError ||
+    error instanceof UsageLimitExceededError ||
     error instanceof InternalServerError
   )
 }
@@ -37,7 +40,7 @@ function isCustomError(error: unknown): error is CustomError {
  * @returns エラーレスポンス
  */
 export function handleError(c: Context, error: unknown): Response {
-  let statusCode: 400 | 401 | 404 | 500 | 501 = 500
+  let statusCode: 400 | 401 | 404 | 429 | 500 | 501 = 500
   let errorMessage = '[Peace Net]: Internal Server Error'
   let details: any = 'Sorry, something went wrong. Please try again later.'
 
@@ -54,6 +57,9 @@ export function handleError(c: Context, error: unknown): Response {
         break
       case UnauthorizedError:
         statusCode = 401
+        break
+      case UsageLimitExceededError:
+        statusCode = 429
         break
       case InternalServerError:
         statusCode = 500

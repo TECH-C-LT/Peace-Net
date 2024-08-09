@@ -7,8 +7,8 @@ import { logger } from 'hono/logger'
 import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
-
-import { authenticateMiddleware } from './middleware/authenticate.middleware'
+import { authenticateMiddleware } from '~/middleware/authenticate.middleware'
+import { usageMiddleware } from '~/middleware/usage.middleware'
 
 const app = new Hono()
 
@@ -29,7 +29,8 @@ app.use(
 const v1 = new Hono()
 
 v1.use('/*', async (c, next) => {
-  await authenticateMiddleware(c, next)
+  await authenticateMiddleware(c)
+  await usageMiddleware(c, next)
 })
 
 v1.route('/guardians', guardianRoutes)

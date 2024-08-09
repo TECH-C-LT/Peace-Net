@@ -1,10 +1,9 @@
 import { Database } from '@peace-net/shared/types/database'
+import { ApiKey } from '@peace-net/shared/types/entities'
 import type { SupabaseClient } from '@supabase/supabase-js'
 
-import { ApiKeyInfo } from './apiKey.type'
-
 export interface IApiKeyRepository {
-  getApiKeyWithEncryptedKey(encryptedKey: string): Promise<ApiKeyInfo | null>
+  getApiKeyWithEncryptedKey(encryptedKey: string): Promise<ApiKey | null>
 }
 
 export class ApiKeyRepository implements IApiKeyRepository {
@@ -12,7 +11,7 @@ export class ApiKeyRepository implements IApiKeyRepository {
 
   async getApiKeyWithEncryptedKey(
     encryptedKey: string,
-  ): Promise<ApiKeyInfo | null> {
+  ): Promise<ApiKey | null> {
     const { data, error } = await this.supabase
       .from('api_keys')
       .select('*')
