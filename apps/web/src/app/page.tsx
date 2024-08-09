@@ -1,23 +1,15 @@
-import { GetStartedButton } from '~/components/auth/start-button'
+import HeroSection from './components/hero-section'
+import GuardianSection from './components/guardian-section'
+import SunshineSection from './components/sunshine-section'
+import FooterSection from './components/footer-section'
 
 export default function Home() {
   return (
-    <div className="grid h-screen place-items-center">
-      <div>
-        <h1 className="text-2xl font-bold">平和ネット</h1>
-        <GetStartedButton />
-        <ul className="mt-4 list-inside list-disc">
-          <li>
-            スタートボタン
-            <span className="text-xs">
-              （👆これ。スタイルとかテキスト変えたかったら変えてー）
-            </span>
-          </li>
-          <li>ドキュメントへのリンク</li>
-          <li>APIの概要</li>
-          <li>プラン（料金、使用量）</li>
-        </ul>
-      </div>
-    </div>
+    <article className="mx-auto grid max-w-6xl gap-2 pt-16 md:grid-cols-2 md:grid-rows-[auto_auto_auto_auto]">
+      <HeroSection />
+      <GuardianSection />
+      <SunshineSection />
+      <FooterSection />
+    </article>
   )
 }
