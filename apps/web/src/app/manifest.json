@@ -1,0 +1,13 @@
+{
+  "name": "平和ネットAPI",
+  "short_name": "平和ネットAPI",
+  "description": "平和ネットAPI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    { "src": "/icon-192x192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512x512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
