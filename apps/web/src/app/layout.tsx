@@ -4,6 +4,7 @@ import { Noto_Sans_JP } from 'next/font/google'
 import Header from '~/components/header'
 import { ScrollArea } from '@peace-net/ui/components/ui/scroll-area'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from 'sonner'
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Header />
           {children}
         </ScrollArea>
+        <Toaster richColors />
         <Analytics />
       </body>
     </html>
