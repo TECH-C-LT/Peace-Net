@@ -25,13 +25,11 @@ export class GuardianController {
       const dto = (await c.req.json()) as GuardianTextDTO
 
       const userId = c.get('userId') as string
-      const totalRequestsUsed = c.get('totalRequestsUsed') as number
       const apiKeyId = c.get('apiKeyId') as string
 
       const result = await this.guardianUseCase.guardianText({
         ...dto,
         userId,
-        totalRequestsUsed,
         apiKeyId,
       })
 

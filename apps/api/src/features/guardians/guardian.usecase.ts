@@ -50,8 +50,7 @@ export class GuardianUseCase implements IGuardianUseCase {
     input: GuardianTextInput,
   ): Promise<Result<GuardianResult>> {
     try {
-      const { text, score_threshold, userId, totalRequestsUsed, apiKeyId } =
-        input
+      const { text, score_threshold, userId, apiKeyId } = input
       const categoryScores = await this.guardianService.guardianText(text)
 
       const flagged = checkFlagged(categoryScores, score_threshold)
@@ -59,10 +58,7 @@ export class GuardianUseCase implements IGuardianUseCase {
       const categories = createCategories(categoryScores, score_threshold)
 
       // increment user plans total requests used
-      await this.userPlanService.incrementTotalRequestsUsed(
-        userId,
-        totalRequestsUsed,
-      )
+      await this.userPlanService.incrementTotalRequestsUsed(userId)
 
       // increment usage logs
       const date = new Date().toISOString().split('T')[0] as string

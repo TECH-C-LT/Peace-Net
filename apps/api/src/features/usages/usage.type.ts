@@ -4,7 +4,6 @@ export type CheckUsageInput = {
 
 export type CheckUsageOutput = {
   isValid: boolean
-  totalRequestsUsed: number
 }
 
 export type IncrementUsageLogInput = {

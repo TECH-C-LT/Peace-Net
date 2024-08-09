@@ -38,7 +38,6 @@ export class UsageUsecase implements IUsageUsecase {
 
       return success({
         isValid: true,
-        totalRequestsUsed: userPlan.total_requests_used ?? 0,
       })
     } catch (error: any) {
       return failure(error)

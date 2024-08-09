@@ -3,10 +3,7 @@ import { UserPlanWithPlans } from '~/features/userPlans/userPlan.type'
 
 export interface IUserPlanService {
   getUserPlan: (userId: string) => Promise<UserPlanWithPlans | null>
-  incrementTotalRequestsUsed: (
-    userId: string,
-    currentRequestsUsed: number,
-  ) => Promise<void>
+  incrementTotalRequestsUsed: (userId: string) => Promise<void>
 }
 
 export class UserPlanService implements IUserPlanService {
@@ -18,13 +15,7 @@ export class UserPlanService implements IUserPlanService {
     return userPlan
   }
 
-  async incrementTotalRequestsUsed(
-    userId: string,
-    currentRequestsUsed: number,
-  ) {
-    await this.userPlanRepository.incrementTotalRequestsUsed(
-      userId,
-      currentRequestsUsed,
-    )
+  async incrementTotalRequestsUsed(userId: string) {
+    await this.userPlanRepository.incrementTotalRequestsUsed(userId)
   }
 }

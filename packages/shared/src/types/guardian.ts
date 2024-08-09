@@ -14,7 +14,6 @@ export type GuardianTextDTO = z.infer<typeof guardianTextRequestSchema>
 
 export type GuardianTextInput = GuardianTextDTO & {
   userId: string
-  totalRequestsUsed: number
   apiKeyId: string
 }
 

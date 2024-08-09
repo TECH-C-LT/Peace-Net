@@ -5,10 +5,7 @@ import { UserPlanWithPlans } from '~/features/userPlans/userPlan.type'
 
 export interface IUserPlanRepository {
   getUserPlan: (userId: string) => Promise<UserPlanWithPlans | null>
-  incrementTotalRequestsUsed: (
-    userId: string,
-    currentRequestsUsed: number,
-  ) => Promise<void>
+  incrementTotalRequestsUsed: (userId: string) => Promise<void>
 }
 
 export class UserPlanRepository implements IUserPlanRepository {
@@ -36,14 +33,13 @@ export class UserPlanRepository implements IUserPlanRepository {
     return data || null
   }
 
-  async incrementTotalRequestsUsed(
-    userId: string,
-    currentRequestsUsed: number,
-  ) {
-    const { error } = await this.supabase
-      .from('user_plans')
-      .update({ total_requests_used: currentRequestsUsed + 1 })
-      .eq('user_id', userId)
+  async incrementTotalRequestsUsed(userId: string) {
+    const { error } = await (this.supabase.rpc as any)(
+      'increment_total_requests_used',
+      {
+        p_user_id: userId,
+      },
+    )
 
     if (error) {
       throw new Error('Failed to increment total requests used')
