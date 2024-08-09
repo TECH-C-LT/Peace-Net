@@ -4,9 +4,13 @@ import {
 } from '@peace-net/shared/types/guardian'
 import { failure, success, type Result } from '@peace-net/shared/utils/result'
 
-import { IGuardianService } from './guardian.service'
-import { checkFlagged, createCategories } from './guardian.utils'
-import { IUserPlanService } from '../userPlans/userPlan.service'
+import { IGuardianService } from '~/features/guardians/guardian.service'
+import {
+  checkFlagged,
+  createCategories,
+} from '~/features/guardians/guardian.utils'
+import { IUsageLogService } from '~/features/usageLogs/usageLog.service'
+import { IUserPlanService } from '~/features/userPlans/userPlan.service'
 
 /**
  * テキストの不適切な内容を分析し、カテゴリー別のスコアを提供するユースケースのインターフェース
@@ -39,13 +43,15 @@ export class GuardianUseCase implements IGuardianUseCase {
   constructor(
     private guardianService: IGuardianService,
     private userPlanService: IUserPlanService,
+    private usageLogService: IUsageLogService,
   ) {}
 
   async guardianText(
     input: GuardianTextInput,
   ): Promise<Result<GuardianResult>> {
     try {
-      const { text, score_threshold, userId, totalRequestsUsed } = input
+      const { text, score_threshold, userId, totalRequestsUsed, apiKeyId } =
+        input
       const categoryScores = await this.guardianService.guardianText(text)
 
       const flagged = checkFlagged(categoryScores, score_threshold)
@@ -57,7 +63,11 @@ export class GuardianUseCase implements IGuardianUseCase {
         userId,
         totalRequestsUsed,
       )
-      // TODO: increment usage logs
+
+      // increment usage logs
+      const date = new Date().toISOString().split('T')[0] as string
+      await this.usageLogService.incrementUsageLog(apiKeyId, 'guardians', date)
+
       // TODO: update api keys last used
 
       return success({
