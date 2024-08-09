@@ -14,10 +14,17 @@ import {
   AlertDialogTrigger,
 } from '@peace-net/ui/components/ui/alert-dialog'
 import { buttonVariants } from '@peace-net/ui/components/ui/button'
+import { revalidateApiKeyPath } from '../../actions'
 
 export default function GenerateApiKeyButton() {
   return (
-    <AlertDialog>
+    <AlertDialog
+      onOpenChange={(isOpen) => {
+        if (!isOpen) {
+          revalidateApiKeyPath()
+        }
+      }}
+    >
       <AlertDialogTrigger
         className={`${buttonVariants()} bg-teal-500 hover:bg-teal-600`}
       >

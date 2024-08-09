@@ -21,7 +21,7 @@ export default function ApiKeys() {
         <br />
         APIキーを他人と共有したり、ブラウザやその他のクライアント側のコードで公開したりしないでください。
       </MainDescription>
-      <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+      <Suspense fallback={<Skeleton className="h-70dvh w-full" />}>
         <ApiKeyTable />
       </Suspense>
     </section>
