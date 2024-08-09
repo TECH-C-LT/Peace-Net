@@ -1,5 +1,8 @@
-import { useActionState } from 'react'
-import { editApiKey } from '~/app/(main)/dashboard/api-keys/actions'
+import { useActionState, useEffect } from 'react'
+import {
+  editApiKey,
+  revalidateApiKeyPath,
+} from '~/app/(main)/dashboard/api-keys/actions'
 import {
   editApiKeySchema,
   generateApiKeySchema,
@@ -12,6 +15,7 @@ import { DatePickerConform } from '~/components/conform/calender'
 import { InputConform } from '~/components/conform/input'
 import { Label } from '@peace-net/ui/components/ui/label'
 import { Button } from '@peace-net/ui/components/ui/button'
+import { toast } from 'sonner'
 
 // 日本語の日付文字列をDate objectに変換する関数
 function parseJapaneseDate(dateString: string): Date {
@@ -35,8 +39,6 @@ export default function EditDialogForm({
   name: string
   expiresAt: string
 }) {
-  console.log('EditDialogForm', apiKeyId, name, expiresAt)
-
   const [lastResult, action, isPending] = useActionState(editApiKey, null)
   const [form, fields] = useForm({
     constraint: getZodConstraint(editApiKeySchema),
@@ -51,6 +53,15 @@ export default function EditDialogForm({
       api_key_id: apiKeyId,
     },
   })
+
+  useEffect(() => {
+    if (lastResult && lastResult.status === 'error') {
+      toast.error('APIキーの編集に失敗しました')
+    } else if (lastResult && lastResult.status === 'success') {
+      toast.success('APIキーの編集が完了しました')
+      revalidateApiKeyPath()
+    }
+  }, [lastResult])
 
   return (
     <form {...getFormProps(form)} action={action} className="space-y-4">

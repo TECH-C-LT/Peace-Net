@@ -1,7 +1,6 @@
 import { CopyButton } from '@peace-net/ui/components/ui/copy-button'
 import { Input } from '@peace-net/ui/components/ui/input'
-import { CheckCircle2Icon, CheckIcon } from 'lucide-react'
-import React from 'react'
+import { CheckCircle2Icon } from 'lucide-react'
 
 export default function GenerateApiKeyConfirm({ apiKey }: { apiKey: string }) {
   return (

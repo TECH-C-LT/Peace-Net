@@ -14,6 +14,7 @@ import { Label } from '@peace-net/ui/components/ui/label'
 import { Trash2Icon } from 'lucide-react'
 import { Field } from '~/components/common/field'
 import { deleteApiKey } from '~/app/(main)/dashboard/api-keys/actions'
+import { toast } from 'sonner'
 
 export default function DeleteDialog({
   id,
@@ -43,8 +44,9 @@ export default function DeleteDialog({
         <AlertDialogFooter>
           <AlertDialogCancel>やめる</AlertDialogCancel>
           <AlertDialogAction
-            onClick={() => {
-              deleteApiKey(id)
+            onClick={async () => {
+              await deleteApiKey(id)
+              toast.success('APIキーを削除しました')
             }}
             className="bg-destructive text-destructive-foreground hover:bg-destructive/80"
           >

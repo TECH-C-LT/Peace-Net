@@ -16,6 +16,7 @@ import { InputConform } from '~/components/conform/input'
 import { Button } from '@peace-net/ui/components/ui/button'
 import { DatePickerConform } from '~/components/conform/calender'
 import GenerateApiKeyConfirm from './confirm'
+import { toast } from 'sonner'
 
 function isSuccessResult(
   result: any,
@@ -34,6 +35,17 @@ export function GenerateApiKeyForm() {
     },
     shouldRevalidate: 'onInput',
   })
+
+  useEffect(() => {
+    if (lastResult && lastResult.status === 'error') {
+      toast.error('APIキーの生成に失敗しました')
+    } else if (lastResult && lastResult.status === 'success') {
+      toast.success('APIキーの生成が完了しました', {
+        description:
+          'APIキーをコピーして保存して、安全な場所に保管してください',
+      })
+    }
+  }, [lastResult])
 
   return (
     <>

@@ -83,8 +83,6 @@ export async function editApiKey(prevState: unknown, formData: FormData) {
     return submission.reply()
   }
 
-  revalidateApiKeyPath()
-
   return {
     status: submission.status,
     value: submission.value,
