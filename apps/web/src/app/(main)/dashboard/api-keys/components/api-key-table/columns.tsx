@@ -28,12 +28,13 @@ import {
   Trash2Icon,
   TrashIcon,
 } from 'lucide-react'
+import DeleteDialog from './delete-dialog'
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type ApiKeyTable = Omit<
   ApiKey,
-  'id' | 'user_id' | 'encrypted_key' | 'is_active'
+  'user_id' | 'encrypted_key' | 'is_active'
 >
 
 export const columns: ColumnDef<ApiKeyTable>[] = [
@@ -77,19 +78,11 @@ export const columns: ColumnDef<ApiKeyTable>[] = [
               </DialogHeader>
             </DialogContent>
           </Dialog>
-          <Dialog>
-            <DialogTrigger className="hover:bg-destructive/10 rounded p-1 transition-colors duration-300">
-              <Trash2Icon className="text-destructive h-4 w-4" />
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>APIキーの削除</DialogTitle>
-                <DialogDescription>
-                  まだ実装されていません。🥲
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
+          <DeleteDialog
+            id={apiKeyInfo.id}
+            name={apiKeyInfo.name}
+            description={apiKeyInfo.description as string}
+          />
         </div>
       )
     },

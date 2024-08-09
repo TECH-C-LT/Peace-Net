@@ -58,6 +58,25 @@ export async function generateApiKey(prevState: unknown, formData: FormData) {
   }
 }
 
+export async function deleteApiKey(apiKeyId: string) {
+  const supabase = createClient()
+
+  // APIキーを非アクティブ化
+  const { error } = await supabase
+    .from('api_keys')
+    .update({ is_active: false })
+    .eq('id', apiKeyId)
+
+  if (error) {
+    console.error(error)
+    return
+  }
+
+  revalidateApiKeyPath()
+
+  return
+}
+
 export async function revalidateApiKeyPath() {
   revalidatePath('/dashboard/api-keys')
 }
