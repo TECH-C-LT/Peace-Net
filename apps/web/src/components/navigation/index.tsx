@@ -32,7 +32,11 @@ const DATA: { navbar: NavItemProps[]; outNavbar: NavItemProps[] } = {
     { href: '/settings', icon: SettingsIcon, label: 'Settings' },
   ],
   outNavbar: [
-    { href: '#', icon: FileCode2Icon, label: 'API Reference' },
+    {
+      href: 'https://docs.peeace.net',
+      icon: FileCode2Icon,
+      label: 'API Reference',
+    },
     {
       href: 'https://github.com/TECH-C-LT/Peace-Net',
       icon: GithubIcon,
