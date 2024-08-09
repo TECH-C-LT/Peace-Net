@@ -52,10 +52,12 @@ export async function generateApiKey(prevState: unknown, formData: FormData) {
     return submission.reply()
   }
 
-  revalidatePath('/dashboard/api-keys')
-
   return {
     status: submission.status,
     value: submission.value,
   }
+}
+
+export async function revalidateApiKeyPath() {
+  revalidatePath('/dashboard/api-keys')
 }
