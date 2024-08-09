@@ -61,10 +61,8 @@ export class GuardianUseCase implements IGuardianUseCase {
       await this.userPlanService.incrementTotalRequestsUsed(userId)
 
       // increment usage logs
-      const date = new Date().toISOString().split('T')[0] as string
-      await this.usageLogService.incrementUsageLog(apiKeyId, 'guardians', date)
-
-      // TODO: update api keys last used
+      // update api keys last used
+      await this.usageLogService.incrementUsageLog(apiKeyId, 'guardians')
 
       return success({
         flagged,
