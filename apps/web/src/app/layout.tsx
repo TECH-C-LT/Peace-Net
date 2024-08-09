@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     template: '%s | 平和ネット API',
   },
   description: '平和なインターネットを目指すAPIを提供します。',
+  metadataBase: new URL('https://peeace.net'),
 }
 
 export default function RootLayout({
