@@ -4,7 +4,6 @@ import { PlusIcon } from 'lucide-react'
 import { GenerateApiKeyForm } from '~/app/(main)/dashboard/api-keys/components/generate-api-key/form'
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
