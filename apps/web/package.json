@@ -22,6 +22,7 @@
     "react": "19.0.0-rc-8269d55d-20240802",
     "react-dom": "19.0.0-rc-8269d55d-20240802",
     "react-hook-form": "^7.52.2",
+    "recharts": "2.13.0-alpha.4",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"
   },
@@ -37,5 +38,10 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "recharts": {
+      "react-is": "$react-is"
+    }
   }
 }

@@ -52,6 +52,7 @@
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-day-picker": "8.10.1",
     "react-hook-form": "^7.52.2",
+    "recharts": "^2.12.7",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
