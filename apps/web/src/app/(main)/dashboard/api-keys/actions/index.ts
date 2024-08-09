@@ -3,7 +3,10 @@
 import { createClient } from '~/lib/supabase/server'
 
 import { parseWithZod } from '@conform-to/zod'
-import { generateApiKeySchema } from '../schemas'
+import {
+  editApiKeySchema,
+  generateApiKeySchema,
+} from '~/app/(main)/dashboard/api-keys/schemas'
 
 import { v4 as uuidv4 } from 'uuid'
 import { encryptApiKey } from '@peace-net/shared/utils/encryptions'
@@ -51,6 +54,36 @@ export async function generateApiKey(prevState: unknown, formData: FormData) {
     console.error(error)
     return submission.reply()
   }
+
+  return {
+    status: submission.status,
+    value: submission.value,
+  }
+}
+
+export async function editApiKey(prevState: unknown, formData: FormData) {
+  const submission = parseWithZod(formData, { schema: editApiKeySchema })
+
+  if (submission.status !== 'success') {
+    return submission.reply()
+  }
+
+  const { name, expires_at, api_key_id } = submission.value
+
+  const supabase = createClient()
+
+  // APIキーを編集
+  const { error } = await supabase
+    .from('api_keys')
+    .update({ name, expires_at: expires_at.toISOString() })
+    .eq('id', api_key_id)
+
+  if (error) {
+    console.error(error)
+    return submission.reply()
+  }
+
+  revalidateApiKeyPath()
 
   return {
     status: submission.status,
