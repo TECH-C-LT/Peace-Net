@@ -89,3 +89,9 @@ This works just like the add command in the [shadcn/ui CLI.](https://ui.shadcn.c
 ```bash
 pnpm ui:add <component-name>
 ```
+
+### Documentation
+When you start writing new versions docs.
+```sh
+pnpm run docusaurusu docs:version x.x.x
+```
