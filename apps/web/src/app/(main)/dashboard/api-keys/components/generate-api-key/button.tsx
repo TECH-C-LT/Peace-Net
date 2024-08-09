@@ -15,6 +15,7 @@ import {
 } from '@peace-net/ui/components/ui/alert-dialog'
 import { buttonVariants } from '@peace-net/ui/components/ui/button'
 import { revalidateApiKeyPath } from '../../actions'
+import SquircleButton from '~/components/common/squircle-button'
 
 export default function GenerateApiKeyButton() {
   return (
@@ -25,11 +26,13 @@ export default function GenerateApiKeyButton() {
         }
       }}
     >
-      <AlertDialogTrigger
-        className={`${buttonVariants()} bg-teal-500 hover:bg-teal-600`}
-      >
-        <PlusIcon className="mr-2 h-5 w-5" />
-        APIキーを生成する
+      <AlertDialogTrigger>
+        <SquircleButton>
+          <div className="flex gap-2 px-6">
+            <PlusIcon className="h-5 w-5" />
+            APIキーを生成する
+          </div>
+        </SquircleButton>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 import { useMediaQuery } from '~/hooks/use-media-query'
-import { Button } from '@peace-net/ui/components/ui/button'
+import { Button, buttonVariants } from '@peace-net/ui/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -23,6 +23,7 @@ import {
   DrawerTrigger,
 } from '@peace-net/ui/components/ui/drawer'
 import { LucideIcon } from 'lucide-react'
+import SquircleButton from './squircle-button'
 
 export function ResponsiveDialog({
   title,
@@ -45,11 +46,13 @@ export function ResponsiveDialog({
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button className="bg-teal-500 hover:bg-teal-600">
-            {Icon && <Icon className="mr-1 h-5 w-5" />}
-            {buttonText}
-          </Button>
+        <DialogTrigger>
+          <SquircleButton>
+            <div className="px-6">
+              {Icon && <Icon className="mr-1 h-5 w-5" />}
+              {buttonText}
+            </div>
+          </SquircleButton>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
@@ -66,11 +69,13 @@ export function ResponsiveDialog({
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button className="bg-teal-500 hover:bg-teal-600">
-          {Icon && <Icon className="mr-1 h-5 w-5" />}
-          {buttonText}
-        </Button>
+      <DrawerTrigger>
+        <SquircleButton>
+          <div className="px-6">
+            {Icon && <Icon className="mr-1 h-5 w-5" />}
+            {buttonText}
+          </div>
+        </SquircleButton>
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-md">

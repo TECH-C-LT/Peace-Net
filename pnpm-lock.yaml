@@ -151,6 +151,9 @@ importers:
       react-hook-form:
         specifier: ^7.52.2
         version: 7.52.2(react@19.0.0-rc-8269d55d-20240802)
+      react-ios-corners:
+        specifier: ^1.0.0
+        version: 1.0.0(react@19.0.0-rc-8269d55d-20240802)
       recharts:
         specifier: 2.13.0-alpha.4
         version: 2.13.0-alpha.4(react-dom@19.0.0-rc-8269d55d-20240802(react@19.0.0-rc-8269d55d-20240802))(react@19.0.0-rc-8269d55d-20240802)
@@ -6881,6 +6884,11 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
+
+  react-ios-corners@1.0.0:
+    resolution: {integrity: sha512-bx89xUW/3ezVIx37V6vpe1S9ATGkHfC9CTjpXgJyo4QIIaVxRirRbWHUUF5Gli3Lj4HKZzbXKmtTxJuWqTzwmw==}
+    peerDependencies:
+      react: ^17.0.1
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -16411,6 +16419,10 @@ snapshots:
   react-hook-form@7.52.2(react@19.0.0-rc-f994737d14-20240522):
     dependencies:
       react: 19.0.0-rc-f994737d14-20240522
+
+  react-ios-corners@1.0.0(react@19.0.0-rc-8269d55d-20240802):
+    dependencies:
+      react: 19.0.0-rc-8269d55d-20240802
 
   react-is@16.13.1: {}
 
