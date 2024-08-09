@@ -81,7 +81,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'apiSidebar',
+          sidebarId: 'docs',
           position: 'left',
           label: 'API Reference',
         },
@@ -132,7 +132,7 @@ const config: Config = {
           items: [
             {
               label: 'API Reference',
-              to: '/docs/intro',
+              to: '/docs/overview',
             },
           ],
         },
