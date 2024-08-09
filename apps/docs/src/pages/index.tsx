@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/overview">
-            Peace Net Tutorial - 5min ⏱️
+            Peace Net API 概要- 5min ⏱️
           </Link>
         </div>
       </div>
