@@ -10,32 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'インターネットを平和に✌️',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        より安全で平和なインターネット空間の実現を目指し、AIを活用したテキスト判定システムです。
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '最新モデルを使用して誹謗中傷を判断🧠',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        OpenAIの最新モデル、<code>gpt-4o-mini</code><br/>を使用し柔軟な判断を行います。
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Coming soon 🚀',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        素敵な機能を実装予定です✨
       </>
     ),
   },
