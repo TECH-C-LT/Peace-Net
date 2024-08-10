@@ -4,6 +4,7 @@ import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
 
 import { SunshineController } from './sunshine.controller'
+import { SunshineUseCase } from './sunshine.usecase'
 
 /**
  * Sunshine APIのルーティングを定義します
@@ -21,7 +22,7 @@ sunshineRoutes.post(
     return
   }),
   async (c) => {
-    return new SunshineController().sunshineText(c)
+    return new SunshineController(new SunshineUseCase()).sunshineText(c)
   },
 )
 
