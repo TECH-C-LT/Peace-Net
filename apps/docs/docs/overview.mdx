@@ -1,0 +1,59 @@
+---
+title: 平和ネット API 概要
+---
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+
+export const ApiName = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.peace_net
+}
+
+export const GuardianApiName = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.guardian
+}
+
+export const SunshineApiName = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.sunshine
+}
+
+# <ApiName /> 概要
+
+## APIの目的
+
+<ApiName />はより安全で平和なインターネット空間の実現を目指し、AIを活用したテキスト判定システムです。
+このシステムは、テキストの適切性を自動的に評価し、誰もが簡単に利用できるAPIを目標としています。
+
+## 機能
+
+### ユーザーポータル
+
+<a href="https://peeace.net" target="_blank">ユーザーポータル</a>では以下の操作を行うことができます。
+
+- APIキーの発行
+- 使用回数の確認
+
+### <GuardianApiName />
+
+**誹謗中傷評価**を行うAPIです。
+
+#### 特徴
+
+- フラグ(bool)での判定
+- 分類ごとにスコアリング
+
+詳細は[<GuardianApiName /> リファレンス](./features/guardians.md)を参照してください。
+
+### <SunshineApiName />
+
+**ポジティブ変換**を行うAPIです。
+
+#### 特徴
+
+- ポジティブな言葉に変換
+
+詳細は[<SunshineApiName /> リファレンス](./features/sunshine.md)を参照してください。
+
+おめでとう:tada: あなたは<ApiName />を完全に理解しました！
