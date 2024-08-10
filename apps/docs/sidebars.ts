@@ -25,8 +25,14 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '機能',
-      link: {type: 'doc', id: 'features/guardians'},
-      items: ['features/guardians'],
+      link: {type: 'doc', id: 'features/guardian'},
+      items: ['features/guardian'],
+    },
+    {
+      type: 'category',
+      label: '機能',
+      link: {type: 'doc', id: 'features/sunshine'},
+      items: ['features/sunshine'],
     },
     {
       type: 'category',
