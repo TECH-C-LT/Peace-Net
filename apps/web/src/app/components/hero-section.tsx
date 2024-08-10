@@ -4,6 +4,7 @@ import { Badge } from '@peace-net/ui/components/ui/badge'
 import { buttonVariants } from '@peace-net/ui/components/ui/button'
 import Image from 'next/image'
 import { GetStartedButton } from '~/components/auth/start-button'
+import { DOCS_URL } from '~/lib/config'
 
 export default function HeroSection() {
   return (
@@ -33,7 +34,7 @@ export default function HeroSection() {
           <BoxReveal boxColor={'#14b8a6'} duration={0.5}>
             <a
               target="_blank"
-              href="https://docs.peeace.net"
+              href={DOCS_URL}
               className={cn(buttonVariants({ variant: 'link' }))}
             >
               APIドキュメント

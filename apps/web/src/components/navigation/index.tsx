@@ -15,6 +15,7 @@ import { Dock, DockIcon } from '@peace-net/ui/components/magicui/dock'
 import { Separator } from '@peace-net/ui/components/ui/separator'
 import NavItem from './nav-item'
 import UserIcon from './user-icon'
+import { DOCS_URL, GITHUB_URL } from '~/lib/config'
 
 export type NavItemProps = {
   href: string
@@ -33,12 +34,12 @@ const DATA: { navbar: NavItemProps[]; outNavbar: NavItemProps[] } = {
   ],
   outNavbar: [
     {
-      href: 'https://docs.peeace.net',
+      href: DOCS_URL,
       icon: FileCode2Icon,
       label: 'API Reference',
     },
     {
-      href: 'https://github.com/TECH-C-LT/Peace-Net',
+      href: GITHUB_URL,
       icon: GithubIcon,
       label: 'GitHub',
     },
