@@ -1,22 +1,21 @@
 'use client'
 
-import { useActionState, useEffect } from 'react'
-
 import { getFormProps, useForm } from '@conform-to/react'
 import { getZodConstraint, parseWithZod } from '@conform-to/zod'
-import { generateApiKey } from '~/app/(main)/dashboard/api-keys/actions'
-import {
-  GenerateApiKey,
-  generateApiKeySchema,
-} from '~/app/(main)/dashboard/api-keys/schemas'
-import { Loader2Icon, PlusIcon } from 'lucide-react'
-import { Field, FieldError } from '~/components/common/field'
-import { Label } from '@peace-net/ui/components/ui/label'
-import { InputConform } from '~/components/conform/input'
 import { Button } from '@peace-net/ui/components/ui/button'
-import { DatePickerConform } from '~/components/conform/calender'
-import GenerateApiKeyConfirm from './confirm'
+import { Label } from '@peace-net/ui/components/ui/label'
+import { Loader2Icon, PlusIcon } from 'lucide-react'
+import { useActionState, useEffect } from 'react'
 import { toast } from 'sonner'
+
+import { generateApiKey } from '~/app/(main)/dashboard/api-keys/actions'
+import type { GenerateApiKey } from '~/app/(main)/dashboard/api-keys/schemas'
+import { generateApiKeySchema } from '~/app/(main)/dashboard/api-keys/schemas'
+import { Field, FieldError } from '~/components/common/field'
+import { DatePickerConform } from '~/components/conform/calender'
+import { InputConform } from '~/components/conform/input'
+
+import GenerateApiKeyConfirm from './confirm'
 
 function isSuccessResult(
   result: any,

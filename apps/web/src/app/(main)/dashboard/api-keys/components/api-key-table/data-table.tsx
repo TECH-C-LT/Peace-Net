@@ -8,12 +8,13 @@ import {
   TableHeader,
   TableRow,
 } from '@peace-net/ui/components/ui/table'
+import type { ColumnDef } from '@tanstack/react-table'
 import {
-  ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+
 import GenerateApiKeyButton from '../generate-api-key/button'
 
 interface DataTableProps<TData, TValue> {

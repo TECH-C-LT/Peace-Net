@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import GenerateApiKeyButton from '~/app/(main)/dashboard/api-keys/components/generate-api-key/button'
-import ApiKeyTable from '~/app/(main)/dashboard/api-keys/components/api-key-table'
-import { Suspense } from 'react'
-import { Skeleton } from '@peace-net/ui/components/ui/skeleton'
 import {
   Card,
   CardContent,
@@ -10,6 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@peace-net/ui/components/ui/card'
+import { Skeleton } from '@peace-net/ui/components/ui/skeleton'
+import type { Metadata } from 'next'
+import { Suspense } from 'react'
+
+import ApiKeyTable from '~/app/(main)/dashboard/api-keys/components/api-key-table'
+import GenerateApiKeyButton from '~/app/(main)/dashboard/api-keys/components/generate-api-key/button'
 
 export const metadata: Metadata = {
   title: 'API Keys',

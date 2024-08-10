@@ -1,19 +1,16 @@
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-react'
-import * as React from 'react'
-
-import {
-  FieldMetadata,
-  unstable_useControl as useControl,
-} from '@conform-to/react'
+import type { FieldMetadata } from '@conform-to/react'
+import { unstable_useControl as useControl } from '@conform-to/react'
+import { cn } from '@peace-net/shared/utils/classes'
+import { Button } from '@peace-net/ui/components/ui/button'
+import { Calendar } from '@peace-net/ui/components/ui/calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@peace-net/ui/components/ui/popover'
-import { Button } from '@peace-net/ui/components/ui/button'
-import { Calendar } from '@peace-net/ui/components/ui/calendar'
-import { cn } from '@peace-net/shared/utils/classes'
+import { format } from 'date-fns'
+import { Calendar as CalendarIcon } from 'lucide-react'
+import * as React from 'react'
 
 export function DatePickerConform({ meta }: { meta: FieldMetadata<Date> }) {
   const triggerRef = React.useRef<HTMLButtonElement>(null)

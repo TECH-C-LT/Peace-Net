@@ -1,6 +1,7 @@
-import { FieldMetadata, getInputProps } from '@conform-to/react'
+import type { FieldMetadata } from '@conform-to/react'
+import { getInputProps } from '@conform-to/react'
 import { Input } from '@peace-net/ui/components/ui/input'
-import { ComponentProps } from 'react'
+import type { ComponentProps } from 'react'
 
 export const InputConform = ({
   meta,

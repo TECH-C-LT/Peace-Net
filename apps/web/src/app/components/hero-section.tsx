@@ -3,6 +3,7 @@ import BoxReveal from '@peace-net/ui/components/magicui/box-reveal'
 import { Badge } from '@peace-net/ui/components/ui/badge'
 import { buttonVariants } from '@peace-net/ui/components/ui/button'
 import Image from 'next/image'
+
 import { GetStartedButton } from '~/components/auth/start-button'
 import { DOCS_URL } from '~/lib/config'
 

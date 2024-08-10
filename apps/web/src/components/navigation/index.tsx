@@ -1,21 +1,22 @@
 'use client'
 
-import {
-  HomeIcon,
-  KeyRoundIcon,
-  AlignEndHorizontalIcon,
-  SettingsIcon,
-  FileCode2Icon,
-  LucideProps,
-  GithubIcon,
-} from 'lucide-react'
-
-import { TooltipProvider } from '@peace-net/ui/components/ui/tooltip'
 import { Dock, DockIcon } from '@peace-net/ui/components/magicui/dock'
 import { Separator } from '@peace-net/ui/components/ui/separator'
+import { TooltipProvider } from '@peace-net/ui/components/ui/tooltip'
+import type { LucideProps } from 'lucide-react'
+import {
+  AlignEndHorizontalIcon,
+  FileCode2Icon,
+  GithubIcon,
+  HomeIcon,
+  KeyRoundIcon,
+  SettingsIcon,
+} from 'lucide-react'
+
+import { DOCS_URL, GITHUB_URL } from '~/lib/config'
+
 import NavItem from './nav-item'
 import UserIcon from './user-icon'
-import { DOCS_URL, GITHUB_URL } from '~/lib/config'
 
 export type NavItemProps = {
   href: string
