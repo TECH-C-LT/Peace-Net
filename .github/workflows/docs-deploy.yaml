@@ -2,10 +2,11 @@ name: Deploy Docs
 
 on:
   workflow_dispatch:
-  pull_request:
-    types: [closed]
+  push:
     paths:
       - "apps/docs/**"
+    branches:
+      - "main"
 
 jobs:
   publish:
