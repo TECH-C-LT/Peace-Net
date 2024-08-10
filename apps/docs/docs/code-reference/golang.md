@@ -1,6 +1,7 @@
 # Go
 
 ```go
+// main.go
 package main
 
 import (
@@ -56,4 +57,10 @@ func main() {
 
 	fmt.Println("Response:", responseBody)
 }
+```
+
+### 実行
+
+```sh
+go run main.go
 ```
