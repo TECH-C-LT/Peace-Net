@@ -9,6 +9,7 @@ import { SunshineService } from '~/features/sunshines/sunshine.service'
 import { SunshineUseCase } from '~/features/sunshines/sunshine.usecase'
 import { UsageLogRepository } from '~/features/usageLogs/usageLog.repository'
 import { UsageLogService } from '~/features/usageLogs/usageLog.service'
+import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
 import { OpenAIClient } from '~/libs/openai'
@@ -33,19 +34,21 @@ sunshineRoutes.post(
     return new SunshineController(
       new SunshineUseCase(
         new SunshineService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
-        new UserPlanService(
-          new UserPlanRepository(
-            SupabaseClient(
-              getEnv(c).SUPABASE_URL,
-              getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+        new UsageFacade(
+          new UserPlanService(
+            new UserPlanRepository(
+              SupabaseClient(
+                getEnv(c).SUPABASE_URL,
+                getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+              ),
             ),
           ),
-        ),
-        new UsageLogService(
-          new UsageLogRepository(
-            SupabaseClient(
-              getEnv(c).SUPABASE_URL,
-              getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+          new UsageLogService(
+            new UsageLogRepository(
+              SupabaseClient(
+                getEnv(c).SUPABASE_URL,
+                getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
+              ),
             ),
           ),
         ),

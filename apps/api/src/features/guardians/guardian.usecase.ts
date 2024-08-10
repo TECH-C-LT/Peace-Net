@@ -9,8 +9,7 @@ import {
   checkFlagged,
   createCategories,
 } from '~/features/guardians/guardian.utils'
-import { IUsageLogService } from '~/features/usageLogs/usageLog.service'
-import { IUserPlanService } from '~/features/userPlans/userPlan.service'
+import { IUsageFacade } from '~/features/usages/usage.facade'
 
 /**
  * テキストの不適切な内容を分析し、カテゴリー別のスコアを提供するユースケースのインターフェース
@@ -42,8 +41,7 @@ export interface IGuardianUseCase {
 export class GuardianUseCase implements IGuardianUseCase {
   constructor(
     private guardianService: IGuardianService,
-    private userPlanService: IUserPlanService,
-    private usageLogService: IUsageLogService,
+    private usageFacade: IUsageFacade,
   ) {}
 
   async guardianText(
@@ -57,12 +55,7 @@ export class GuardianUseCase implements IGuardianUseCase {
 
       const categories = createCategories(categoryScores, score_threshold)
 
-      // increment user plans total requests used
-      await this.userPlanService.incrementTotalRequestsUsed(userId)
-
-      // increment usage logs
-      // update api keys last used
-      await this.usageLogService.incrementUsageLog(apiKeyId, 'guardians')
+      await this.usageFacade.incrementUsage(userId, apiKeyId, 'guardians')
 
       return success({
         flagged,
