@@ -1,9 +1,30 @@
+---
+title: 基本的な使用方法
+---
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+
+export const ApiName = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.peace_net
+}
+
+export const ApiUrl = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.peace_net.url
+}
+
 # 基本的な使用方法
-Guardians APIの基本的な使い方を説明しています。
+
+<ApiName />
+の基本的な使い方を説明しています。
 
 ## API キーの発行
-1. <a href="https://peeace.net" target="_blank">ユーザーポータル</a>にログインします。
-「平和ネットAPIを使う」をクリックしてください。
+
+1. <a href="https://peeace.net" target="_blank">
+     ユーザーポータル
+   </a>
+   にログインします。 「平和ネットAPIを使う」をクリックしてください。
 
 :::info
 
@@ -11,15 +32,13 @@ Guardians APIの基本的な使い方を説明しています。
 :::
 
 2. API Keysというページからキーを生成します。<br/>
-キーの名前と有効期限を選択し、キーを生成しましょう！
-<img src="/img/create_api_key.png" width="400x" />
+   キーの名前と有効期限を選択し、キーを生成しましょう！
 
-<br/>
-<br/>
+   <img src="/img/create_api_key.png" width="400x" />
 
 3. APIキーをコピーします
-<img src="/img/api_key.png" width="400x" />
-<br/><br/>
+   <img src="/img/api_key.png" width="400x" />
+
 :::warning
 
 紛失した場合は再度作成する必要があります。
@@ -49,6 +68,7 @@ Guardians APIの基本的な使い方を説明しています。
       }'
       ```
     </code>
+
   </pre>
 </details>
 
@@ -77,6 +97,7 @@ Guardians APIの基本的な使い方を説明しています。
         Invoke-RestMethod -Method Post -Uri "https://api.peeace.net/v1/guardians/text" -Headers $headers -Body $body
       ```
     </code>
+
   </pre>
 </details>
 
