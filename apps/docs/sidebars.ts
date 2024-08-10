@@ -39,7 +39,10 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'コードリファレンス',
       link: {type: 'doc', id: 'code-reference/index'},
-      items: ['code-reference/node-js'],
+      items: [
+        'code-reference/node-js',
+        'code-reference/golang',
+      ],
     },
     {
       type: 'category',
