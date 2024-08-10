@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs'
 
 /**
  * Creating a sidebar enables you to:
@@ -17,39 +17,34 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'API 概要',
-      link: {type: 'doc', id: 'overview'},
-      items: [
-        'how-to-use/basic',
-      ],
+      link: { type: 'doc', id: 'overview' },
+      items: ['how-to-use/basic'],
     },
     {
       type: 'category',
       label: '機能',
-      link: {type: 'doc', id: 'features/guardians'},
-      items: ['features/guardians'],
+      link: { type: 'doc', id: 'features/guardian' },
+      items: ['features/guardian', 'features/sunshine'],
     },
     {
       type: 'category',
       label: 'プラン',
-      link: {type: 'doc', id: 'plan/plan'},
+      link: { type: 'doc', id: 'plan/plan' },
       items: [],
     },
     {
       type: 'category',
       label: 'コードリファレンス',
-      link: {type: 'doc', id: 'code-reference/index'},
-      items: [
-        'code-reference/node-js',
-        'code-reference/golang',
-      ],
+      link: { type: 'doc', id: 'code-reference/index' },
+      items: ['code-reference/node-js', 'code-reference/golang'],
     },
     {
       type: 'category',
       label: 'FAQ',
-      link: {type: 'doc', id: 'faq/index'},
+      link: { type: 'doc', id: 'faq/index' },
       items: [],
     },
   ],
-};
+}
 
-export default sidebars;
+export default sidebars
