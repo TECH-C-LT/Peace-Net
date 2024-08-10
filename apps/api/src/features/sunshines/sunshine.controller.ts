@@ -11,9 +11,8 @@ export class SunshineController {
     try {
       const dto = (await c.req.json()) as SunshineTextDTO
 
-      // TODO: get userId and apiKeyId from the request
-      const userId = 'userId'
-      const apiKeyId = 'apiKeyId'
+      const userId = c.get('userId') as string
+      const apiKeyId = c.get('apiKeyId') as string
 
       const result = await this.sunshineUseCase.sunshineText({
         ...dto,
