@@ -3,6 +3,8 @@ import { sunshineTextRequestSchema } from '@peace-net/shared/schemas/sunshine'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
 
+import { SunshineController } from './sunshine.controller'
+
 /**
  * Sunshine APIのルーティングを定義します
  * ネガティブなテキストをポジティブなテキストに変換するエンドポイントを提供
@@ -18,7 +20,9 @@ sunshineRoutes.post(
     }
     return
   }),
-  (c) => c.text('sunshines!'),
+  async (c) => {
+    return new SunshineController().sunshineText(c)
+  },
 )
 
 export { sunshineRoutes }
