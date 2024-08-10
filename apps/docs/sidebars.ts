@@ -38,6 +38,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'コードリファレンス',
+      link: {type: 'doc', id: 'code-reference/index'},
       items: ['code-reference/typescript'],
     },
     {
