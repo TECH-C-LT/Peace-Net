@@ -1,3 +1,3 @@
 # コードリファレンス
 
-- [TypeScript](./typescript.md)
+- [TypeScript](./node-js.md)
