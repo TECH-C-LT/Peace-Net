@@ -1,0 +1,42 @@
+name: Deploy Docs
+
+on:
+  workflow_dispatch:
+  pull_request_target:
+    types: [closed]
+    paths:
+      - "apps/docs/**"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+
+      - name: Install pnpm and Install dependency
+        run: |
+          npm -i g pnpm
+          corepack enable pnpm
+          pnpm i
+
+      - name: Build
+        run: |
+          mkdir dist
+          pnpm ci-build
+        working-directory: apps/docs/
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: docs
+          directory: ./dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          workingDirectory: apps/docs/
