@@ -4,19 +4,21 @@ import {
 } from '@peace-net/shared/types/sunshine'
 import { failure, success, type Result } from '@peace-net/shared/utils/result'
 
+import { ISunshineService } from '~/features/sunshines/sunshine.service'
+
 export interface ISunshineUseCase {
   sunshineText(input: SunshineTextInput): Promise<Result<SunshineResult>>
 }
 
 export class SunshineUseCase implements ISunshineUseCase {
-  constructor() {}
+  constructor(private SunshineService: ISunshineService) {}
 
   async sunshineText(
     input: SunshineTextInput,
   ): Promise<Result<SunshineResult>> {
     try {
       const { text } = input
-      // TODO serviceを追加する
+      const result = await this.SunshineService.sunshineText(text)
 
       // TODO: increment user plans total requests used
       // await this.userPlanService.incrementTotalRequestsUsed(userId)
@@ -26,7 +28,7 @@ export class SunshineUseCase implements ISunshineUseCase {
       // await this.usageLogService.incrementUsageLog(apiKeyId, 'guardians')
 
       return success({
-        text: 'Sunshine: ' + text,
+        text: result.text,
       })
     } catch (error) {
       return failure(error)

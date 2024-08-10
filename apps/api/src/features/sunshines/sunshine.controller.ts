@@ -2,7 +2,7 @@ import { SunshineTextDTO } from '@peace-net/shared/types/sunshine'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Context } from 'hono'
 
-import { ISunshineUseCase } from './sunshine.usecase'
+import { ISunshineUseCase } from '~/features/sunshines/sunshine.usecase'
 
 export class SunshineController {
   constructor(private sunshineUseCase: ISunshineUseCase) {}
