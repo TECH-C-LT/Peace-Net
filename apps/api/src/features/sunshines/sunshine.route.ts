@@ -3,8 +3,11 @@ import { sunshineTextRequestSchema } from '@peace-net/shared/schemas/sunshine'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
 
-import { SunshineController } from './sunshine.controller'
-import { SunshineUseCase } from './sunshine.usecase'
+import { getEnv } from '~/config/environment'
+import { SunshineController } from '~/features/sunshines/sunshine.controller'
+import { SunshineService } from '~/features/sunshines/sunshine.service'
+import { SunshineUseCase } from '~/features/sunshines/sunshine.usecase'
+import { OpenAIClient } from '~/libs/openai'
 
 /**
  * Sunshine APIのルーティングを定義します
@@ -22,7 +25,11 @@ sunshineRoutes.post(
     return
   }),
   async (c) => {
-    return new SunshineController(new SunshineUseCase()).sunshineText(c)
+    return new SunshineController(
+      new SunshineUseCase(
+        new SunshineService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
+      ),
+    ).sunshineText(c)
   },
 )
 
