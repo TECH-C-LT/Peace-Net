@@ -14,6 +14,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import GenerateApiKeyButton from '../generate-api-key/button'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -68,7 +69,8 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+                <p className="mb-2">APIキーがありません。</p>
+                <GenerateApiKeyButton />
               </TableCell>
             </TableRow>
           )}
