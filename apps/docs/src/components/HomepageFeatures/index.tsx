@@ -11,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'インターネットを平和に✌️',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/peace.svg').default,
     description: (
       <>
         より安全で平和なインターネット空間の実現を目指し、AIを活用したテキスト判定システムです。
@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: '最新モデルを使用して誹謗中傷を判断🧠',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/ai.svg').default,
     description: (
       <>
         OpenAIの最新モデル、<code>gpt-4o-mini</code><br/>を使用し柔軟な判断を行います。
