@@ -1,20 +1,21 @@
 import {
   AlertDialog,
-  AlertDialogTrigger,
+  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from '@peace-net/ui/components/ui/alert-dialog'
 import { Input } from '@peace-net/ui/components/ui/input'
 import { Label } from '@peace-net/ui/components/ui/label'
 import { Trash2Icon } from 'lucide-react'
-import { Field } from '~/components/common/field'
-import { deleteApiKey } from '~/app/(main)/dashboard/api-keys/actions'
 import { toast } from 'sonner'
+
+import { deleteApiKey } from '~/app/(main)/dashboard/api-keys/actions'
+import { Field } from '~/components/common/field'
 
 export default function DeleteDialog({
   id,

@@ -4,7 +4,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@peace-net/ui/components/ui/card'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+
 import Plan from './components/plan'
 
 export const metadata: Metadata = {

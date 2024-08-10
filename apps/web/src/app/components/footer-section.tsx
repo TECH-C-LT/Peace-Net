@@ -1,6 +1,7 @@
 import { cn } from '@peace-net/shared/utils/classes'
 import { buttonVariants } from '@peace-net/ui/components/ui/button'
 import { ArrowUpRightIcon } from 'lucide-react'
+
 import { DOCS_URL, GITHUB_URL } from '~/lib/config'
 
 export default function FooterSection() {

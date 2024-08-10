@@ -7,10 +7,11 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@peace-net/ui/components/ui/tooltip'
+import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { NavItemProps } from '.'
-import { SquareArrowOutUpRightIcon } from 'lucide-react'
+
+import type { NavItemProps } from '.'
 
 export default function NavItem({
   item,

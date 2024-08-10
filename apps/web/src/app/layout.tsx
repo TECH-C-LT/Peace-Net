@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
 import '@peace-net/ui/globals.css'
-import { Noto_Sans_JP } from 'next/font/google'
-import Header from '~/components/header'
+
 import { ScrollArea } from '@peace-net/ui/components/ui/scroll-area'
 import { Analytics } from '@vercel/analytics/next'
+import type { Metadata } from 'next'
+import { Noto_Sans_JP } from 'next/font/google'
 import { Toaster } from 'sonner'
+
+import Header from '~/components/header'
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ['latin'],

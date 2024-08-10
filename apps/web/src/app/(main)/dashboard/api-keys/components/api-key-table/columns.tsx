@@ -1,7 +1,8 @@
 'use client'
 
-import { ApiKey } from '@peace-net/shared/types/entities'
-import { ColumnDef } from '@tanstack/react-table'
+import type { ApiKey } from '@peace-net/shared/types/entities'
+import type { ColumnDef } from '@tanstack/react-table'
+
 import DeleteDialog from './delete-dialog'
 import EditDialog from './edit-dialog'
 

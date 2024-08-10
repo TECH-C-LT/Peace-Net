@@ -1,5 +1,5 @@
-import { Database } from '@peace-net/shared/types/database'
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
+import type { Database } from '@peace-net/shared/types/database'
+import { type CookieOptions, createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 export function createClient() {

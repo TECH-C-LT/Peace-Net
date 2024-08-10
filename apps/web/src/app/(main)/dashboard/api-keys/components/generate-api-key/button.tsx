@@ -1,7 +1,5 @@
 'use client'
 
-import { PlusIcon } from 'lucide-react'
-import { GenerateApiKeyForm } from '~/app/(main)/dashboard/api-keys/components/generate-api-key/form'
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -13,8 +11,12 @@ import {
   AlertDialogTrigger,
 } from '@peace-net/ui/components/ui/alert-dialog'
 import { buttonVariants } from '@peace-net/ui/components/ui/button'
-import { revalidateApiKeyPath } from '../../actions'
+import { PlusIcon } from 'lucide-react'
+
+import { GenerateApiKeyForm } from '~/app/(main)/dashboard/api-keys/components/generate-api-key/form'
 import SquircleButton from '~/components/common/squircle-button'
+
+import { revalidateApiKeyPath } from '../../actions'
 
 export default function GenerateApiKeyButton() {
   return (

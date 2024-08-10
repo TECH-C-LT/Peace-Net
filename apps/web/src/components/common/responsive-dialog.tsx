@@ -1,8 +1,5 @@
 'use client'
 
-import * as React from 'react'
-
-import { useMediaQuery } from '~/hooks/use-media-query'
 import { Button, buttonVariants } from '@peace-net/ui/components/ui/button'
 import {
   Dialog,
@@ -22,7 +19,11 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@peace-net/ui/components/ui/drawer'
-import { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+import * as React from 'react'
+
+import { useMediaQuery } from '~/hooks/use-media-query'
+
 import SquircleButton from './squircle-button'
 
 export function ResponsiveDialog({

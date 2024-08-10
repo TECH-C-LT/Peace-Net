@@ -1,4 +1,4 @@
-import { Database } from '@peace-net/shared/types/database'
+import type { Database } from '@peace-net/shared/types/database'
 import { createBrowserClient } from '@supabase/ssr'
 
 export function createClient() {

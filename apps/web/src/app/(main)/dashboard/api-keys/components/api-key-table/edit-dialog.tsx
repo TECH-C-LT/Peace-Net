@@ -1,13 +1,14 @@
 import {
   AlertDialog,
-  AlertDialogTrigger,
+  AlertDialogCancel,
   AlertDialogContent,
+  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogFooter,
-  AlertDialogCancel,
+  AlertDialogTrigger,
 } from '@peace-net/ui/components/ui/alert-dialog'
 import { Edit3Icon } from 'lucide-react'
+
 import EditDialogForm from './edit-dialog-form'
 
 export default function EditDialog({

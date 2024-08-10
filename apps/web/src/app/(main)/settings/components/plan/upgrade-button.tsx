@@ -1,14 +1,14 @@
 import ShimmerButton from '@peace-net/ui/components/magicui/shimmer-button'
 import {
   AlertDialog,
-  AlertDialogTrigger,
+  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from '@peace-net/ui/components/ui/alert-dialog'
 
 export default function UpgradeButton() {

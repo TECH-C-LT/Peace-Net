@@ -1,14 +1,15 @@
-import { Metadata } from 'next'
-import { Suspense } from 'react'
-import UsageLogChart from './components/usage-log-chart'
-import PlanRequestChart from './components/plan-request-chart'
-import { Skeleton } from '@peace-net/ui/components/ui/skeleton'
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from '@peace-net/ui/components/ui/card'
+import { Skeleton } from '@peace-net/ui/components/ui/skeleton'
+import type { Metadata } from 'next'
+import { Suspense } from 'react'
+
+import PlanRequestChart from './components/plan-request-chart'
+import UsageLogChart from './components/usage-log-chart'
 
 export const metadata: Metadata = {
   title: 'Usage',

@@ -1,16 +1,15 @@
 'use server'
 
-import { createClient } from '~/lib/supabase/server'
-
 import { parseWithZod } from '@conform-to/zod'
+import { encryptApiKey } from '@peace-net/shared/utils/encryptions'
+import { revalidatePath } from 'next/cache'
+import { v4 as uuidv4 } from 'uuid'
+
 import {
   editApiKeySchema,
   generateApiKeySchema,
 } from '~/app/(main)/dashboard/api-keys/schemas'
-
-import { v4 as uuidv4 } from 'uuid'
-import { encryptApiKey } from '@peace-net/shared/utils/encryptions'
-import { revalidatePath } from 'next/cache'
+import { createClient } from '~/lib/supabase/server'
 
 export async function generateApiKey(prevState: unknown, formData: FormData) {
   const submission = parseWithZod(formData, { schema: generateApiKeySchema })

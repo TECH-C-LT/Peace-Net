@@ -1,7 +1,7 @@
-import HeroSection from './components/hero-section'
-import GuardianSection from './components/guardian-section'
-import SunshineSection from './components/sunshine-section'
 import FooterSection from './components/footer-section'
+import GuardianSection from './components/guardian-section'
+import HeroSection from './components/hero-section'
+import SunshineSection from './components/sunshine-section'
 
 export default function Home() {
   return (

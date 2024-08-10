@@ -1,6 +1,7 @@
-import { getSession } from '~/server/data/user'
-import Logo from './logo'
 import { GetStartedButton } from '~/components/auth/start-button'
+import { getSession } from '~/server/data/user'
+
+import Logo from './logo'
 
 export default async function Header() {
   const session = await getSession()

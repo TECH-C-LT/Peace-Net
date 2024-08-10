@@ -3,6 +3,7 @@
 import { Button } from '@peace-net/ui/components/ui/button'
 import { GithubIcon, Loader2Icon } from 'lucide-react'
 import { useActionState } from 'react'
+
 import { signInWithGithub } from '~/server/actions/auth'
 
 export default function GitHub() {

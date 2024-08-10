@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import {
   Avatar,
   AvatarFallback,
@@ -13,9 +12,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@peace-net/ui/components/ui/dropdown-menu'
+import type { User } from '@supabase/supabase-js'
+import { useEffect, useState } from 'react'
 
-import { User } from '@supabase/supabase-js'
 import { getUser } from '~/server/data/user'
+
 import SignOutButton from '../auth/sign-out-button'
 
 export default function UserIcon() {
