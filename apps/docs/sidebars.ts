@@ -20,7 +20,6 @@ const sidebars: SidebarsConfig = {
       link: {type: 'doc', id: 'overview'},
       items: [
         'how-to-use/basic',
-        'how-to-use/authentication',
       ],
     },
     {
