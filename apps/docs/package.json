@@ -7,6 +7,7 @@
     "start": "docusaurus start --port 8080 --no-open",
     "dev": "docusaurus start --port 8080 --no-open",
     "build": "docusaurus build",
+    "ci-build": "docusaurus build --out-dir ./dist",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
