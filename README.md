@@ -24,7 +24,6 @@
 </p>
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://img.shields.io/badge/-TypeScript-000.svg?logo=typescript&style=flat" />
     <img src="https://img.shields.io/badge/-Hono-000.svg?logo=hono&style=flat" />
     <img src="https://img.shields.io/badge/-Next.js-000.svg?logo=nextdotjs&style=flat" />
@@ -41,7 +40,6 @@
     <img src="https://img.shields.io/badge/-Vercel-000.svg?logo=vercel&style=flat" />
     <img src="https://img.shields.io/badge/-Cloudflare Workers-000.svg?logo=cloudflareworkers&style=flat" />
     <img src="https://img.shields.io/badge/-Cloudflare Pages-000.svg?logo=cloudflarepages&style=flat-square" />
-  </a>
 </p>
 
 <br />
