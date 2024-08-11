@@ -47,7 +47,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'よくある間違い',
+      label: 'よくあるエラー',
       link: { type: 'doc', id: 'errors/index' },
       items: [],
     },
