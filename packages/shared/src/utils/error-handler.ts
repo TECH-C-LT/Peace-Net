@@ -12,6 +12,7 @@ import {
 export interface ErrorResponse {
   error: string
   details: any
+  status: 400 | 401 | 404 | 429 | 500 | 501
 }
 
 type CustomError =
@@ -86,6 +87,7 @@ export function handleError(c: Context, error: unknown): Response {
   const errorResponse: ErrorResponse = {
     error: errorMessage,
     details,
+    status: statusCode,
   }
 
   return c.json(errorResponse, statusCode)
