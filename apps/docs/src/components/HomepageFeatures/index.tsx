@@ -23,16 +23,16 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/ai.svg').default,
     description: (
       <>
-        OpenAIの最新モデル、<code>gpt-4o-mini</code><br/>を使用し柔軟な判断を行います。
+        OpenAIの最新モデル、<code>gpt-4o-mini</code><br/>を使用し柔軟に判断する<a href="/docs/features/guardian">Guardian API</a>。
       </>
     ),
   },
   {
-    title: 'Coming soon 🚀',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '人類よ前をむけ✨',
+    Svg: require('@site/static/img/world.svg').default,
     description: (
       <>
-        素敵な機能を実装予定です✨
+        文章を前向きな表現に変換する<a href="/docs/features/sunshine">Sunshine API</a>。
       </>
     ),
   },
