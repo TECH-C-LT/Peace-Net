@@ -1,0 +1,89 @@
+---
+title: Guardian API
+---
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+
+export const GuardianApiName = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.guardian
+}
+
+# <GuardianApiName />
+
+**POST `v1/guardians/text`**
+
+## リクエスト
+#### ヘッダー
+**`accept`** string
+
+#### リクエストボディ
+**`text`** string **required** <br/>
+最大500文字までを受け付けています。
+
+**`score_threshold`** integer optional <br/>
+`0-1`までの値を受け付けています。 <br />
+default値は`0.5`です。
+
+
+### リクエスト例
+<details>
+  <summary>cURL</summary>
+  <pre>
+    <code>
+      ```
+        curl -X POST \
+          --location 'https://api.peeace.net/v1/guardians/text' \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <API_KEY>" \
+          -d '{
+          "text": "<TEXT>"
+        }'
+      ```
+    </code>
+  </pre>
+</details>
+
+## レスポンス
+<details>
+  <summary>レスポンス例</summary>
+
+  status: `200`
+  <pre>
+    <code>
+    ```
+      {
+        "flagged": true,
+        "categories": {
+          "sexual": false,
+          "hate": false,
+          "self_harm": true,
+          "violence": false,
+          "defamation": true
+        },
+        "category_scores": {
+          "sexual": 0,
+          "hate": 0,
+          "self_harm": 0.9,
+          "violence": 0,
+          "defamation": 0.8
+        }
+      }
+    ```
+    </code>
+  </pre>
+</details>
+
+### レスポンスステータスコード
+
+| Status Code | Description           |
+| ----        |  ----                 |
+| `200`       | Success               |
+| `400`       | Validation            |
+| `401`       | Unauthorized          |
+| `404`       | Not Found             |
+| `429`       | Usage Limit Exceeded  |
+| `500`       | Internal Server Error |
+| `501`       | Not Implemented Error |
+
+エラーの詳細は[よくあるエラー](/docs/errors)を参照してください。
