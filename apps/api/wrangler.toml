@@ -7,7 +7,7 @@ workers_dev = false
 # カスタムドメインを指定
 route = { pattern = "api.peeace.net", custom_domain = true }
 [vars]
-DOCS_URL = "https://guide.peeace.net/"
+DOCS_URL = "https://docs.peeace.net/"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
