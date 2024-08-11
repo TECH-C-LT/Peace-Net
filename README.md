@@ -80,6 +80,7 @@ Sunshine APIは、ネガティブなテキストをポジティブな表現に�
 
 ## 誹謗中傷の判断基準について
 <details><summary>定義と判断基準</summary>
+
 ## 誹謗中傷
 [誹謗中傷 wiki](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7)
 - [誹謗](https://kotobank.jp/word/%E8%AA%B9%E8%AC%97-612358) - 他人を悪く言うこと。そしること。
