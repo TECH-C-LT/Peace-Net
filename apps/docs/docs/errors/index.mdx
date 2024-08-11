@@ -1,0 +1,39 @@
+---
+title: よくある間違い
+---
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+
+export const ApiName = () => {
+  const { siteConfig } = useDocusaurusContext()
+  return siteConfig.customFields.peace_net
+}
+
+# エラー
+
+<ApiName />へのリクエストを完了できない場合、エラーが返される 表示されます。エラー メッセージを解析し、適切に処理することで、 予測できます。
+
+エラー レスポンスの形式は次のとおりです。
+
+  ```json
+  {
+    "error": string,
+    "details": string,
+    "status": 400 | 401 | 404 | 429 | 500 | 501
+  }
+  ```
+
+以下に、一般的な API エラーと、次の場合に行う推奨の対応を示します。
+
+:::info
+推奨される対応を行ってもエラーが解決しない場合は、 [サポートに連絡](https://github.com/TECH-C-LT/Peace-Net/issues/new)して問題を報告してください。
+:::
+
+
+| エラーコード | 説明 | 推奨される対応 |
+|------------|------|--------------|
+| 400 Invalid Input | リクエストの形式が正しくないか、必要なパラメータが不足しています。 | リクエストのパラメータと形式を確認し、必要な情報がすべて含まれていることを確認してください。 |
+| 401 Unauthorized | APIキーが無効であるか、認証に失敗しました。 | APIキーが正しいことを確認し、必要に応じて新しいキーを生成してください。 |
+| 404 Invalid Request | リクエストされたリソースが見つかりません。 | URLとリソースIDが正しいことを確認してください。 |
+| 429 Usage Limit Exceeded | レート制限を超えています。 | リクエストの頻度を下げるか、より高いレート制限のプランにアップグレードすることを検討してください。 |
+| 500 Internal Server Error | サーバー側で予期しないエラーが発生しました。 | しばらく待ってから再試行してください。問題が続く場合はサポートに連絡してください。 |
