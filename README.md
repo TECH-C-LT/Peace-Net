@@ -77,3 +77,45 @@ Sunshine APIは、ネガティブなテキストをポジティブな表現に�
   <h2>Technology Stack</h2>
   <img src="./assets/tech-stack.png" width="auto" height="auto" />
 </div>
+
+## 誹謗中傷の判断基準について
+<details><summary>定義と判断基準</summary>
+## 誹謗中傷
+[誹謗中傷 wiki](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7)
+- [誹謗](https://kotobank.jp/word/%E8%AA%B9%E8%AC%97-612358) - 他人を悪く言うこと。そしること。
+- [中傷](https://kotobank.jp/word/%E4%B8%AD%E5%82%B7-567518) - 根拠のない事を言いふらして、他人の名誉を傷つけること。
+
+---
+### サマリ
+誹謗中傷（ひぼうちゅうしょう）は、人や企業の社会的評価を低下させるような根拠のない悪口やデマを言いふらす、又はそれらをインターネット上に投稿したり、人格攻撃する行為である。
+
+<details>
+<summary>人格攻撃・人身攻撃 </summary>
+ある論証や事実の主張に対して、その主張自体に具体的に反論するのではなく、主張した人の個性や信念を攻撃すること、またそのような論法。
+</details>
+
+民事的には「慰謝料の請求」、刑事的には「信用棄損罪・業務妨害罪」「名誉毀損」や「侮辱罪」に問われる可能性がある。
+
+
+> [!TIP]
+> 誹謗中傷被害に遭ったら https://www.saferinternet.or.jp/bullying/
+
+## 批判
+[批判 wiki](https://ja.wikipedia.org/wiki/%E6%89%B9%E8%A9%95)
+- [批](https://dictionary.goo.ne.jp/word/kanji/%E6%89%B9/) - 訓読み:［外］うつ・ ただす
+- [批判](https://dictionary.goo.ne.jp/word/%E6%89%B9%E5%88%A4/)  - 批評に加えて判断を行うこと。(自信ない)
+- [批評](https://dictionary.goo.ne.jp/word/%E6%89%B9%E8%A9%95/#jn-186802)  - 良い点も悪い点も同じように指摘し、客観的に論じること。
+
+
+## 相違点
+日本政府は、誹謗中傷について、「根拠のない悪口」、「相手の人格を否定または攻撃する言い回し」と解説している[[1]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-:17-1)。
+
+批判とは、相手の行動や発言に対して、それと異なる意見を主張することを意味する[[14]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-14)。誹謗中傷か批判の司法判断は、「人格攻撃の有無」で判断されることが多い[[15]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-:6-15)。「人格攻撃」と見なされるかは、言われた相手との関係性、タイミング、前後の文脈によって変化することもある。
+
+### 非難
+「改善点を提案することではなく、単にダメ出しをして相手を責めること」を意味する[[15]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-:6-15)。　アドバイスなど建設的な提案内容を伴なわずに、相手の落ち度や過失・欠点などを指摘して責め咎めること[[注釈 1]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-20)である[[19]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-:7-19)[[18]](https://ja.wikipedia.org/wiki/%E8%AA%B9%E8%AC%97%E4%B8%AD%E5%82%B7#cite_note-:2-18)。
+
+## 判断基準
+「根拠のない悪口」、「相手の人格を否定または攻撃する言い回し」という誹謗中傷の定義を与えた上で、「人格攻撃の有無」を判断させるようなプロンプト。
+「人格攻撃」と見なされるかは、言われた相手との関係性、タイミング、前後の文脈によって変化することもあることをLLMに伝えるか？ 前後の変化を観察して決めるのもあり。
+</details>
