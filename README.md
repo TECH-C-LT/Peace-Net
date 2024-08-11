@@ -1,97 +1,59 @@
-# 平和ネット
+<div align="center">
+  <a href="https://hono.dev">
+    <img src="./assets/peace-net.png" width="300" height="auto" alt="Peace Net"/>
+  </a>
+  <h1>平和ネット</h1>
+</div>
 
-## Setting up
+<hr />
 
-### Clone the repository
+<div align="center">
+    <a href="https://peeace.net/"><b>Web Site</b></a><br />
+    <a href="https://docs.peeace.net/"><b>Documentation</b></a><br />
+</div>
 
-[How to install the GitHub CLI](https://cli.github.com/)
+<hr />
 
-```bash
-gh repo clone TECH-C-LT/Peace-Net
-```
+<p align="center">
+  <a href="https://github.com/TECH-C-LT/Peace-Net/pulse">
+    <img src="https://img.shields.io/github/commit-activity/m/TECH-C-LT/Peace-Net" />
+  </a>
+  <a href="https://github.com/TECH-C-LT/Peace-Net/commits/main">
+    <img src="https://img.shields.io/github/last-commit/TECH-C-LT/Peace-Net" />
+  </a>
+</p>
 
-### Environment variables
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://img.shields.io/badge/-TypeScript-000.svg?logo=typescript&style=flat" />
+    <img src="https://img.shields.io/badge/-Hono-000.svg?logo=hono&style=flat" />
+    <img src="https://img.shields.io/badge/-Next.js-000.svg?logo=nextdotjs&style=flat" />
+    <img src="https://img.shields.io/badge/-Docusaurus-000.svg?logo=docusaurus&style=flat" />
+    <img src="https://img.shields.io/badge/-Turborepo-000.svg?logo=turborepo&style=flat" />
+    <img src="https://img.shields.io/badge/-Tailwind CSS-000.svg?logo=tailwindcss&style=flat" />
+    <img src="https://img.shields.io/badge/-shadcn/ui-000.svg?logo=shadcnui&style=flat" />
+    <img src="https://img.shields.io/badge/-Prettier-000.svg?logo=prettier&style=flat" />
+    <img src="https://img.shields.io/badge/-ESLint-000.svg?logo=eslint&style=flat" />
+    <img src="https://img.shields.io/badge/-Docker-000.svg?logo=docker&style=flat" />
+    <img src="https://img.shields.io/badge/-OpenAI API-000.svg?logo=openai&style=flat" />
+    <img src="https://img.shields.io/badge/-Supabase-000.svg?logo=supabase&style=flat" />
+    <img src="https://img.shields.io/badge/-Github Actions-000.svg?logo=githubactions&style=flat" />
+    <img src="https://img.shields.io/badge/-Vercel-000.svg?logo=vercel&style=flat" />
+    <img src="https://img.shields.io/badge/-Cloudflare Workers-000.svg?logo=cloudflareworkers&style=flat" />
+    <img src="https://img.shields.io/badge/-Cloudflare Pages-000.svg?logo=cloudflarepages&style=flat-square" />
+  </a>
+</p>
 
-**/.env.local**
+<br />
 
-[How to get GitHub OAuth credentials](https://supabase.com/docs/guides/auth/social-login/auth-github?queryGroups=environment&environment=client#register-a-new-oauth-application-on-github:~:text=Register%20a%20new%20OAuth,your%20Client%20secret.)
+<div align="center">
+  <h2>Architecture</h2>
+  <img src="./assets/architecture.png" width="auto" height="auto" />
+</div>
 
-```env
-SUPABASE_AUTH_GITHUB_CLIENT_ID=xxx
-SUPABASE_AUTH_GITHUB_SECRET=xxx
-```
+<br />
 
-**/apps/api/.dev.vars**
-
-[OpenAI API Key Dashboard](https://platform.openai.com/api-keys)
-
-```env
-# OpenAI
-OPENAI_API_KEY = ""
-
-# Local Supabase URL and Anon Key
-SUPABASE_URL= "http://127.0.0.1:54321"
-SUPABASE_SERVICE_ROLE_KEY= "eyJh..."
-
-# Encryption key
-ENCRYPTION_KEY = ""
-```
-
-**/apps/web/.env.local**
-
-```env
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-# Local Supabase URL and Anon Key
-NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJh...
-
-# Encryption key
-ENCRYPTION_KEY=
-```
-
-## Getting Started
-
-### Install dependencies
-
-[How to install pnpm](https://qiita.com/oekazuma/items/1e2ee304877efa48c122#pnpm%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E6%8C%87%E5%AE%9A)
-
-```bash
-corepack enable pnpm
-
-pnpm i
-```
-
-### Development
-
-**Supabase**
-
-[How to Supabase Local Development Setup](https://supabase.com/docs/guides/cli/local-development?queryGroups=access-method&access-method=postgres)
-
-```bash
-# Start the Supabase database
-pnpm db:start
-
-# Stop the Supabase database
-pnpm db:stop
-```
-
-**Start the all apps**
-
-```bash
-pnpm dev
-```
-
-**Add ui components**
-
-This works just like the add command in the [shadcn/ui CLI.](https://ui.shadcn.com/docs/cli)
-
-```bash
-pnpm ui:add <component-name>
-```
-
-### Documentation
-When you start writing new versions docs.
-```sh
-pnpm run docusaurusu docs:version x.x.x
-```
+<div align="center">
+  <h2>Technology Stack</h2>
+  <img src="./assets/tech-stack.png" width="auto" height="auto" />
+</div>
