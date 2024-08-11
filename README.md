@@ -5,8 +5,6 @@
   <h1>平和ネット</h1>
 </div>
 
-<hr />
-
 <div align="center">
     <a href="https://peeace.net/"><b>Web Site</b></a><br />
     <a href="https://docs.peeace.net/"><b>Documentation</b></a><br />
