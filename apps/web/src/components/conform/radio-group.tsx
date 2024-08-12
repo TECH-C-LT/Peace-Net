@@ -41,21 +41,25 @@ export function RadioGroupConform({
 
           return (
             <div
-              className={`flex items-center gap-3 rounded border ${isSelected && 'border-teal-500 bg-teal-500/5'}`}
+              className={`flex items-center gap-3 rounded border transition duration-500 ${isSelected && 'bg-teal-500/5'}`}
               key={item.value}
             >
               <div className="w-12">
                 <RadioGroupItem
                   value={item.value}
                   id={`${meta.id}-${item.value}`}
-                  className={`ml-3 text-teal-500 ${isSelected && 'border-teal-500'}`}
+                  className={`ml-3 text-teal-500 transition duration-200 ${isSelected && 'border-teal-500'}`}
                 />
               </div>
               <label
                 htmlFor={`${meta.id}-${item.value}`}
                 className="cursor-pointer py-2 pr-4"
               >
-                <p className="font-semibold tracking-wide">{item.label}</p>
+                <p
+                  className={`font-semibold tracking-wide transition duration-500 ${isSelected && 'text-teal-500'}`}
+                >
+                  {item.label}
+                </p>
                 {item.description && (
                   <span className="text-muted-foreground text-sm">
                     {item.description}
