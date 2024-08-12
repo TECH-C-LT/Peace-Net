@@ -2,6 +2,8 @@
 
 import { parseWithZod } from '@conform-to/zod'
 
+import { API_URL } from '~/lib/config'
+
 import { playgroundSchema } from '../schemas'
 
 export async function handlePlayground(prevState: unknown, formData: FormData) {
@@ -11,32 +13,34 @@ export async function handlePlayground(prevState: unknown, formData: FormData) {
     return submission.reply()
   }
 
-  // const { api, text } = submission.value
+  const { api, text, score_threshold } = submission.value
 
-  // TODO: fetch API
+  const result = await fetchApi(api, text, score_threshold)
 
-  submission.value.result = `
-  {
-    "flagged": true,
-    "categories": {
-        "sexual": false,
-        "hate": false,
-        "self_harm": false,
-        "violence": false,
-        "defamation": true
-    },
-    "category_scores": {
-        "sexual": 0,
-        "hate": 0,
-        "self_harm": 0,
-        "violence": 0,
-        "defamation": 0.3
-    }
-}
-  `
+  submission.value.result = JSON.stringify(result, null, 2)
 
   return {
     status: submission.status,
     value: submission.value,
   }
+}
+
+async function fetchApi(api: string, text: string, score_threshold: number) {
+  const body = {
+    text,
+    ...(api === 'guardians' && { score_threshold }),
+  }
+
+  const response = await fetch(`${API_URL}/v1/${api}/text`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.PLAYGROUND_API_KEY}`,
+    },
+    body: JSON.stringify(body),
+  })
+
+  const result = await response.json()
+
+  return result
 }

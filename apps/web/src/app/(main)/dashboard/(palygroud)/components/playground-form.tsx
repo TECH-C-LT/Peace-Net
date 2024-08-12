@@ -9,6 +9,7 @@ import { useActionState } from 'react'
 
 import { Field, FieldError } from '~/components/common/field'
 import { RadioGroupConform } from '~/components/conform/radio-group'
+import { SliderConform } from '~/components/conform/slider'
 import { TextareaConform } from '~/components/conform/textarea'
 
 import { handlePlayground } from '../actions'
@@ -35,6 +36,10 @@ export function PlaygroundForm() {
     defaultValue: {
       api: isSuccessResult(lastResult) ? lastResult.value.api : 'guardians',
       text: isSuccessResult(lastResult) ? lastResult.value.text : '',
+      score_threshold: isSuccessResult(lastResult)
+        ? lastResult.value.score_threshold
+        : 0.5,
+      result: isSuccessResult(lastResult) ? lastResult.value.result : '',
     },
   })
   return (
@@ -68,6 +73,15 @@ export function PlaygroundForm() {
             <FieldError>使用するAPIを選択してください</FieldError>
           )}
         </Field>
+        {fields.api.value === 'guardians' && (
+          <Field>
+            <Label htmlFor={fields.score_threshold.id}>しきい値</Label>
+            <SliderConform meta={fields.score_threshold} max={1} step={0.1} />
+            {fields.score_threshold.errors && (
+              <FieldError>{fields.score_threshold.errors}</FieldError>
+            )}
+          </Field>
+        )}
         <Field>
           <Label htmlFor={fields.text.id}>テキスト</Label>
           <TextareaConform
