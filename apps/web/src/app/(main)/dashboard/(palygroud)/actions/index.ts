@@ -2,8 +2,6 @@
 
 import { parseWithZod } from '@conform-to/zod'
 
-import { API_URL } from '~/lib/config'
-
 import { playgroundSchema } from '../schemas'
 
 export async function handlePlayground(prevState: unknown, formData: FormData) {
@@ -31,7 +29,7 @@ async function fetchApi(api: string, text: string, score_threshold: number) {
     ...(api === 'guardians' && { score_threshold }),
   }
 
-  const response = await fetch(`${API_URL}/v1/${api}/text`, {
+  const response = await fetch(`${process.env.API_URL}/v1/${api}/text`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
