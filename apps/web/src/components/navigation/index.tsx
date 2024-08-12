@@ -28,7 +28,7 @@ export type NavItemProps = {
 
 const DATA: { navbar: NavItemProps[]; outNavbar: NavItemProps[] } = {
   navbar: [
-    // { href: '/dashboard', icon: HomeIcon, label: 'Playground' },
+    { href: '/dashboard', icon: HomeIcon, label: 'Playground' },
     { href: '/dashboard/api-keys', icon: KeyRoundIcon, label: 'API Keys' },
     { href: '/dashboard/usage', icon: AlignEndHorizontalIcon, label: 'Usage' },
     { href: '/settings', icon: SettingsIcon, label: 'Settings' },
