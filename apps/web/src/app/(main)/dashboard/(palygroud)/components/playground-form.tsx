@@ -86,7 +86,7 @@ export function PlaygroundForm() {
           <Label htmlFor={fields.text.id}>テキスト</Label>
           <TextareaConform
             meta={fields.text}
-            className="h-auto min-w-96 border text-base"
+            className="h-auto min-w-full border text-base"
             autoFocus
           />
           {fields.text.errors && <FieldError>{fields.text.errors}</FieldError>}
