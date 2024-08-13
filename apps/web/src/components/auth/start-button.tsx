@@ -1,5 +1,7 @@
 'use client'
 
+import { Button } from '@peace-net/ui/components/ui/button'
+
 import { ResponsiveDialog } from '../common/responsive-dialog'
 import GitHub from './github'
 
@@ -11,6 +13,9 @@ export function GetStartedButton() {
       closeText="また今度"
     >
       <GitHub />
+      <Button variant="outline" size="lg" className="mt-1 w-full">
+        ログインしないで使ってみる
+      </Button>
     </ResponsiveDialog>
   )
 }
