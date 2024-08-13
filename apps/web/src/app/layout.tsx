@@ -30,7 +30,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${notoSansJp.className}`}>
         <ScrollArea className="h-dvh w-full overflow-hidden">
-          <Header />
           {children}
         </ScrollArea>
         <Toaster richColors />

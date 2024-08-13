@@ -87,7 +87,7 @@ export function ResponsiveDialog({
           <div className="w-full px-4 py-2">{children}</div>
           <DrawerFooter className="pt-2">
             <DrawerClose asChild>
-              <Button variant="outline">{closeText}</Button>
+              <Button variant="ghost">{closeText}</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
