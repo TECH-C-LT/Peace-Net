@@ -63,6 +63,12 @@ const config = {
       height: {
         '70dvh': '70dvh',
       },
+      flex: {
+        '2': '2 2 0%',
+        '3': '3 3 0%',
+        '4': '4 4 0%',
+        '5': '5 5 0%',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
@@ -91,12 +97,19 @@ const config = {
             transform: 'translate(calc(100cqw - 100%), 0)',
           },
         },
+        expandContract: {
+          '0%, 100%': { width: '4px' },
+          '50%': {
+            width: '100%',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
         slide: 'slide var(--speed) ease-in-out infinite alternate',
+        'animate-expand-contract': 'expandContract 4s ease-in-out infinite',
       },
     },
   },

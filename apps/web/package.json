@@ -13,6 +13,7 @@
     "@conform-to/zod": "^1.1.5",
     "@peace-net/shared": "workspace:*",
     "@peace-net/ui": "workspace:*",
+    "@squircle-js/react": "^1.2.0",
     "@supabase/ssr": "^0.4.0",
     "@supabase/supabase-js": "^2.45.0",
     "@tanstack/react-table": "^8.20.1",
