@@ -58,7 +58,7 @@ export default function Home() {
         <BentoCard
           key={feature.name}
           {...feature}
-          className={`${feature.className} min-h-60 p-2 text-sm md:p-4 md:text-base`}
+          className={`${feature.className} min-h-64 p-2 text-sm md:p-4 md:text-base`}
         />
       ))}
     </BentoGrid>

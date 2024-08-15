@@ -57,7 +57,7 @@ export default function ScanText() {
   const keyframesStyle = `
     @keyframes expandContract {
       0%, 70% { width: 4px; }
-      50% { width: 100%; }
+      50%, 55% { width: 100%; }
     }
     @keyframes textColorChange {
       20%, 70% { color: inherit; background-color: inherit; }
@@ -66,8 +66,8 @@ export default function ScanText() {
   `
 
   return (
-    <div className="absolute right-1/2 top-14 grid w-4/5 translate-x-1/2 place-content-center p-3">
-      <p className="py-4 text-sm leading-6">
+    <div className="absolute right-1/2 top-4 grid w-4/5 translate-x-1/2 place-content-center p-3">
+      <p className="py-4 text-xs leading-5 md:text-sm md:leading-6">
         {lines.map((line, index) => (
           <TextLine
             key={index}
@@ -78,7 +78,7 @@ export default function ScanText() {
         ))}
       </p>
       <div
-        className="absolute left-0 top-0 h-full w-1 rounded-bl rounded-tl border-r-4 border-r-teal-500 bg-gradient-to-r from-teal-500/5 from-10% via-teal-500/10 via-70% to-teal-500/60 to-90%"
+        className="absolute left-0 top-0 h-full w-1 rounded-bl rounded-tl border-r-4 border-r-teal-500 bg-gradient-to-r from-teal-500/0 from-10% via-teal-500/10 via-70% to-teal-500/60 to-90%"
         style={animationStyle}
       ></div>
       <style>{keyframesStyle}</style>
