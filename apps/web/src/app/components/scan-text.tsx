@@ -67,7 +67,7 @@ export default function ScanText() {
 
   return (
     <div className="absolute right-1/2 top-4 grid w-4/5 translate-x-1/2 place-content-center p-3">
-      <p className="me:leading-6 py-4 text-xs leading-4 md:text-sm">
+      <p className="py-4 text-xs leading-5 md:text-sm md:leading-6">
         {lines.map((line, index) => (
           <TextLine
             key={index}
