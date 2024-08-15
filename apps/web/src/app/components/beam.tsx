@@ -44,7 +44,7 @@ export function AnimatedBeamMultipleOutputDemo({
   return (
     <div
       className={cn(
-        'absolute right-1/2 top-2 flex w-full max-w-md translate-x-1/2 items-center justify-center overflow-hidden rounded-lg p-10',
+        'absolute bottom-10 right-1/2 flex w-full max-w-md translate-x-1/2 items-center justify-center overflow-hidden rounded-lg p-10',
         className,
       )}
       ref={containerRef}

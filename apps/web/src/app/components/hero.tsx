@@ -11,12 +11,14 @@ import { GITHUB_URL } from '~/lib/config'
 export default function Hero() {
   return (
     <div className="flex flex-col items-center justify-center gap-5 p-3">
-      <div className="mt-6 space-y-2 md:mt-0">
-        <Badge variant="secondary">Beta</Badge>
-        <h1 className="my-2 text-5xl font-bold">
+      <div className="mt-6 space-y-3 md:mt-0">
+        <div className="text-right">
+          <Badge variant="secondary">Beta</Badge>
+        </div>
+        <h1 className="my-2 text-center text-4xl font-bold md:text-5xl">
           平和ネット API<span className="text-teal-500">.</span>
         </h1>
-        <h2 className="mt-[.5rem]">
+        <h2 className="mt-[.5rem] text-center">
           <span className="text-teal-500">平和なインターネット</span>
           を目指すAPIを提供します。
         </h2>
