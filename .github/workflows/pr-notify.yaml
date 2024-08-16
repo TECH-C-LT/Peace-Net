@@ -1,5 +1,6 @@
 name: PR Notification
 on:
+  issue_comment:
   pull_request:
     types: [opened]
   pull_request_review:
@@ -49,7 +50,23 @@ jobs:
           title: Review Commented
           message: |
             **${{ github.event.pull_request.title }}**
-            **Comment:** ${{ github.event.pull_request_review_comment.comment }}
-            ${{ github.event.pull_request.html_url }}
+            **Comment:** ${{ github.event.comment.body }}
+            ${{ github.event.comment.url }}
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
+  pr_commented:
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: PR Commented
+          message: |
+            **${{ github.event.pull_request.title }}**
+            **Comment:** ${{ github.event.comment.body }}
+            ${{ github.event.comment.url }}
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
