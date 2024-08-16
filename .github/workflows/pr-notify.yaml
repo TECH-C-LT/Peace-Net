@@ -6,6 +6,8 @@ on:
     types: [opened]
   pull_request_review:
     types: [submitted]
+  pull_request_review_comment:
+    types: [created]
 
 jobs:
   approved:
@@ -36,6 +38,21 @@ jobs:
             **Creator:** ${{ github.event.pull_request.user.login }}
             ${{ github.event.pull_request.html_url }}
 
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
+  review_commented:
+    if: github.event_name == 'pull_request_review_comment'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: Review Commented
+          message: |
+            **${{ github.event.pull_request.title }}**
+            **Comment:** ${{ github.event.comment.body }}
+            ${{ github.event.comment.html_url }}
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
   pr_commented:
