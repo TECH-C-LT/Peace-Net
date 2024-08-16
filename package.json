@@ -9,7 +9,8 @@
     "ui:add": "pnpm --filter @peace-net/ui ui:add",
     "db:start": "npx supabase start",
     "db:stop": "npx supabase stop",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preinstall": "npx -y only-allow pnpm"
   },
   "devDependencies": {
     "husky": "^8.0.0",
