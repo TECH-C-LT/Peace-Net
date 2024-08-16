@@ -13,24 +13,10 @@ import {
   DropdownMenuTrigger,
 } from '@peace-net/ui/components/ui/dropdown-menu'
 import type { User } from '@supabase/supabase-js'
-import { useEffect, useState } from 'react'
-
-import { getUser } from '~/server/data/user'
 
 import SignOutButton from '../auth/sign-out-button'
 
-export default function UserIcon() {
-  const [user, setUser] = useState<User | null>(null)
-
-  const fetchUser = async () => {
-    const user = await getUser()
-    setUser(user)
-  }
-
-  useEffect(() => {
-    fetchUser()
-  }, [])
-
+export default function UserIcon({ user }: { user: User }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
