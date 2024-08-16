@@ -1,5 +1,6 @@
 name: PR Notification
 on:
+  issue_comment:
   pull_request:
     types: [opened]
   pull_request_review:
@@ -18,13 +19,12 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: PR approved
           message: |
-            "**${{ github.event.pull_request.title }}** \n
-            ${{ github.event.pull_request.html_url }} \n
-            :review: :PLZ: "
+            **${{ github.event.pull_request.title }}**
+            ${{ github.event.pull_request.html_url }}
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
   opened:
-    if: .github.event.action == 'opened'
+    if: github.event.action == 'opened'
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
@@ -33,14 +33,14 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: New PR opened
           message: |
-            "**${{ github.event.pull_request.title }}** \n
-            **Creator:** ${{ github.event.pull_request.user.login }} \n
-            ${{ github.event.pull_request.html_url }} \n
-            :review: :PLZ: "
+            **${{ github.event.pull_request.title }}**
+            **Creator:** ${{ github.event.pull_request.user.login }}
+            ${{ github.event.pull_request.html_url }}
+
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
   review_commented:
-    if: .github.event.action == 'created'
+    if: github.event.action == 'created'
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
@@ -49,9 +49,24 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: Review Commented
           message: |
-            "**${{ github.event.pull_request.title }}** \n
-            **Comment:** ${{ github.event.pull_request_review_comment.comment }} \n
-            ${{ github.event.pull_request.html_url }} \n
-            :review: :PLZ: "
+            **${{ github.event.pull_request.title }}**
+            **Comment:** ${{ github.event.comment.body }}
+            ${{ github.event.comment.html_url }}
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
+  pr_commented:
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: PR Commented
+          message: |
+            **${{ github.event.pull_request.title }}**
+            **Comment:** ${{ github.event.comment.body }}
+            ${{ github.event.comment.html_url }}
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
