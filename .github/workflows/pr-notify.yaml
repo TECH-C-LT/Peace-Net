@@ -1,0 +1,57 @@
+name: PR Notification
+on:
+  pull_request:
+    types: [opened]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  approved:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: PR approved
+          message: |
+            "**${{ github.event.pull_request.title }}** \n
+            ${{ github.event.pull_request.html_url }} \n
+            :review: :PLZ: "
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
+  opened:
+    if: .github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: New PR opened
+          message: |
+            "**${{ github.event.pull_request.title }}** \n
+            **Creator:** ${{ github.event.pull_request.user.login }} \n
+            ${{ github.event.pull_request.html_url }} \n
+            :review: :PLZ: "
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
+  review_commented:
+    if: .github.event.action == 'created'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: Review Commented
+          message: |
+            "**${{ github.event.pull_request.title }}** \n
+            **Comment:** ${{ github.event.pull_request_review_comment.comment }} \n
+            ${{ github.event.pull_request.html_url }} \n
+            :review: :PLZ: "
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
