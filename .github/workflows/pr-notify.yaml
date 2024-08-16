@@ -59,7 +59,7 @@ jobs:
     name: PR comment
     if: |
       github.event.issue.pull_request
-      && github.event.sender != 'vercel'
+      && github.actor != 'vercel[bot]'
       && github.event.action != 'opened'
     runs-on: ubuntu-latest
     steps:
