@@ -58,8 +58,6 @@ export function Navigation() {
 
     const { data } = await supabase.auth.getUser()
 
-    console.log(data)
-
     if (data) {
       setUser(data.user)
     }

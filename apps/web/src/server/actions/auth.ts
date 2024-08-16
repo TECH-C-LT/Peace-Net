@@ -36,7 +36,6 @@ export async function signOut() {
 }
 
 export async function signInAnonymously() {
-  console.log('signInAnonymously')
   const supabase = createClient()
 
   const { data, error } = await supabase.auth.signInAnonymously()

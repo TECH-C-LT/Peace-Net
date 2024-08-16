@@ -12,8 +12,6 @@ export const linkIdentityGithub = async () => {
     provider: 'github',
   })
 
-  console.log(data)
-
   if (error) {
     console.error(error)
     return
