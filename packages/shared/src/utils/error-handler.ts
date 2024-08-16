@@ -86,7 +86,7 @@ export function handleError(c: Context, error: unknown): Response {
 
   const errorResponse: ErrorResponse = {
     error: errorMessage,
-    details,
+    details: statusCode === 500 ? 'Internal Server Error' : details,
     status: statusCode,
   }
 
