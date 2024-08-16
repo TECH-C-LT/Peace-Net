@@ -57,7 +57,10 @@ jobs:
           username: GitHub PR Notifier
   pr_commented:
     name: PR comment
-    if: ${{ github.event.issue.pull_request }} && github.event.sender != vercel
+    if: |
+      github.event.issue.pull_request
+      && github.event.sender != vercel
+      && github.event.action != 'opened'
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
