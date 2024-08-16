@@ -8,13 +8,13 @@
     "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.40",
+    "@ai-sdk/openai": "^0.0.46",
     "@hono/zod-validator": "^0.2.2",
     "@peace-net/shared": "workspace:*",
     "@supabase/supabase-js": "^2.45.0",
-    "ai": "^3.2.40",
-    "hono": "^4.5.3",
-    "openai": "^4.53.2",
+    "ai": "^3.3.7",
+    "hono": "^4.5.5",
+    "openai": "^4.55.9",
     "zod": "^3.23.8"
   },
   "devDependencies": {
