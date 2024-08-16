@@ -55,9 +55,17 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
+  if (user && user.is_anonymous && request.nextUrl.pathname !== '/dashboard') {
+    // user is logged in anonymously, redirecting the user to the dashboard
+    const url = request.nextUrl.clone()
+    url.pathname = '/dashboard'
+    return NextResponse.redirect(url)
+  }
+
   // userがログインしていて、パブリックページにアクセスしようとしている場合 /dashboard にリダイレクト
   if (user && request.nextUrl.pathname === '/') {
     // user is logged in, potentially respond by redirecting the user to the private page
+
     const url = request.nextUrl.clone()
     url.pathname = '/dashboard'
     return NextResponse.redirect(url)

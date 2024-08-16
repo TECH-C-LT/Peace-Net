@@ -15,6 +15,11 @@ export async function signInWithGithub() {
     },
   })
 
+  if (error) {
+    console.error(error)
+    return
+  }
+
   if (data.url) {
     revalidatePath('/dashboard', 'layout')
     redirect(data.url) // use the redirect API for your server framework
@@ -28,4 +33,21 @@ export async function signOut() {
 
   revalidatePath('/dashboard', 'layout')
   redirect('/')
+}
+
+export async function signInAnonymously() {
+  console.log('signInAnonymously')
+  const supabase = createClient()
+
+  const { data, error } = await supabase.auth.signInAnonymously()
+
+  if (error) {
+    console.error(error)
+    return
+  }
+
+  if (data) {
+    revalidatePath('/dashboard', 'layout')
+    redirect('/dashboard')
+  }
 }
