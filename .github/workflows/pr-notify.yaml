@@ -24,7 +24,7 @@ jobs:
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
   opened:
-    if: .github.event.action == 'opened'
+    if: github.event.action == 'opened'
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
@@ -40,7 +40,7 @@ jobs:
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
   review_commented:
-    if: .github.event.action == 'created'
+    if: github.event.action == 'created'
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
