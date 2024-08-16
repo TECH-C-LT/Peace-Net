@@ -51,7 +51,7 @@ jobs:
           message: |
             **${{ github.event.pull_request.title }}**
             **Comment:** ${{ github.event.comment.body }}
-            ${{ github.event.comment.url }}
+            ${{ github.event.comment.html_url }}
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
   pr_commented:
@@ -67,6 +67,6 @@ jobs:
           message: |
             **${{ github.event.pull_request.title }}**
             **Comment:** ${{ github.event.comment.body }}
-            ${{ github.event.comment.url }}
+            ${{ github.event.comment.html_url }}
           avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
           username: GitHub PR Notifier
