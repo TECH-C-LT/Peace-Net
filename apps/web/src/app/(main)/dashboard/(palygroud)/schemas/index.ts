@@ -10,6 +10,7 @@ export const playgroundSchema = z.object({
     .max(500, { message: 'テキストは500文字以下で入力してください' }),
   score_threshold: z.number().max(1).min(0).optional().default(0.5),
   result: z.any().optional(),
+  isLimitReached: z.boolean().optional(),
 })
 
 export type Playground = z.infer<typeof playgroundSchema>
