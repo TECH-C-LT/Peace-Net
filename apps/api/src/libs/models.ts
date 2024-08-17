@@ -1,6 +1,11 @@
-import { createAnthropic } from '@ai-sdk/anthropic'
-import { createGoogleGenerativeAI } from '@ai-sdk/google'
-import { createOpenAI } from '@ai-sdk/openai'
+import { AnthropicProvider, createAnthropic } from '@ai-sdk/anthropic'
+import {
+  createGoogleGenerativeAI,
+  GoogleGenerativeAIProvider,
+} from '@ai-sdk/google'
+import { createOpenAI, OpenAIProvider } from '@ai-sdk/openai'
+import { Models } from '@peace-net/shared/types/model'
+import { LanguageModel } from 'ai'
 
 /**
  * OpenAI APIのクライアントを生成します
@@ -36,4 +41,22 @@ export const AnthropicClient = (apiKey: string) => {
   return createAnthropic({
     apiKey,
   })
+}
+
+export const selectAIModel: (
+  selectedModel: Models,
+  openai: OpenAIProvider,
+  anthropic: AnthropicProvider,
+  google: GoogleGenerativeAIProvider,
+) => LanguageModel = (selectedModel, openai, anthropic, google) => {
+  switch (selectedModel) {
+    case 'gpt-4o-mini':
+      return openai('gpt-4o-mini')
+    case 'claude-3-haiku':
+      return anthropic('claude-3-haiku-20240307')
+    case 'gemini-1.5-flash':
+      return google('models/gemini-1.5-flash')
+    default:
+      return openai('gpt-4o-mini')
+  }
 }

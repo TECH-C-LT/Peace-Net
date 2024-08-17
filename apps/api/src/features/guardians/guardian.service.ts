@@ -3,9 +3,12 @@ import { GoogleGenerativeAIProvider } from '@ai-sdk/google'
 import { OpenAIProvider } from '@ai-sdk/openai'
 import { InternalServerError } from '@peace-net/shared/core/error'
 import { categoryScoresSchema } from '@peace-net/shared/schemas/guardian'
-import type { CategoryScores, Models } from '@peace-net/shared/types/guardian'
+import type { CategoryScores } from '@peace-net/shared/types/guardian'
+import { Models } from '@peace-net/shared/types/model'
 import { generateObject } from 'ai'
 import { z } from 'zod'
+
+import { selectAIModel } from '~/libs/models'
 
 const systemPrompt = `
 # 役割
@@ -85,21 +88,12 @@ export class GuardianService implements IGuardianService {
     selectedModel: Models,
   ): Promise<CategoryScores> {
     try {
-      let model
-      switch (selectedModel) {
-        case 'gpt-4o-mini':
-          model = this.openai('gpt-4o-mini')
-          break
-        case 'claude-3-haiku':
-          model = this.anthropic('claude-3-haiku-20240307')
-          break
-        case 'gemini-1.5-flash':
-          model = this.google('models/gemini-1.5-flash')
-          break
-        default:
-          model = this.openai('gpt-4o-mini')
-          break
-      }
+      const model = selectAIModel(
+        selectedModel,
+        this.openai,
+        this.anthropic,
+        this.google,
+      )
 
       const { object } = await generateObject({
         model,
