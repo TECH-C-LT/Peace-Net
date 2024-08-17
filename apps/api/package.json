@@ -15,7 +15,7 @@
     "@peace-net/shared": "workspace:*",
     "@supabase/supabase-js": "^2.45.0",
     "ai": "^3.3.7",
-    "hono": "^4.5.5",
+    "hono": "^4.5.6",
     "openai": "^4.55.9",
     "zod": "^3.23.8"
   },
