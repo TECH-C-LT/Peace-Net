@@ -8,6 +8,8 @@
     "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^0.0.43",
+    "@ai-sdk/google": "^0.0.39",
     "@ai-sdk/openai": "^0.0.46",
     "@hono/zod-validator": "^0.2.2",
     "@peace-net/shared": "workspace:*",
