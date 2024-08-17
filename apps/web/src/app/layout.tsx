@@ -6,8 +6,6 @@ import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import { Toaster } from 'sonner'
 
-import Header from '~/components/header'
-
 const notoSansJp = Noto_Sans_JP({
   subsets: ['latin'],
 })
@@ -19,6 +17,14 @@ export const metadata: Metadata = {
   },
   description: '平和なインターネットを目指すAPIを提供します。',
   metadataBase: new URL('https://peeace.net'),
+  keywords: [
+    'API',
+    '平和',
+    '平和ネット',
+    'コンテンツ分析',
+    'NGテキスト',
+    'テキスト変換',
+  ],
 }
 
 export default function RootLayout({
