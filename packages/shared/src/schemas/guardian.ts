@@ -16,7 +16,7 @@ export const modelsSchema = z.union([
 
 export const guardianTextRequestSchema = z.object({
   text: z.string().max(500),
-  score_threshold: z.number().max(1).min(0).optional().default(0.5),
+  score_threshold: z.number().max(1).min(0.1).optional().default(0.5),
   model: modelsSchema.optional().default('gpt-4o-mini'),
 })
 
