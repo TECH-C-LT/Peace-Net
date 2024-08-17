@@ -1,4 +1,5 @@
 import { OpenAIProvider } from '@ai-sdk/openai'
+import { InternalServerError } from '@peace-net/shared/core/error'
 import { SunshineResult } from '@peace-net/shared/types/sunshine'
 import { generateObject } from 'ai'
 import { z } from 'zod'
@@ -39,15 +40,20 @@ export class SunshineService implements ISunshineService {
   constructor(private openai: OpenAIProvider) {}
 
   async sunshineText(text: string): Promise<SunshineResult> {
-    const { object } = await generateObject({
-      model: this.openai('gpt-4o-mini'),
-      schema: z.object({ text: z.string() }),
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: `変換するテキスト: ${text}` },
-      ],
-    })
+    try {
+      const { object } = await generateObject({
+        model: this.openai('gpt-4o-mini'),
+        schema: z.object({ text: z.string() }),
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: `変換するテキスト: ${text}` },
+        ],
+      })
 
-    return object
+      return object
+    } catch (error) {
+      console.error(error)
+      throw new InternalServerError('Failed to generate object')
+    }
   }
 }
