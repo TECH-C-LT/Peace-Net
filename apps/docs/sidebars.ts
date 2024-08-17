@@ -17,8 +17,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'API 概要',
-      link: { type: 'doc', id: 'overview' },
-      items: ['how-to-use/basic'],
+      link: { type: 'doc', id: 'quick-start' },
+      items: ['quick-start','how-to-use/basic'],
     },
     {
       type: 'category',
