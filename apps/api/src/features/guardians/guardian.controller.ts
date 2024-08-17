@@ -1,6 +1,5 @@
 import { NotImplementedError } from '@peace-net/shared/core/error'
 import { GuardianTextDTO } from '@peace-net/shared/types/guardian'
-import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Context } from 'hono'
 
 import { IGuardianUseCase } from '~/features/guardians/guardian.usecase'
@@ -21,35 +20,27 @@ export class GuardianController {
   constructor(private guardianUseCase: IGuardianUseCase) {}
 
   async guardianText(c: Context) {
-    try {
-      const dto = (await c.req.json()) as GuardianTextDTO
+    const dto = (await c.req.json()) as GuardianTextDTO
 
-      const userId = c.get('userId') as string
-      const apiKeyId = c.get('apiKeyId') as string
+    const userId = c.get('userId') as string
+    const apiKeyId = c.get('apiKeyId') as string
+    const result = await this.guardianUseCase.guardianText({
+      ...dto,
+      userId,
+      apiKeyId,
+    })
 
-      const result = await this.guardianUseCase.guardianText({
-        ...dto,
-        userId,
-        apiKeyId,
-      })
-
-      if (!result.ok) {
-        throw result.error
-      }
-
-      return c.json(result.value)
-    } catch (error) {
-      return handleError(c, error)
+    if (!result.ok) {
+      throw result.error
     }
+
+    return c.json(result.value)
   }
 
-  async guardianImage(c: Context) {
-    try {
-      throw new NotImplementedError(
-        'Guardian API image analysis is not implemented yet',
-      )
-    } catch (error) {
-      return handleError(c, error)
-    }
+  // eslint-disable-next-line no-unused-vars
+  async guardianImage(_c: Context) {
+    throw new NotImplementedError(
+      'Guardian API image analysis is not implemented yet',
+    )
   }
 }
