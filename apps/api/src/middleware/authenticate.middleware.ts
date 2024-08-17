@@ -18,27 +18,23 @@ export const authenticateMiddleware = async (c: Context) => {
     throw new UnauthorizedError('API key required')
   }
 
-  try {
-    const result = await new ApiKeyUsecase(
-      new ApiKeyService(
-        new ApiKeyRepository(
-          SupabaseClient(
-            getEnv(c).SUPABASE_URL,
-            getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
-          ),
+  const result = await new ApiKeyUsecase(
+    new ApiKeyService(
+      new ApiKeyRepository(
+        SupabaseClient(
+          getEnv(c).SUPABASE_URL,
+          getEnv(c).SUPABASE_SERVICE_ROLE_KEY,
         ),
       ),
-    ).verifyApiKey({ apiKey, encryptionKey: getEnv(c).ENCRYPTION_KEY })
+    ),
+  ).verifyApiKey({ apiKey, encryptionKey: getEnv(c).ENCRYPTION_KEY })
 
-    if (!result.ok) {
-      throw result.error
-    }
-
-    c.set('apiKeyId', result.value.apiKeyId)
-    c.set('userId', result.value.userId)
-
-    return
-  } catch (error: any) {
-    throw new UnauthorizedError(error?.message || 'Invalid API key')
+  if (!result.ok) {
+    throw result.error
   }
+
+  c.set('apiKeyId', result.value.apiKeyId)
+  c.set('userId', result.value.userId)
+
+  return
 }

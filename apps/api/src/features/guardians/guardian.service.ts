@@ -1,6 +1,7 @@
 import { AnthropicProvider } from '@ai-sdk/anthropic'
 import { GoogleGenerativeAIProvider } from '@ai-sdk/google'
 import { OpenAIProvider } from '@ai-sdk/openai'
+import { InternalServerError } from '@peace-net/shared/core/error'
 import { categoryScoresSchema } from '@peace-net/shared/schemas/guardian'
 import type { CategoryScores, Models } from '@peace-net/shared/types/guardian'
 import { generateObject } from 'ai'
@@ -83,31 +84,35 @@ export class GuardianService implements IGuardianService {
     text: string,
     selectedModel: Models,
   ): Promise<CategoryScores> {
-    let model
-    switch (selectedModel) {
-      case 'gpt-4o-mini':
-        model = this.openai('gpt-4o-mini')
-        break
-      case 'claude-3-haiku':
-        model = this.anthropic('claude-3-haiku-20240307')
-        break
-      case 'gemini-1.5-flash':
-        model = this.google('models/gemini-1.5-flash')
-        break
-      default:
-        model = this.openai('gpt-4o-mini')
-        break
+    try {
+      let model
+      switch (selectedModel) {
+        case 'gpt-4o-mini':
+          model = this.openai('gpt-4o-mini')
+          break
+        case 'claude-3-haiku':
+          model = this.anthropic('claude-3-haiku-20240307')
+          break
+        case 'gemini-1.5-flash':
+          model = this.google('models/gemini-1.5-flash')
+          break
+        default:
+          model = this.openai('gpt-4o-mini')
+          break
+      }
+
+      const { object } = await generateObject({
+        model,
+        schema: z.object({ category_scores: categoryScoresSchema }),
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: `分析するテキスト: ${text}` },
+        ],
+      })
+      return object.category_scores
+    } catch (error) {
+      console.error(error)
+      throw new InternalServerError('Failed to analyze text')
     }
-
-    const { object } = await generateObject({
-      model,
-      schema: z.object({ category_scores: categoryScoresSchema }),
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: `分析するテキスト: ${text}` },
-      ],
-    })
-
-    return object.category_scores
   }
 }

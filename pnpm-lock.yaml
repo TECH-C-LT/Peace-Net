@@ -40,7 +40,7 @@ importers:
         version: 0.0.46(zod@3.23.8)
       '@hono/zod-validator':
         specifier: ^0.2.2
-        version: 0.2.2(hono@4.5.5)(zod@3.23.8)
+        version: 0.2.2(hono@4.5.6)(zod@3.23.8)
       '@peace-net/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -51,8 +51,8 @@ importers:
         specifier: ^3.3.7
         version: 3.3.7(openai@4.55.9(zod@3.23.8))(react@19.0.0-rc-f994737d14-20240522)(sswr@2.1.0(svelte@4.2.18))(svelte@4.2.18)(vue@3.4.35(typescript@5.4.5))(zod@3.23.8)
       hono:
-        specifier: ^4.5.5
-        version: 4.5.5
+        specifier: ^4.5.6
+        version: 4.5.6
       openai:
         specifier: ^4.55.9
         version: 4.55.9(zod@3.23.8)
@@ -255,8 +255,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0
       hono:
-        specifier: ^4.5.3
-        version: 4.5.3
+        specifier: ^4.5.6
+        version: 4.5.6
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.4.0
@@ -5162,12 +5162,8 @@ packages:
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
-  hono@4.5.3:
-    resolution: {integrity: sha512-r26WwwbKD3BAYdfB294knNnegNda7VfV1tVn66D9Kvl9WQTdrR+5eKdoeaQNHQcC3Gr0KBikzAtjd6VsRGVSaw==}
-    engines: {node: '>=16.0.0'}
-
-  hono@4.5.5:
-    resolution: {integrity: sha512-fXBXHqaVfimWofbelLXci8pZyIwBMkDIwCa4OwZvK+xVbEyYLELVP4DfbGaj1aEM6ZY3hHgs4qLvCO2ChkhgQw==}
+  hono@4.5.6:
+    resolution: {integrity: sha512-9SuUC/zLQv8YAcnIxJko0KCeLI0Q6menPsDWuJ9jaH+r8ZkVXeLqeLs1QJXCPKKbURAWj9x0SJBSFh803EnAUw==}
     engines: {node: '>=16.0.0'}
 
   hosted-git-info@2.8.9:
@@ -10564,9 +10560,9 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@hono/zod-validator@0.2.2(hono@4.5.5)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.5.6)(zod@3.23.8)':
     dependencies:
-      hono: 4.5.5
+      hono: 4.5.6
       zod: 3.23.8
 
   '@hookform/resolvers@3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-f994737d14-20240522))':
@@ -14716,9 +14712,7 @@ snapshots:
     dependencies:
       react-is: 16.13.1
 
-  hono@4.5.3: {}
-
-  hono@4.5.5: {}
+  hono@4.5.6: {}
 
   hosted-git-info@2.8.9: {}
 
