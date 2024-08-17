@@ -17,6 +17,7 @@ import type { Playground } from '../schemas'
 import { playgroundSchema } from '../schemas'
 import LimitReachedDialog from './limit-reached-dialog'
 import { ResultSyntax } from './result-syntax'
+import ScoreThresholdDescription from './score-threshold-description'
 
 function isSuccessResult(
   result: any,
@@ -78,7 +79,12 @@ export function PlaygroundForm() {
         {fields.api.value === 'guardians' && (
           <Field>
             <Label htmlFor={fields.score_threshold.id}>しきい値</Label>
-            <SliderConform meta={fields.score_threshold} max={1} step={0.1} />
+            <div className="flex flex-wrap items-center gap-3 md:flex-nowrap">
+              <SliderConform meta={fields.score_threshold} max={1} step={0.1} />
+              <ScoreThresholdDescription
+                value={Number(fields.score_threshold.value)}
+              />
+            </div>
             {fields.score_threshold.errors && (
               <FieldError>{fields.score_threshold.errors}</FieldError>
             )}
