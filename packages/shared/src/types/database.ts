@@ -7,39 +7,14 @@ export type Json =
   | Json[]
 
 export type Database = {
-  graphql_public: {
-    Tables: {
-      [_ in never]: never
-    }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      graphql: {
-        Args: {
-          operationName?: string
-          query?: string
-          variables?: Json
-          extensions?: Json
-        }
-        Returns: Json
-      }
-    }
-    Enums: {
-      [_ in never]: never
-    }
-    CompositeTypes: {
-      [_ in never]: never
-    }
-  }
   public: {
     Tables: {
       api_keys: {
         Row: {
           created_at: string | null
           description: string | null
-          expires_at: string | null
           encrypted_key: string | null
+          expires_at: string | null
           id: string
           is_active: boolean | null
           last_used: string | null
@@ -49,8 +24,8 @@ export type Database = {
         Insert: {
           created_at?: string | null
           description?: string | null
-          expires_at?: string | null
           encrypted_key?: string | null
+          expires_at?: string | null
           id?: string
           is_active?: boolean | null
           last_used?: string | null
@@ -60,8 +35,8 @@ export type Database = {
         Update: {
           created_at?: string | null
           description?: string | null
-          expires_at?: string | null
           encrypted_key?: string | null
+          expires_at?: string | null
           id?: string
           is_active?: boolean | null
           last_used?: string | null
@@ -101,6 +76,38 @@ export type Database = {
           total_request_limit?: number
         }
         Relationships: []
+      }
+      playground_usage: {
+        Row: {
+          count: number | null
+          id: string
+          last_reset: string | null
+          total_count: number | null
+          user_id: string
+        }
+        Insert: {
+          count?: number | null
+          id?: string
+          last_reset?: string | null
+          total_count?: number | null
+          user_id: string
+        }
+        Update: {
+          count?: number | null
+          id?: string
+          last_reset?: string | null
+          total_count?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'playground_usage_user_id_fkey'
+            columns: ['user_id']
+            isOneToOne: true
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
+        ]
       }
       usage_logs: {
         Row: {
@@ -181,7 +188,30 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_playground_usage: {
+        Args: {
+          input_user_id: string
+        }
+        Returns: {
+          new_count: number
+          new_total_count: number
+          remaining: number
+        }[]
+      }
+      increment_total_requests_used: {
+        Args: {
+          p_user_id: string
+        }
+        Returns: undefined
+      }
+      increment_usage_log: {
+        Args: {
+          p_api_key_id: string
+          p_endpoint: string
+          p_date: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
