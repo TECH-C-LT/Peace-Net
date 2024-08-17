@@ -15,6 +15,7 @@ import { TextareaConform } from '~/components/conform/textarea'
 import { handlePlayground } from '../actions'
 import type { Playground } from '../schemas'
 import { playgroundSchema } from '../schemas'
+import LimitReachedDialog from './limit-reached-dialog'
 import { ResultSyntax } from './result-syntax'
 
 function isSuccessResult(
@@ -42,6 +43,7 @@ export function PlaygroundForm() {
       result: isSuccessResult(lastResult) ? lastResult.value.result : '',
     },
   })
+
   return (
     <div className="flex flex-wrap gap-3 rounded border p-4">
       <form
@@ -106,8 +108,11 @@ export function PlaygroundForm() {
           </Button>
         </div>
       </form>
-      {isSuccessResult(lastResult) && (
+      {isSuccessResult(lastResult) && !lastResult.value.isLimitReached && (
         <ResultSyntax code={lastResult.value.result} />
+      )}
+      {isSuccessResult(lastResult) && lastResult.value.isLimitReached && (
+        <LimitReachedDialog />
       )}
     </div>
   )
