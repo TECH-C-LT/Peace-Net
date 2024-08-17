@@ -1,6 +1,8 @@
+import { AnthropicProvider } from '@ai-sdk/anthropic'
+import { GoogleGenerativeAIProvider } from '@ai-sdk/google'
 import { OpenAIProvider } from '@ai-sdk/openai'
 import { categoryScoresSchema } from '@peace-net/shared/schemas/guardian'
-import type { CategoryScores } from '@peace-net/shared/types/guardian'
+import type { CategoryScores, Models } from '@peace-net/shared/types/guardian'
 import { generateObject } from 'ai'
 import { z } from 'zod'
 
@@ -55,7 +57,7 @@ const systemPrompt = `
  * @returns 分析結果を含むResultオブジェクト。成功時はGuardianResultを、失敗時はエラーを含みます。
  */
 export interface IGuardianService {
-  guardianText(text: string): Promise<CategoryScores>
+  guardianText(text: string, selectedModel: Models): Promise<CategoryScores>
 }
 
 /**
@@ -71,11 +73,34 @@ export interface IGuardianService {
  * @returns 分析結果を含むResultオブジェクト。成功時はGuardianResultを、失敗時はエラーを含みます。
  */
 export class GuardianService implements IGuardianService {
-  constructor(private openai: OpenAIProvider) {}
+  constructor(
+    private openai: OpenAIProvider,
+    private anthropic: AnthropicProvider,
+    private google: GoogleGenerativeAIProvider,
+  ) {}
 
-  async guardianText(text: string): Promise<CategoryScores> {
+  async guardianText(
+    text: string,
+    selectedModel: Models,
+  ): Promise<CategoryScores> {
+    let model
+    switch (selectedModel) {
+      case 'gpt-4o-mini':
+        model = this.openai('gpt-4o-mini')
+        break
+      case 'claude-3-haiku':
+        model = this.anthropic('claude-3-haiku-20240307')
+        break
+      case 'gemini-1.5-flash':
+        model = this.google('models/gemini-1.5-flash')
+        break
+      default:
+        model = this.openai('gpt-4o-mini')
+        break
+    }
+
     const { object } = await generateObject({
-      model: this.openai('gpt-4o-mini'),
+      model,
       schema: z.object({ category_scores: categoryScoresSchema }),
       messages: [
         { role: 'system', content: systemPrompt },

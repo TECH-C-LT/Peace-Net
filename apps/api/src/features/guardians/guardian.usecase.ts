@@ -48,8 +48,18 @@ export class GuardianUseCase implements IGuardianUseCase {
     input: GuardianTextInput,
   ): Promise<Result<GuardianResult>> {
     try {
-      const { text, score_threshold = 0.5, userId, apiKeyId } = input
-      const categoryScores = await this.guardianService.guardianText(text)
+      const {
+        text,
+        score_threshold = 0.5,
+        model = 'gpt-4o-mini',
+        userId,
+        apiKeyId,
+      } = input
+
+      const categoryScores = await this.guardianService.guardianText(
+        text,
+        model,
+      )
 
       const flagged = checkFlagged(categoryScores, score_threshold)
 

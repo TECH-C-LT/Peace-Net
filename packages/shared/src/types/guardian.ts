@@ -4,11 +4,14 @@ import {
   guardianTextRequestSchema,
   guardianImageRequestSchema,
   guardianResultSchema,
+  modelsSchema,
 } from '../schemas/guardian'
 
 export type Category = keyof z.infer<typeof categoryScoresSchema>
 
 export type CategoryScores = z.infer<typeof categoryScoresSchema>
+
+export type Models = z.infer<typeof modelsSchema>
 
 export type GuardianTextDTO = z.infer<typeof guardianTextRequestSchema>
 
