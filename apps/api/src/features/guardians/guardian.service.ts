@@ -111,6 +111,7 @@ export class GuardianService implements IGuardianService {
       })
       return object.category_scores
     } catch (error) {
+      console.error(error)
       throw new InternalServerError('Failed to analyze text')
     }
   }
