@@ -8,9 +8,16 @@ export const categoryScoresSchema = z.object({
   defamation: z.number(),
 })
 
+export const modelsSchema = z.union([
+  z.literal('gpt-4o-mini'),
+  z.literal('claude-3-haiku'),
+  z.literal('gemini-1.5-flash'),
+])
+
 export const guardianTextRequestSchema = z.object({
   text: z.string().max(500),
   score_threshold: z.number().max(1).min(0).optional().default(0.5),
+  model: modelsSchema.optional().default('gpt-4o-mini'),
 })
 
 export const guardianImageRequestSchema = z.object({
