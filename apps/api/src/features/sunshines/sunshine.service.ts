@@ -1,8 +1,13 @@
+import { AnthropicProvider } from '@ai-sdk/anthropic'
+import { GoogleGenerativeAIProvider } from '@ai-sdk/google'
 import { OpenAIProvider } from '@ai-sdk/openai'
 import { InternalServerError } from '@peace-net/shared/core/error'
+import { Models } from '@peace-net/shared/types/model'
 import { SunshineResult } from '@peace-net/shared/types/sunshine'
 import { generateObject } from 'ai'
 import { z } from 'zod'
+
+import { selectAIModel } from '~/libs/models'
 
 const systemPrompt = `
 あなたは、ネガティブな表現をポジティブで建設的な表現に変換する専門家です。以下の指針に従ってテキストを変換してください：
@@ -33,16 +38,30 @@ const systemPrompt = `
 変換したテキストは、'text'オブジェクトに格納してください。
 `
 export interface ISunshineService {
-  sunshineText(text: string): Promise<SunshineResult>
+  sunshineText(text: string, selectedModel: Models): Promise<SunshineResult>
 }
 
 export class SunshineService implements ISunshineService {
-  constructor(private openai: OpenAIProvider) {}
+  constructor(
+    private openai: OpenAIProvider,
+    private anthropic: AnthropicProvider,
+    private google: GoogleGenerativeAIProvider,
+  ) {}
 
-  async sunshineText(text: string): Promise<SunshineResult> {
+  async sunshineText(
+    text: string,
+    selectedModel: Models,
+  ): Promise<SunshineResult> {
     try {
+      const model = selectAIModel(
+        selectedModel,
+        this.openai,
+        this.anthropic,
+        this.google,
+      )
+
       const { object } = await generateObject({
-        model: this.openai('gpt-4o-mini'),
+        model,
         schema: z.object({ text: z.string() }),
         messages: [
           { role: 'system', content: systemPrompt },
@@ -53,7 +72,7 @@ export class SunshineService implements ISunshineService {
       return object
     } catch (error) {
       console.error(error)
-      throw new InternalServerError('Failed to generate object')
+      throw new InternalServerError('Failed to generate text')
     }
   }
 }

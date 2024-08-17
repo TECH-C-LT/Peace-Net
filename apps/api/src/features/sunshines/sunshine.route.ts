@@ -12,7 +12,7 @@ import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
-import { OpenAIClient } from '~/libs/models'
+import { AnthropicClient, GoogleClient, OpenAIClient } from '~/libs/models'
 import { SupabaseClient } from '~/libs/supabase'
 
 /**
@@ -33,7 +33,11 @@ sunshineRoutes.post(
   async (c) => {
     return new SunshineController(
       new SunshineUseCase(
-        new SunshineService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
+        new SunshineService(
+          OpenAIClient(getEnv(c).OPENAI_API_KEY),
+          AnthropicClient(getEnv(c).ANTHROPIC_API_KEY),
+          GoogleClient(getEnv(c).GOOGLE_API_KEY),
+        ),
         new UsageFacade(
           new UserPlanService(
             new UserPlanRepository(

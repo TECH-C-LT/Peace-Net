@@ -21,8 +21,8 @@ export class SunshineUseCase implements ISunshineUseCase {
     input: SunshineTextInput,
   ): Promise<Result<SunshineResult>> {
     try {
-      const { text, userId, apiKeyId } = input
-      const result = await this.SunshineService.sunshineText(text)
+      const { text, model, userId, apiKeyId } = input
+      const result = await this.SunshineService.sunshineText(text, model)
 
       await this.usageFacade.incrementUsage(userId, apiKeyId, 'sunshines')
 
