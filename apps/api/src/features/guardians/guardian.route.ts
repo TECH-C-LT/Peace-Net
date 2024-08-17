@@ -15,6 +15,8 @@ import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
+import { AnthropicClient } from '~/libs/anthropic'
+import { GoogleClient } from '~/libs/google'
 import { OpenAIClient } from '~/libs/openai'
 import { SupabaseClient } from '~/libs/supabase'
 
@@ -37,7 +39,11 @@ guardianRoutes.post(
   async (c) => {
     return new GuardianController(
       new GuardianUseCase(
-        new GuardianService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
+        new GuardianService(
+          OpenAIClient(getEnv(c).OPENAI_API_KEY),
+          AnthropicClient(getEnv(c).ANTHROPIC_API_KEY),
+          GoogleClient(getEnv(c).GOOGLE_API_KEY),
+        ),
         new UsageFacade(
           new UserPlanService(
             new UserPlanRepository(
@@ -72,7 +78,11 @@ guardianRoutes.post(
   async (c) => {
     return new GuardianController(
       new GuardianUseCase(
-        new GuardianService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
+        new GuardianService(
+          OpenAIClient(getEnv(c).OPENAI_API_KEY),
+          AnthropicClient(getEnv(c).ANTHROPIC_API_KEY),
+          GoogleClient(getEnv(c).GOOGLE_API_KEY),
+        ),
         new UsageFacade(
           new UserPlanService(
             new UserPlanRepository(
