@@ -16,10 +16,8 @@ export default function ScoreThresholdDescription({
       setDescription('中程度の問題あり')
     } else if (value >= 0.3) {
       setDescription('軽度の懸念あり')
-    } else if (value >= 0.1) {
-      setDescription('批判の可能性ありまたは、受け手によって解釈が異なる')
     } else {
-      setDescription('問題なし')
+      setDescription('批判の可能性ありまたは、受け手によって解釈が異なる')
     }
   }, [value])
 
