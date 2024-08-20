@@ -15,9 +15,7 @@ import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
-import { AnthropicClient } from '~/libs/anthropic'
-import { GoogleClient } from '~/libs/google'
-import { OpenAIClient } from '~/libs/openai'
+import { AnthropicClient, GoogleClient, OpenAIClient } from '~/libs/models'
 import { SupabaseClient } from '~/libs/supabase'
 
 /**
