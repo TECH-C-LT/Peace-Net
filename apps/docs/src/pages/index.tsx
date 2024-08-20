@@ -19,8 +19,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/overview">
-            Peace Net API 概要- 5min ⏱️
+            to="/docs/quick-start">
+            Peace Net API 概要- 3min ⏱️
           </Link>
         </div>
       </div>

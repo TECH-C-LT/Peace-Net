@@ -1,17 +1,17 @@
 ---
-title: Guardian API
+title: Sunshine API
 ---
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-export const GuardianApiName = () => {
+export const SunshineApiName = () => {
   const { siteConfig } = useDocusaurusContext()
-  return siteConfig.customFields.guardian
+  return siteConfig.customFields.sunshine
 }
 
-# <GuardianApiName />
+# <SunshineApiName />
 
-**POST `v1/guardians/text`**
+**POST `v1/sunshines/text`**
 
 ## リクエスト
 #### ヘッダー
@@ -21,17 +21,6 @@ export const GuardianApiName = () => {
 **`text`** string **required** <br/>
 最大500文字までを受け付けています。
 
-**`score_threshold`** integer optional <br/>
-`0.1-1`までの値を受け付けています。 <br />
-default値は`0.5`です。
-
-**`model`** string optional <br/>
-指定可能なモデル
-- gpt-4o-mini
-- claude-3-haiku
-- gemini-1.5-flash
-
-
 ### リクエスト例
 <details>
   <summary>cURL</summary>
@@ -39,7 +28,7 @@ default値は`0.5`です。
     <code>
       ```
         curl -X POST \
-          --location 'https://api.peeace.net/v1/guardians/text' \
+          --location 'https://api.peeace.net/v1/sunshines/text' \
           -H 'Content-Type: application/json' \
           -H "Authorization: Bearer <API_KEY>" \
           -d '{
@@ -59,21 +48,7 @@ default値は`0.5`です。
     <code>
     ```
       {
-        "flagged": true,
-        "categories": {
-          "sexual": false,
-          "hate": false,
-          "self_harm": true,
-          "violence": false,
-          "defamation": true
-        },
-        "category_scores": {
-          "sexual": 0,
-          "hate": 0,
-          "self_harm": 0.9,
-          "violence": 0,
-          "defamation": 0.8
-        }
+        "flagged": "きっと大丈夫です！",
       }
     ```
     </code>
@@ -93,3 +68,4 @@ default値は`0.5`です。
 | `501`       | Not Implemented Error |
 
 エラーの詳細は[よくあるエラー](/docs/errors)を参照してください。
+
