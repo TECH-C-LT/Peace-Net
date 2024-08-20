@@ -80,7 +80,12 @@ export function PlaygroundForm() {
           <Field>
             <Label htmlFor={fields.score_threshold.id}>しきい値</Label>
             <div className="flex flex-wrap items-center gap-3 md:flex-nowrap">
-              <SliderConform meta={fields.score_threshold} max={1} step={0.1} />
+              <SliderConform
+                meta={fields.score_threshold}
+                max={1}
+                step={0.1}
+                min={0.1}
+              />
               <ScoreThresholdDescription
                 value={Number(fields.score_threshold.value)}
               />
