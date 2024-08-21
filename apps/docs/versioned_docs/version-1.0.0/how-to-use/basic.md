@@ -2,7 +2,7 @@
 Guardians APIの基本的な使い方を説明しています。
 
 ## API キーの発行
-1. <a href="https://peeace.net" target="_blank">ユーザーポータル</a>にログインします。
+1. <a href="https://pe-ace.net" target="_blank">ユーザーポータル</a>にログインします。
 「平和ネットAPIを使う」をクリックしてください。
 
 :::info
@@ -41,7 +41,7 @@ Guardians APIの基本的な使い方を説明しています。
     <code>
       ```
       curl -s -X POST \
-        --location 'https://api.peeace.net/v1/guardians/text' \
+        --location 'https://api.pe-ace.net/v1/guardians/text' \
         --header 'Content-Type: application/json' \
         --header "Authorization: Bearer $API_KEY" \
         --data '{
@@ -74,7 +74,7 @@ Guardians APIの基本的な使い方を説明しています。
             text = "最低な文章"
         } | ConvertTo-Json
 
-        Invoke-RestMethod -Method Post -Uri "https://api.peeace.net/v1/guardians/text" -Headers $headers -Body $body
+        Invoke-RestMethod -Method Post -Uri "https://api.pe-ace.net/v1/guardians/text" -Headers $headers -Body $body
       ```
     </code>
   </pre>
