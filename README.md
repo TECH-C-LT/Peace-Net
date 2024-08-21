@@ -7,8 +7,8 @@
 </div>
 
 <div align="center">
-    <a href="https://peeace.net/"><b>Web Site</b></a><br />
-    <a href="https://docs.peeace.net/"><b>Documentation</b></a><br />
+    <a href="https://pe-ace.net/"><b>Web Site</b></a><br />
+    <a href="https://docs.pe-ace.net/"><b>Documentation</b></a><br />
 </div>
 
 <br />
@@ -63,7 +63,7 @@ Sunshine APIは、ネガティブなテキストをポジティブな表現に�
 - コンテキスト保持: 元のメッセージの意図や文脈を維持しながら変換
 - 多言語サポート: 複数の言語に対応し、グローバルな使用が可能
 
-これらのAPIを使用することで、オンラインプラットフォームやアプリケーションは、より安全で前向きなユーザー体験を提供することができます。詳細な使用方法やインテグレーションガイドについては、[APIドキュメント](https://docs.peeace.net/)をご参照ください。
+これらのAPIを使用することで、オンラインプラットフォームやアプリケーションは、より安全で前向きなユーザー体験を提供することができます。詳細な使用方法やインテグレーションガイドについては、[APIドキュメント](https://docs.pe-ace.net/)をご参照ください。
 
 <br />
 
