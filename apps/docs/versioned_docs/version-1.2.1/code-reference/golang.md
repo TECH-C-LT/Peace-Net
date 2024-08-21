@@ -13,7 +13,7 @@ import (
 
 var (
 	apiKey = "YOUR_API_KEY"
-	apiUrl = "https://api.peeace.net/v1/guardians/text"
+	apiUrl = "https://api.pe-ace.net/v1/guardians/text"
 )
 
 func main() {

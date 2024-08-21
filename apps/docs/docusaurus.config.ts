@@ -92,7 +92,7 @@ const config: Config = {
           label: 'API Reference',
         },
         {
-          href: 'https://peeace.net/',
+          href: 'https://pe-ace.net/',
           label: 'Website',
           position: 'right',
         },
@@ -147,7 +147,7 @@ const config: Config = {
           items: [
             {
               label: 'Website',
-              href: 'https://peeace.net/',
+              href: 'https://pe-ace.net/',
             },
             {
               label: 'GitHub',

@@ -5,7 +5,7 @@ Peace Net APIはより安全で平和なインターネット空間の実現を�
 
 ## 機能
 
-### <a href="https://peeace.net" target="_blank">ユーザーポータル</a>
+### <a href="https://pe-ace.net" target="_blank">ユーザーポータル</a>
 ユーザーポータルでは以下の操作を行うことができます。
   - APIキーの発行
   - 使用回数の確認

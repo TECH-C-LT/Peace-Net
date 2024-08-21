@@ -5,7 +5,7 @@
 //// YOUR_API_KEYを取得したものに変更してください
 const apiKey= 'YOUR_API_KEY';
 
-const apiUrl = "https://api.peeace.net/v1/guardians/text";
+const apiUrl = "https://api.pe-ace.net/v1/guardians/text";
 const requestBody = {
   text: "最低な文章"
 };
