@@ -2,6 +2,7 @@
 
 import { getFormProps, useForm } from '@conform-to/react'
 import { getZodConstraint, parseWithZod } from '@conform-to/zod'
+import { SiAnthropic, SiGoogle, SiOpenai } from '@icons-pack/react-simple-icons'
 import { Button } from '@peace-net/ui/components/ui/button'
 import { Label } from '@peace-net/ui/components/ui/label'
 import { Loader2Icon, PlayIcon } from 'lucide-react'
@@ -9,6 +10,7 @@ import { useActionState } from 'react'
 
 import { Field, FieldError } from '~/components/common/field'
 import { RadioGroupConform } from '~/components/conform/radio-group'
+import { SelectConform } from '~/components/conform/select'
 import { SliderConform } from '~/components/conform/slider'
 import { TextareaConform } from '~/components/conform/textarea'
 
@@ -41,6 +43,9 @@ export function PlaygroundForm() {
       score_threshold: isSuccessResult(lastResult)
         ? lastResult.value.score_threshold
         : 0.5,
+      model: isSuccessResult(lastResult)
+        ? lastResult.value.model
+        : 'gpt-4o-mini',
       result: isSuccessResult(lastResult) ? lastResult.value.result : '',
     },
   })
@@ -95,6 +100,29 @@ export function PlaygroundForm() {
             )}
           </Field>
         )}
+        <Field>
+          <Label htmlFor={fields.model.id}>使用するAIモデル</Label>
+          <SelectConform
+            placeholder="AIモデルを選択"
+            meta={fields.model}
+            items={[
+              { value: 'gpt-4o-mini', name: 'GPT-4o mini', Icon: SiOpenai },
+              {
+                value: 'claude-3-haiku',
+                name: 'Claude 3 Haiku',
+                Icon: SiAnthropic,
+              },
+              {
+                value: 'gemini-1.5-flash',
+                name: 'Gemini 1.5 Flash',
+                Icon: SiGoogle,
+              },
+            ]}
+          />
+          {fields.model.errors && (
+            <FieldError>{fields.model.errors}</FieldError>
+          )}
+        </Field>
         <Field>
           <Label htmlFor={fields.text.id}>テキスト</Label>
           <TextareaConform
