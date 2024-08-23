@@ -124,6 +124,9 @@ importers:
       '@conform-to/zod':
         specifier: ^1.1.5
         version: 1.1.5(zod@3.23.8)
+      '@icons-pack/react-simple-icons':
+        specifier: ^10.0.0
+        version: 10.0.0(react@19.0.0-rc-8269d55d-20240802)
       '@peace-net/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -1693,6 +1696,11 @@ packages:
   '@humanwhocodes/object-schema@2.0.2':
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     deprecated: Use @eslint/object-schema instead
+
+  '@icons-pack/react-simple-icons@10.0.0':
+    resolution: {integrity: sha512-oU0PVDx9sbNQjRxJN555dsHbRApYN+aBq/O9+wo3JgNkEfvBMgAEtsSGtXWWXQsLAxJcYiFOCzBWege/Xj/JFQ==}
+    peerDependencies:
+      react: ^16.13 || ^17 || ^18
 
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
@@ -10580,6 +10588,10 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.2': {}
+
+  '@icons-pack/react-simple-icons@10.0.0(react@19.0.0-rc-8269d55d-20240802)':
+    dependencies:
+      react: 19.0.0-rc-8269d55d-20240802
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
