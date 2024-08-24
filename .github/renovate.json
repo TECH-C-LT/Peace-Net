@@ -1,0 +1,28 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:base", ":disableDependencyDashboard"],
+    "timezone": "Asia/Tokyo",
+    "prConcurrentLimit": 5,
+    "packageRules": [
+      {
+        "matchManagers": ["github-actions"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "github actions deps"
+      },
+      {
+        "matchManagers": ["dockerfile"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "docker deps"
+      },
+      {
+        "matchManagers": ["npm"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "npm deps"
+      },
+      {
+        "matchManagers": ["gomod"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "go deps"
+      }
+    ]
+  }
