@@ -1,0 +1,18 @@
+# syntax docs: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+name: Feature Request
+description: 機能追加の提案
+title: "[New Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: what-you-want
+    attributes:
+      label: 欲しい機能の概要
+      placeholder: e.g. スライド一覧画面が欲しい
+    validations:
+      required: true
+  - type: textarea
+    id: flow-image
+    attributes:
+      label: 動作イメージはどのようなものですか？
+      placeholder: e.g. メニューからボタンを押すと開催日ごとに表示される

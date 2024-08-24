@@ -1,0 +1,40 @@
+# syntax docs: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+name: Bug Report
+description: Peace Net APIに関するバグの報告.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: どのような問題が起きていますか？
+      placeholder: e.g. API keyが発行できない
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: どのような動作を期待していますか？
+      placeholder: e.g. API keyが発行できるようになる
+  - type: input
+    id: issue-path
+    attributes:
+      label: 問題が起きているパス
+      placeholder: e.g. /api_keys
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "どのブラウザで問題が起きていますか？"
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - その他
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログ/エラーメッセージ
+      description: 問題と共に出力されたログやエラーメッセージがあれば添付してください.
+      render: shell
