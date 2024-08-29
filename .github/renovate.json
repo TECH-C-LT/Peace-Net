@@ -1,0 +1,18 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:base", ":disableDependencyDashboard"],
+    "timezone": "Asia/Tokyo",
+    "prConcurrentLimit": 5,
+    "packageRules": [
+      {
+        "matchManagers": ["github-actions"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "github actions deps"
+      },
+      {
+        "matchManagers": ["npm"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "npm deps"
+      },
+    ]
+  }
