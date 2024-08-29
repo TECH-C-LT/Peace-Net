@@ -10,11 +10,6 @@
         "groupName": "github actions deps"
       },
       {
-        "matchManagers": ["dockerfile"],
-        "matchUpdateTypes": ["minor", "patch"],
-        "groupName": "docker deps"
-      },
-      {
         "matchManagers": ["npm"],
         "matchUpdateTypes": ["minor", "patch"],
         "groupName": "npm deps"
