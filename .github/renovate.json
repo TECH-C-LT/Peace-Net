@@ -14,10 +14,5 @@
         "matchUpdateTypes": ["minor", "patch"],
         "groupName": "npm deps"
       },
-      {
-        "matchManagers": ["gomod"],
-        "matchUpdateTypes": ["minor", "patch"],
-        "groupName": "go deps"
-      }
     ]
   }
