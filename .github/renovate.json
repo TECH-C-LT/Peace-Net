@@ -5,6 +5,7 @@
     ":disableDependencyDashboard"
   ],
   "timezone": "Asia/Tokyo",
+  "schedule": "every weekend",
   "prConcurrentLimit": 5,
   "packageRules": [
     {
