@@ -2,30 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ],
-  "timezone": "Asia/Tokyo",
-  "schedule": "every weekend",
-  "prConcurrentLimit": 5,
-  "packageRules": [
-    {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "groupName": "github actions deps"
-    },
-    {
-      "matchManagers": [
-        "npm"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "groupName": "npm deps"
-    }
   ]
 }
