@@ -7,9 +7,6 @@ import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
 
 import { getEnv } from '~/config/environment'
-import { GuardianController } from '~/features/guardians/guardian.controller'
-import { GuardianService } from '~/features/guardians/guardian.service'
-import { GuardianUseCase } from '~/features/guardians/guardian.usecase'
 import { UsageLogRepository } from '~/features/usageLogs/usageLog.repository'
 import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
@@ -18,11 +15,18 @@ import { UserPlanService } from '~/features/userPlans/userPlan.service'
 import { AnthropicClient, GoogleClient, OpenAIClient } from '~/libs/models'
 import { SupabaseClient } from '~/libs/supabase'
 
+import { GuardianImageController } from './guardianImage.controller'
+import { GuardianImageService } from './guardianImage.service'
+import { GuardianImageUseCase } from './guardianImage.usecase'
+import { GuardianTextController } from './guardianText.controller'
+import { GuardianTextService } from './guardianText.service'
+import { GuardianTextUseCase } from './guardianText.usecase'
+
 /**
  * Guardian APIのルーティングを定義します
  * テキストと画像のコンテンツモデレーション用エンドポイントを提供
  * - POST /text: テキスト分析
- * - POST /image: 画像分析(未実装)
+ * - POST /image: 画像分析
  */
 const guardianRoutes = new Hono()
 
@@ -35,9 +39,9 @@ guardianRoutes.post(
     return
   }),
   async (c) => {
-    return new GuardianController(
-      new GuardianUseCase(
-        new GuardianService(
+    return new GuardianTextController(
+      new GuardianTextUseCase(
+        new GuardianTextService(
           OpenAIClient(getEnv(c).OPENAI_API_KEY),
           AnthropicClient(getEnv(c).ANTHROPIC_API_KEY),
           GoogleClient(getEnv(c).GOOGLE_API_KEY),
@@ -74,13 +78,9 @@ guardianRoutes.post(
     return
   }),
   async (c) => {
-    return new GuardianController(
-      new GuardianUseCase(
-        new GuardianService(
-          OpenAIClient(getEnv(c).OPENAI_API_KEY),
-          AnthropicClient(getEnv(c).ANTHROPIC_API_KEY),
-          GoogleClient(getEnv(c).GOOGLE_API_KEY),
-        ),
+    return new GuardianImageController(
+      new GuardianImageUseCase(
+        new GuardianImageService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),
         new UsageFacade(
           new UserPlanService(
             new UserPlanRepository(
