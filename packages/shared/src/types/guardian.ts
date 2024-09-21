@@ -19,4 +19,9 @@ export type GuardianTextInput = GuardianTextDTO & {
 
 export type GuardianImageDTO = z.infer<typeof guardianImageRequestSchema>
 
+export type GuardianImageInput = GuardianImageDTO & {
+  userId: string
+  apiKeyId: string
+}
+
 export type GuardianResult = z.infer<typeof guardianResultSchema>
