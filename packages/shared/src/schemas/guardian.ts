@@ -16,7 +16,7 @@ export const guardianTextRequestSchema = z.object({
 })
 
 export const guardianImageRequestSchema = z.object({
-  image_url: z.string(),
+  image: z.string(),
   score_threshold: z.number().max(1).min(0).optional().default(0.5),
 })
 
