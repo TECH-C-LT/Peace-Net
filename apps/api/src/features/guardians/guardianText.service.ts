@@ -55,12 +55,12 @@ const systemPrompt = `
  * このサービスは、OpenAI APIを使用して日本語テキストのコンテンツモデレーションを行います。
  * 与えられたテキストを分析し、様々なカテゴリーにおける不適切さのスコアを0から1の範囲で評価します。
  *
- * @interface IGuardianService
+ * @interface IGuardianTextService
  * @method guardianText - 指定されたテキストを分析し、不適切な内容の有無を判定します
  * @param text - 分析対象のテキスト
  * @returns 分析結果を含むResultオブジェクト。成功時はGuardianResultを、失敗時はエラーを含みます。
  */
-export interface IGuardianService {
+export interface IGuardianTextService {
   guardianText(text: string, selectedModel: Models): Promise<CategoryScores>
 }
 
@@ -70,13 +70,13 @@ export interface IGuardianService {
  * このサービスは、OpenAI APIを使用して日本語テキストのコンテンツモデレーションを行います。
  * 与えられたテキストを分析し、様々なカテゴリーにおける不適切さのスコアを0から1の範囲で評価します。
  *
- * @class GuardianService
- * @implements IGuardianService
+ * @class GuardianTextService
+ * @implements IGuardianTextService
  * @param openai - OpenAIProviderのインスタンス
  * @method guardianText - 指定されたテキストを分析し、不適切な内容の有無を判定します
  * @returns 分析結果を含むResultオブジェクト。成功時はGuardianResultを、失敗時はエラーを含みます。
  */
-export class GuardianService implements IGuardianService {
+export class GuardianTextService implements IGuardianTextService {
   constructor(
     private openai: OpenAIProvider,
     private anthropic: AnthropicProvider,
