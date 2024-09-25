@@ -11,10 +11,15 @@ export const GuardianApiName = () => {
 
 # <GuardianApiName />
 
+
+## テキスト
+
 **POST `v1/guardians/text`**
 
-## リクエスト
+### リクエスト
+
 #### ヘッダー
+
 **`accept`** string
 
 #### リクエストボディ
@@ -32,7 +37,7 @@ default値は`0.5`です。
 - gemini-1.5-flash
 
 
-### リクエスト例
+#### リクエスト例
 <details>
   <summary>cURL</summary>
   <pre>
@@ -50,7 +55,7 @@ default値は`0.5`です。
   </pre>
 </details>
 
-## レスポンス
+### レスポンス
 <details>
   <summary>レスポンス例</summary>
 
@@ -80,7 +85,88 @@ default値は`0.5`です。
   </pre>
 </details>
 
-### レスポンスステータスコード
+#### レスポンスステータスコード
+
+| Status Code | Description           |
+| ----        |  ----                 |
+| `200`       | Success               |
+| `400`       | Validation            |
+| `401`       | Unauthorized          |
+| `404`       | Not Found             |
+| `429`       | Usage Limit Exceeded  |
+| `500`       | Internal Server Error |
+| `501`       | Not Implemented Error |
+
+エラーの詳細は[よくあるエラー](/docs/errors)を参照してください。
+
+## 画像
+
+**POST `v1/guardians/image`**
+
+### リクエスト
+
+#### ヘッダー
+
+**`accept`** string
+
+#### リクエストボディ
+**`image`** string **required** <br/>
+Base64エンコードされた画像データを送信します。画像フォーマットとしては、JPEG、PNGなどをサポートしています。
+
+**`score_threshold`** integer optional <br/>
+`0.1-1`までの値を受け付けています。 <br />
+default値は`0.5`です。
+
+
+#### リクエスト例
+<details>
+  <summary>cURL</summary>
+  <pre>
+    <code>
+      ```
+        curl -X POST \
+          --location 'https://api.pe-ace.net/v1/guardians/text' \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <API_KEY>" \
+          -d '{
+          "image": "<BASE64_IMAGE>"
+        }'
+      ```
+    </code>
+  </pre>
+</details>
+
+### レスポンス
+<details>
+  <summary>レスポンス例</summary>
+
+  status: `200`
+  <pre>
+    <code>
+    ```
+      {
+        "flagged": true,
+        "categories": {
+          "sexual": false,
+          "hate": false,
+          "self_harm": true,
+          "violence": false,
+          "defamation": true
+        },
+        "category_scores": {
+          "sexual": 0,
+          "hate": 0,
+          "self_harm": 0.9,
+          "violence": 0,
+          "defamation": 0.8
+        }
+      }
+    ```
+    </code>
+  </pre>
+</details>
+
+#### レスポンスステータスコード
 
 | Status Code | Description           |
 | ----        |  ----                 |
