@@ -1,4 +1,5 @@
 import { Label } from '@peace-net/ui/components/ui/label'
+import React, { useEffect, useRef } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { foundation } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
@@ -7,8 +8,16 @@ interface ResultSyntaxProps {
 }
 
 export const ResultSyntax: React.FC<ResultSyntaxProps> = ({ code }) => {
+  const codeRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (codeRef.current) {
+      codeRef.current.scrollIntoView({ behavior: 'smooth' }) // 自動スクロール
+    }
+  }, [code]) // codeが変更されたときにスクロール
+
   return (
-    <div className="mx-auto -mt-1 max-w-2xl flex-grow">
+    <div className="mx-auto mt-3 max-w-2xl flex-grow" ref={codeRef}>
       <Label className="text-teal-500">結果</Label>
       <SyntaxHighlighter
         language="json"
