@@ -8,42 +8,21 @@ import { playgroundSchema } from '../schemas'
 
 export async function handlePlayground(prevState: unknown, formData: FormData) {
   const submission = parseWithZod(formData, { schema: playgroundSchema })
-
-  if (submission.status !== 'success') {
-    return submission.reply()
-  }
-
-  const { api, text, score_threshold } = submission.value
-
-  const count = await checkUsageCount()
-
-  if (count >= 10) {
-    submission.value.isLimitReached = true
-    return {
-      status: submission.status,
-      value: submission.value,
-    }
-  }
-
-  const result = await fetchApi(api, text, score_threshold)
-
-  await incrementPlaygroundUsage()
-
-  submission.value.result = JSON.stringify(result, null, 2)
-
-  return {
-    status: submission.status,
-    value: submission.value,
-  }
+  return submission.reply()
 }
 
-async function fetchApi(api: string, text: string, score_threshold: number) {
+export async function fetchApi(
+  api: string,
+  type: string,
+  content: string,
+  score_threshold?: number,
+) {
   const body = {
-    text,
+    ...(type === 'text' ? { text: content } : { image: content }),
     ...(api === 'guardians' && { score_threshold }),
   }
 
-  const response = await fetch(`${process.env.API_URL}/v1/${api}/text`, {
+  const response = await fetch(`${process.env.API_URL}/v1/${api}/${type}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -57,7 +36,7 @@ async function fetchApi(api: string, text: string, score_threshold: number) {
   return result
 }
 
-async function checkUsageCount(): Promise<number> {
+export async function checkUsageCount(): Promise<number> {
   const supabase = createClient()
 
   const { data } = await supabase.auth.getUser()
@@ -74,7 +53,7 @@ async function checkUsageCount(): Promise<number> {
   return PlaygroundUsageRes.data?.[0]?.count as number
 }
 
-async function incrementPlaygroundUsage() {
+export async function incrementPlaygroundUsage() {
   const supabase = createClient()
 
   const { data } = await supabase.auth.getUser()
