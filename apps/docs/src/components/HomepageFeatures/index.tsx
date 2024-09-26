@@ -14,16 +14,16 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/peace.svg').default,
     description: (
       <>
-        より安全で平和なインターネット空間の実現を目指し、AIを活用したテキスト判定システムです。
+        より安全で平和なインターネット空間の実現を目指し、AIを活用したコンテンツ判定システムです。
       </>
     ),
   },
   {
-    title: '最新モデルを使用して誹謗中傷を判断🧠',
+    title: '最新モデルを使用して誹謗中傷や有害コンテンツを判断🧠',
     Svg: require('@site/static/img/ai.svg').default,
     description: (
       <>
-        OpenAIの最新モデル、<code>gpt-4o-mini</code><br/>を使用し柔軟に判断する<a href="/docs/features/guardian">Guardian API</a>。
+        入力された内容を分析し、有害なコンテンツを検出する<a href="/docs/features/guardian">Guardian API</a>。
       </>
     ),
   },
