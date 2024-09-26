@@ -22,7 +22,7 @@
     "date-fns": "^3.6.0",
     "lucide-react": "^0.395.0",
     "next": "15.0.0-rc.0",
-    "react": "19.0.0-rc-8269d55d-20240802",
+    "react": "19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "19.0.0-rc-8269d55d-20240802",
     "react-hook-form": "^7.52.2",
     "react-ios-corners": "^1.0.0",
