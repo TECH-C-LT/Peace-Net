@@ -27,7 +27,7 @@
     "react-hook-form": "^7.52.2",
     "react-ios-corners": "^1.0.0",
     "react-syntax-highlighter": "^15.5.0",
-    "recharts": "2.13.0-alpha.4",
+    "recharts": "2.13.0-alpha.5",
     "sonner": "^1.5.0",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"
