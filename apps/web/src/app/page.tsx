@@ -20,7 +20,7 @@ const features = [
     Icon: ShieldCheckIcon,
     name: 'Guardian API',
     description:
-      '入力されたテキストの内容を分析し、有害なコンテンツを検出するAI駆動の高度なフィルタリングシステムです。',
+      '入力されたテキストや画像を分析し、有害なコンテンツを検出するAI駆動の高度なフィルタリングシステムです。',
     href: `${DOCS_URL}/docs/features/guardian`,
     cta: 'くわしく知る',
     background: <ScanText />,

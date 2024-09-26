@@ -35,7 +35,7 @@ const systemPrompt = `
  * 与えられたテキストを分析し、様々なカテゴリーにおける不適切さのスコアを0から1の範囲で評価します。
  *
  * @interface IGuardianImageService
- * @method guardianImage - 指定されたテキストを分析し、不適切な内容の有無を判定します
+ * @method guardianImage - 指定された画像を分析し、不適切な内容の有無を判定します
  * @param image - 分析対象の画像(Base64形式)
  * @returns 分析結果を含むResultオブジェクト。成功時はGuardianResultを、失敗時はエラーを含みます。
  */
