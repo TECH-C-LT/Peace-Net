@@ -30,8 +30,8 @@ importers:
   apps/api:
     dependencies:
       '@ai-sdk/anthropic':
-        specifier: ^0.0.49
-        version: 0.0.49(zod@3.23.8)
+        specifier: ^0.0.50
+        version: 0.0.50(zod@3.23.8)
       '@ai-sdk/google':
         specifier: ^0.0.49
         version: 0.0.49(zod@3.23.8)
@@ -427,8 +427,8 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
 
-  '@ai-sdk/anthropic@0.0.49':
-    resolution: {integrity: sha512-RBMRJqnsfl1mkuNsdWSfuz64knKUCocF9wB6GySfprZZYyKtLsHK1aIqJBOjcQP8TX70wxwCC3FUrpALKAEokg==}
+  '@ai-sdk/anthropic@0.0.50':
+    resolution: {integrity: sha512-++mqmFcUoQgjoCchAU6eVG3QfKdwkeJVNdMZ+jUiNdawn8diA6BlARlu7xFT4F7W3bcStfYv4hK1jwRyzAQtCg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -456,15 +456,6 @@ packages:
 
   '@ai-sdk/provider-utils@1.0.17':
     resolution: {integrity: sha512-2VyeTH5DQ6AxqvwdyytKIeiZyYTyJffpufWjE67zM2sXMIHgYl7fivo8m5wVl6Cbf1dFPSGKq//C9s+lz+NHrQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.0.0
-    peerDependenciesMeta:
-      zod:
-        optional: true
-
-  '@ai-sdk/provider-utils@1.0.18':
-    resolution: {integrity: sha512-9u/XE/dB1gsIGcxiC5JfGOLzUz+EKRXt66T8KYWwDg4x8d02P+fI/EPOgkf+T4oLBrcQgvs4GPXPKoXGPJxBbg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -8816,10 +8807,10 @@ snapshots:
 
   '@aashutoshrathi/word-wrap@1.2.6': {}
 
-  '@ai-sdk/anthropic@0.0.49(zod@3.23.8)':
+  '@ai-sdk/anthropic@0.0.50(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 0.0.23
-      '@ai-sdk/provider-utils': 1.0.18(zod@3.23.8)
+      '@ai-sdk/provider-utils': 1.0.19(zod@3.23.8)
       zod: 3.23.8
 
   '@ai-sdk/google@0.0.49(zod@3.23.8)':
@@ -8847,15 +8838,6 @@ snapshots:
   '@ai-sdk/provider-utils@1.0.17(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 0.0.22
-      eventsource-parser: 1.1.2
-      nanoid: 3.3.6
-      secure-json-parse: 2.7.0
-    optionalDependencies:
-      zod: 3.23.8
-
-  '@ai-sdk/provider-utils@1.0.18(zod@3.23.8)':
-    dependencies:
-      '@ai-sdk/provider': 0.0.23
       eventsource-parser: 1.1.2
       nanoid: 3.3.6
       secure-json-parse: 2.7.0
