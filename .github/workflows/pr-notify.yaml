@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
-        uses: stegzilla/discord-notify@v2
+        uses: stegzilla/discord-notify@v4
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: PR approved
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
-        uses: stegzilla/discord-notify@v2
+        uses: stegzilla/discord-notify@v4
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: New PR opened
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
-        uses: stegzilla/discord-notify@v2
+        uses: stegzilla/discord-notify@v4
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: Review Commented
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord notification
-        uses: stegzilla/discord-notify@v2
+        uses: stegzilla/discord-notify@v4
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: PR Commented
