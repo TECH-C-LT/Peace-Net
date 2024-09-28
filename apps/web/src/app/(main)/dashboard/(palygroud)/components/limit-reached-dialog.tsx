@@ -9,11 +9,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@peace-net/ui/components/ui/alert-dialog'
+import { buttonVariants } from '@peace-net/ui/components/ui/button'
 import type { User } from '@supabase/supabase-js'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import GitHub from '~/components/header/github'
+import { DOCS_URL } from '~/lib/config'
 import { createClient } from '~/lib/supabase/client'
 
 export default function LimitReachedDialog() {
@@ -46,11 +48,23 @@ export default function LimitReachedDialog() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogAction asChild>
-            {user?.is_anonymous ? (
-              <GitHub />
-            ) : (
-              <Link href="/dashboard/api-keys">APIキー管理ページ</Link>
-            )}
+            <>
+              <a
+                href={DOCS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: 'link' })}
+              >
+                APIドキュメント
+              </a>
+              {user?.is_anonymous ? (
+                <GitHub />
+              ) : (
+                <Link href="/dashboard/api-keys" className={buttonVariants()}>
+                  APIキー管理ページ
+                </Link>
+              )}
+            </>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
