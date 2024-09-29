@@ -9,6 +9,10 @@ route = { pattern = "api.pe-ace.net", custom_domain = true }
 [vars]
 DOCS_URL = "https://docs.pe-ace.net/"
 
+[observability]
+enabled = true
+head_sampling_rate = 1
+
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
