@@ -23,6 +23,6 @@
     "@cloudflare/workers-types": "^4.20240529.0",
     "@peace-net/eslint-config": "workspace:*",
     "@peace-net/typescript-config": "workspace:*",
-    "wrangler": "^3.57.2"
+    "wrangler": "^3.78.12"
   }
 }
