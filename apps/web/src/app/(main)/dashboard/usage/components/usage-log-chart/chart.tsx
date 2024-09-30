@@ -63,6 +63,7 @@ export default function Chart({ data }: { data: any }) {
           stackId="a"
           fill="#14b884"
         />
+        <Bar dataKey="prisms" name="Prism API" stackId="a" fill="#7fb814" />
       </BarChart>
     </ResponsiveContainer>
   )
