@@ -5,7 +5,7 @@ export interface IUsageFacade {
   incrementUsage(
     userId: string,
     apiKeyId: string,
-    feature: 'guardians' | 'sunshines',
+    feature: 'guardians' | 'sunshines' | 'prisms',
   ): Promise<void>
 }
 
@@ -18,7 +18,7 @@ export class UsageFacade implements IUsageFacade {
   async incrementUsage(
     userId: string,
     apiKeyId: string,
-    feature: 'guardians' | 'sunshines',
+    feature: 'guardians' | 'sunshines' | 'prisms',
   ): Promise<void> {
     await Promise.all([
       this.userPlanService.incrementTotalRequestsUsed(userId),
