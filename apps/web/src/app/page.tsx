@@ -2,7 +2,12 @@ import {
   BentoCard,
   BentoGrid,
 } from '@peace-net/ui/components/magicui/bento-grid'
-import { BookTextIcon, ShieldCheckIcon, SunIcon } from 'lucide-react'
+import {
+  BookTextIcon,
+  PyramidIcon,
+  ShieldCheckIcon,
+  SunIcon,
+} from 'lucide-react'
 
 import { DOCS_URL } from '~/lib/config'
 
@@ -20,7 +25,7 @@ const features = [
     Icon: ShieldCheckIcon,
     name: 'Guardian API',
     description:
-      '入力されたテキストや画像を分析し、有害なコンテンツを検出するAI駆動の高度なフィルタリングシステムです。',
+      '入力されたテキストや画像を分析し、有害なコンテンツを検出するAPIです。',
     href: `${DOCS_URL}/docs/features/guardian`,
     cta: 'くわしく知る',
     background: <ScanText />,
@@ -29,8 +34,7 @@ const features = [
   {
     Icon: SunIcon,
     name: 'Sunshine API',
-    description:
-      'ネガティブなテキストをポジティブな表現に変換する革新的なAI駆動のテキスト変換システムです。',
+    description: '不適切なテキストを適切なテキストに変換するAPIです。',
     href: `${DOCS_URL}/docs/features/sunshine`,
     cta: 'くわしく知る',
     className: 'col-span-full md:col-span-5 row-span-2 md:row-span-3',
@@ -40,14 +44,19 @@ const features = [
     name: 'API Reference',
     description: 'ドキュメントを確認して、APIを使いこなしましょう。',
     href: `${DOCS_URL}`,
-    cta: 'API Reference',
-    className: 'col-span-full md:col-span-3 row-span-2 md:row-span-3',
+    cta: 'ドキュメントを見る',
+    background: <AnimatedBeamMultipleOutputDemo />,
+    className: 'col-span-full md:col-span-4 row-span-2 md:row-span-3',
   },
   {
-    name: '平和ネットAPI',
-    description: '平和ネットAPIを使用し、平和なインターネットを作りましょう。',
-    background: <AnimatedBeamMultipleOutputDemo />,
-    className: 'col-span-full md:col-span-6 row-span-2 md:row-span-3',
+    Icon: PyramidIcon,
+    name: 'Prism API',
+    description:
+      '入力されたテキストに対してポジティブな視点とネガティブな視点の両方の候補を提供するAPIです。',
+    href: `${DOCS_URL}/docs/features/prism`,
+    cta: 'くわしく知る',
+    className:
+      ' row-start-9 col-span-full md:col-span-5 row-span-2 md:row-span-3',
   },
 ]
 
