@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <div className="flex flex-col items-center justify-center gap-5 p-3">
       <div className="mt-6 space-y-3 md:mt-0">
-        <div className="text-right">
+        <div className="text-left">
           <Badge variant="secondary">Beta</Badge>
         </div>
         <h1 className="my-2 text-center text-4xl font-bold md:text-5xl">

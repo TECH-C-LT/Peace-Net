@@ -41,7 +41,7 @@ export function RadioGroupConform({
 
           return (
             <div
-              className={`flex items-center gap-3 rounded border transition duration-500 ${isSelected && 'bg-teal-500/5'}`}
+              className={`flex items-center gap-3 rounded border transition duration-500 ${isSelected ? 'bg-teal-500/5' : 'hover:bg-muted'}`}
               key={item.value}
             >
               <div className="w-12">

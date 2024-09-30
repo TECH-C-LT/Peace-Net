@@ -14,6 +14,7 @@ import type { Playground } from '../schemas'
 import { playgroundSchema } from '../schemas'
 import { GuardianImageForm } from './form/guardian-image'
 import { GuardianTextForm } from './form/guardian-text'
+import { PrismForm } from './form/prism'
 import { SunshineForm } from './form/sunshine'
 
 function isSuccessResult(
@@ -61,6 +62,12 @@ export function PlaygroundForm() {
                 description:
                   'ネガティブなテキストをポジティブな表現に変換します。',
               },
+              {
+                value: 'prisms',
+                label: 'Prism API',
+                description:
+                  'ポジティブな視点とネガティブな視点の両方の候補を提供します。',
+              },
             ]}
           />
           {fields.api.errors && (
@@ -94,6 +101,7 @@ export function PlaygroundForm() {
         <GuardianImageForm />
       )}
       {fields.api.value === 'sunshines' && <SunshineForm />}
+      {fields.api.value === 'prisms' && <PrismForm />}
     </div>
   )
 }
