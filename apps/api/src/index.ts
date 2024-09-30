@@ -6,6 +6,7 @@ import { logger } from 'hono/logger'
 
 import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
+import { prismRoutes } from '~/features/prisms/prism.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
 import { authenticateMiddleware } from '~/middleware/authenticate.middleware'
 import { usageMiddleware } from '~/middleware/usage.middleware'
@@ -35,6 +36,7 @@ v1.use('/*', async (c, next) => {
 
 v1.route('/guardians', guardianRoutes)
 v1.route('/sunshines', sunshineRoutes)
+v1.route('/prisms', prismRoutes)
 
 app.route('/v1', v1)
 
