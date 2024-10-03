@@ -36,8 +36,8 @@ importers:
         specifier: ^0.0.51
         version: 0.0.51(zod@3.23.8)
       '@ai-sdk/openai':
-        specifier: ^0.0.64
-        version: 0.0.64(zod@3.23.8)
+        specifier: ^0.0.65
+        version: 0.0.65(zod@3.23.8)
       '@hono/zod-validator':
         specifier: ^0.3.0
         version: 0.3.0(hono@4.6.3)(zod@3.23.8)
@@ -435,8 +435,8 @@ packages:
     peerDependencies:
       zod: ^3.0.0
 
-  '@ai-sdk/openai@0.0.64':
-    resolution: {integrity: sha512-0FhO4hpxCTGKuyR1QsPMsxS3I385/aUPylopzVUaVT6pDnMwIh4HZrVqkK+R1D+xCR9F+I9ZZ0uSaEDo0Oe7jw==}
+  '@ai-sdk/openai@0.0.65':
+    resolution: {integrity: sha512-QKd8GOLOQbofRuDjBlh6HMJGBNOwV0vPL3NIKUu3bg9HNUMj+Y6pFxEKgTokZzGts8Uxm/FaPDCp6ckEJHaEyw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -8797,7 +8797,7 @@ snapshots:
       json-schema: 0.4.0
       zod: 3.23.8
 
-  '@ai-sdk/openai@0.0.64(zod@3.23.8)':
+  '@ai-sdk/openai@0.0.65(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 0.0.24
       '@ai-sdk/provider-utils': 1.0.20(zod@3.23.8)
@@ -10447,7 +10447,7 @@ snapshots:
 
   '@docusaurus/react-loadable@6.0.0(react@18.3.1)':
     dependencies:
-      '@types/react': 18.3.4
+      '@types/react': 18.3.11
       react: 18.3.1
 
   '@docusaurus/theme-classic@3.5.2(@types/react@18.3.11)(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
@@ -12082,7 +12082,7 @@ snapshots:
   '@types/react-router@5.1.20':
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 18.3.4
+      '@types/react': 18.3.11
 
   '@types/react-syntax-highlighter@15.5.13':
     dependencies:
