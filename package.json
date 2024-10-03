@@ -13,7 +13,7 @@
     "preinstall": "npx -y only-allow pnpm"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
+    "husky": "^9.0.0",
     "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.5",
