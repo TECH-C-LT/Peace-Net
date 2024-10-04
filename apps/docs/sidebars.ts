@@ -23,7 +23,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '機能',
-      items: ['features/guardian', 'features/sunshine'],
+      items: ['features/guardian', 'features/sunshine', 'features/prism'],
     },
     {
       type: 'category',
