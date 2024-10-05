@@ -41,6 +41,7 @@ const config: Config = {
     peace_net: '平和ネットAPI',
     guardian: 'Guardian API',
     sunshine: 'Sunshine API',
+    prism: 'Prism API',
   },
 
   presets: [
@@ -52,7 +53,7 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '1.5.0 (latest)',
+              label: '1.6.0 (latest)',
               path: '/',
             },
           },
