@@ -46,6 +46,7 @@ export class SunshineService implements ISunshineService {
     private openai: OpenAIProvider,
     private anthropic: AnthropicProvider,
     private google: GoogleGenerativeAIProvider,
+    private groq: OpenAIProvider,
   ) {}
 
   async sunshineText(
@@ -58,6 +59,7 @@ export class SunshineService implements ISunshineService {
         this.openai,
         this.anthropic,
         this.google,
+        this.groq,
       )
 
       const { object } = await generateObject({
