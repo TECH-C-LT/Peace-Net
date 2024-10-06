@@ -12,7 +12,12 @@ import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
-import { AnthropicClient, GoogleClient, OpenAIClient } from '~/libs/models'
+import {
+  AnthropicClient,
+  GoogleClient,
+  GroqClient,
+  OpenAIClient,
+} from '~/libs/models'
 import { SupabaseClient } from '~/libs/supabase'
 
 import { GuardianImageController } from './guardianImage.controller'
@@ -45,6 +50,7 @@ guardianRoutes.post(
           OpenAIClient(getEnv(c).OPENAI_API_KEY),
           AnthropicClient(getEnv(c).ANTHROPIC_API_KEY),
           GoogleClient(getEnv(c).GOOGLE_API_KEY),
+          GroqClient(getEnv(c).GROQ_API_KEY),
         ),
         new UsageFacade(
           new UserPlanService(
