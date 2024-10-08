@@ -2,7 +2,12 @@
 
 import { getFormProps, useForm } from '@conform-to/react'
 import { getZodConstraint, parseWithZod } from '@conform-to/zod'
-import { SiAnthropic, SiGoogle, SiOpenai } from '@icons-pack/react-simple-icons'
+import {
+  SiAnthropic,
+  SiGoogle,
+  SiMeta,
+  SiOpenai,
+} from '@icons-pack/react-simple-icons'
 import { Label } from '@peace-net/ui/components/ui/label'
 import { useActionState } from 'react'
 
@@ -74,6 +79,11 @@ export function PrismForm() {
                 value: 'gemini-1.5-flash',
                 name: 'Gemini 1.5 Flash',
                 Icon: SiGoogle,
+              },
+              {
+                value: 'llama-3.1',
+                name: 'Llama 3.1',
+                Icon: SiMeta,
               },
             ]}
           />

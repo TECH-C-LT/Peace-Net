@@ -46,6 +46,7 @@ export class PrismService implements IPrismService {
     private openai: OpenAIProvider,
     private anthropic: AnthropicProvider,
     private google: GoogleGenerativeAIProvider,
+    private groq: OpenAIProvider,
   ) {}
 
   async prismText(text: string, selectedModel: Models): Promise<PrismResult> {
@@ -55,6 +56,7 @@ export class PrismService implements IPrismService {
         this.openai,
         this.anthropic,
         this.google,
+        this.groq,
       )
 
       const { object } = await generateObject({

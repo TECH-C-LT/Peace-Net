@@ -81,6 +81,7 @@ export class GuardianTextService implements IGuardianTextService {
     private openai: OpenAIProvider,
     private anthropic: AnthropicProvider,
     private google: GoogleGenerativeAIProvider,
+    private groq: OpenAIProvider,
   ) {}
 
   async guardianText(
@@ -93,6 +94,7 @@ export class GuardianTextService implements IGuardianTextService {
         this.openai,
         this.anthropic,
         this.google,
+        this.groq,
       )
 
       const { object } = await generateObject({

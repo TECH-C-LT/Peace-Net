@@ -43,12 +43,26 @@ export const AnthropicClient = (apiKey: string) => {
   })
 }
 
+/**
+ * Groq APIのクライアントを生成します
+ *
+ * @param apiKey - Groq APIのAPIキー
+ * @returns Groq APIのクライアント
+ */
+export const GroqClient = (apiKey: string) => {
+  return createOpenAI({
+    baseURL: 'https://api.groq.com/openai/v1',
+    apiKey,
+  })
+}
+
 export const selectAIModel: (
   selectedModel: Models,
   openai: OpenAIProvider,
   anthropic: AnthropicProvider,
   google: GoogleGenerativeAIProvider,
-) => LanguageModel = (selectedModel, openai, anthropic, google) => {
+  groq: OpenAIProvider,
+) => LanguageModel = (selectedModel, openai, anthropic, google, groq) => {
   switch (selectedModel) {
     case 'gpt-4o-mini':
       return openai('gpt-4o-mini')
@@ -56,6 +70,8 @@ export const selectAIModel: (
       return anthropic('claude-3-haiku-20240307')
     case 'gemini-1.5-flash':
       return google('models/gemini-1.5-flash')
+    case 'llama-3.1':
+      return groq('llama-3.1-8b-instant')
     default:
       return openai('gpt-4o-mini')
   }

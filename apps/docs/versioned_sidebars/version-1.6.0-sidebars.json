@@ -1,0 +1,62 @@
+{
+  "docs": [
+    {
+      "type": "category",
+      "label": "API 概要",
+      "link": {
+        "type": "doc",
+        "id": "quick-start"
+      },
+      "items": [
+        "quick-start",
+        "how-to-use/basic"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "機能",
+      "items": [
+        "features/guardian",
+        "features/sunshine",
+        "features/prism"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "プラン",
+      "link": {
+        "type": "doc",
+        "id": "plan/plan"
+      },
+      "items": []
+    },
+    {
+      "type": "category",
+      "label": "コードリファレンス",
+      "link": {
+        "type": "doc",
+        "id": "code-reference/index"
+      },
+      "items": [
+        "code-reference/node-js",
+        "code-reference/golang",
+        {
+          "type": "category",
+          "label": "SDK",
+          "items": [
+            "code-reference/sdk/golang"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "よくあるエラー",
+      "link": {
+        "type": "doc",
+        "id": "errors/index"
+      },
+      "items": []
+    }
+  ]
+}

@@ -8,6 +8,7 @@ const envSchema = z.object({
   OPENAI_API_KEY: z.string(),
   ANTHROPIC_API_KEY: z.string(),
   GOOGLE_API_KEY: z.string(),
+  GROQ_API_KEY: z.string(),
   SUPABASE_URL: z.string(),
   SUPABASE_SERVICE_ROLE_KEY: z.string(),
   ENCRYPTION_KEY: z.string(),
