@@ -1,5 +1,12 @@
 # OpenAI
 OPENAI_API_KEY = ""
+GROQ_API_KEY = ""
+ANTHROPIC_API_KEY = ""
+GOOGLE_API_KEY = ""
+GROQ_API_KEY = ""
+
+# Docs
+DOCS_URL: "xxxk"
 
 # Local Supabase URL and Anon Key
 SUPABASE_URL= "http://127.0.0.1:54321"
