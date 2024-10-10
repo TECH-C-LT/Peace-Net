@@ -10,13 +10,25 @@ import { prismRoutes } from '~/features/prisms/prism.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
 import { authenticateMiddleware } from '~/middleware/authenticate.middleware'
 import { usageMiddleware } from '~/middleware/usage.middleware'
-
 const app = new Hono()
 
-// logger
-// sample custom logger code
-// export const customLogger = function Logger()
-app.use(logger())
+// for Hono logger
+const _ = require('lodash')
+export const customLogger = (request: string, ...rest: Object[]) => {
+  const date = new Date().toISOString()
+  // 直定義したくないけどやり方わからん
+  // docusaurusもversion情報使うのでsource of truthにしたい
+  const apiVersion = '1.6.2'
+
+  const log = {
+    timestamp: date,
+    apiVersion: apiVersion,
+    request: request,
+  }
+
+  console.log(_.merge(log, ...rest))
+}
+app.use(logger(customLogger))
 app.use(
   '/*',
   cors({
@@ -50,6 +62,7 @@ app.notFound((c) => {
   const method = c.req.method
   const path = new URL(c.req.url).pathname
 
+  customLogger('INFO', { path: path, status: 404, error: 'Not Found' })
   return handleError(
     c,
     new NotFoundError(
