@@ -29,10 +29,12 @@ import { SupabaseClient } from '~/libs/supabase'
 const prismRoutes = new Hono()
 const _ = require('lodash')
 export const log = (ctx: Context, level: string, ...rest: Object[]) => {
+  const model = ctx.req.json().model
   const prismLog = {
     apiKind: 'prism',
     level: level,
     id: ctx.get('requestId'),
+    model: model ? model : 'gpt-4o-mini',
   }
   customLogger('prism', _.merge(prismLog, ...rest))
 }
