@@ -23,7 +23,7 @@ export class PrismController {
       throw result.error
     }
 
-    log({ userId: userId, text: dto.text, result: result.value })
+    log(c, 'INFO', { userId: userId, text: dto.text, result: result.value })
     return c.json(result.value)
   }
 }

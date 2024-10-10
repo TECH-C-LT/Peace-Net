@@ -1,8 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { prismTextRequestSchema } from '@peace-net/shared/schemas/prism'
 import { handleError } from '@peace-net/shared/utils/error-handler'
-import { Hono } from 'hono'
-import { logger } from 'hono/logger'
+import { Hono, Context } from 'hono'
 import { requestId } from 'hono/request-id'
 
 import { getEnv } from '~/config/environment'
@@ -29,14 +28,14 @@ import { SupabaseClient } from '~/libs/supabase'
  */
 const prismRoutes = new Hono()
 const _ = require('lodash')
-export const log = (req: string, ...rest: Object[]) => {
+export const log = (ctx: Context, level: string, ...rest: Object[]) => {
   const prismLog = {
     apiKind: 'prism',
-    request: req,
+    level: level,
+    id: ctx.get('requestId'),
   }
   customLogger('prism', _.merge(prismLog, ...rest))
 }
-prismRoutes.use(logger(log))
 prismRoutes.use('*', requestId())
 
 prismRoutes.post(

@@ -2,6 +2,7 @@ import { NotFoundError } from '@peace-net/shared/core/error'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
+import { logger } from 'hono/logger'
 
 import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
@@ -27,6 +28,7 @@ export const customLogger = (request: string, ...rest: Object[]) => {
 
   console.log(_.merge(log, ...rest))
 }
+app.use(logger(customLogger))
 app.use(
   '/*',
   cors({
