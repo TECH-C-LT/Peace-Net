@@ -2,6 +2,8 @@ import { zValidator } from '@hono/zod-validator'
 import { prismTextRequestSchema } from '@peace-net/shared/schemas/prism'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
+import { logger } from 'hono/logger'
+import { requestId } from 'hono/request-id'
 
 import { getEnv } from '~/config/environment'
 import { PrismController } from '~/features/prisms/prism.controller'
@@ -12,6 +14,7 @@ import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
+import { customLogger } from '~/index'
 import {
   AnthropicClient,
   GoogleClient,
@@ -25,6 +28,16 @@ import { SupabaseClient } from '~/libs/supabase'
  * - POST /text: テキスト変換
  */
 const prismRoutes = new Hono()
+const _ = require('lodash')
+export const log = (req: string, ...rest: Object[]) => {
+  const prismLog = {
+    apiKind: 'prism',
+    request: req,
+  }
+  customLogger('prism', _.merge(prismLog, ...rest))
+}
+prismRoutes.use(logger(log))
+prismRoutes.use('*', requestId())
 
 prismRoutes.post(
   '/text',
