@@ -1,20 +1,29 @@
 ---
-title: Sunshine API
+title: Prism API
 ---
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-export const SunshineApiName = () => {
+export const PrismApiName = () => {
   const { siteConfig } = useDocusaurusContext()
-  return siteConfig.customFields.sunshine
+  return siteConfig.customFields.prism
 }
 
-# <SunshineApiName />
+# <PrismApiName />
 
-**POST `v1/sunshines/text`**
+**POST `v1/guardians/text`**
 
-## リクエスト
+与えられたテキストに対してポジティブとネガティブの両方の表現を返します。
+
+### ユースケース
+- **ユーザーへのフィードバックの提供** <br />
+入力された内容について、ポジティブな表現とネガティブな表現を同時に提供することで、ユーザーが異なる視点を理解しやすくなります。
+
+
+### リクエスト
+
 #### ヘッダー
+
 **`accept`** string
 
 #### リクエストボディ
@@ -28,41 +37,43 @@ export const SunshineApiName = () => {
 - gemini-1.5-flash
 - llama-3.1
 
-### リクエスト例
+
+#### リクエスト例
 <details>
   <summary>cURL</summary>
   <pre>
     <code>
-      ```
+      ```bash
         curl -X POST \
-          --location 'https://api.pe-ace.net/v1/sunshines/text' \
+          --location 'https://api.pe-ace.net/v1/prisms/text' \
           -H 'Content-Type: application/json' \
           -H "Authorization: Bearer <API_KEY>" \
           -d '{
-          "text": "<TEXT>"
+          "text": "元気がいいね"
         }'
       ```
     </code>
   </pre>
 </details>
 
-## レスポンス
-<details open>
+### レスポンス
+<details>
   <summary>レスポンス例</summary>
 
   status: `200`
   <pre>
     <code>
-    ```
-      {
-        "text": "きっと大丈夫です！",
-      }
+    ```json
+    {
+        "positive": "とても活気があるね",
+        "negative": "少し騒がしいね"
+    }
     ```
     </code>
   </pre>
 </details>
 
-### レスポンスステータスコード
+#### レスポンスステータスコード
 
 | Status Code | Description           |
 | ----        |  ----                 |
@@ -75,4 +86,3 @@ export const SunshineApiName = () => {
 | `501`       | Not Implemented Error |
 
 エラーの詳細は[よくあるエラー](/docs/errors)を参照してください。
-

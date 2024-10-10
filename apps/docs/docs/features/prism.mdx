@@ -57,16 +57,34 @@ export const PrismApiName = () => {
 </details>
 
 ### レスポンス
-<details>
+以下に当てはまる場合には`{"positive":"false","negative":"false"}`が返される可能性があります。
+- 相槌
+- 明確な同意や返答
+- 意味を無さない文章
+- 数式
+
+<details open>
   <summary>レスポンス例</summary>
 
   status: `200`
   <pre>
     <code>
+    text="⚪︎ね"
     ```json
     {
-        "positive": "とても活気があるね",
-        "negative": "少し騒がしいね"
+      "positive":"この言葉には強い感情がある。",
+      "negative":"攻撃的で不快な表現です。"
+    }
+    ```
+    </code>
+  </pre>
+  <pre>
+    <code>
+    text="うんうん"
+    ```json
+    {
+      "positive": "false",
+      "negative":"false"
     }
     ```
     </code>
