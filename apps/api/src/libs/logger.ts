@@ -44,3 +44,10 @@ export const guardianLog = (ctx: Context, level: string, ...rest: Object[]) => {
   }
   log(ctx, level, _.merge(gdLog, ...rest))
 }
+
+export const sunshineLog = (ctx: Context, level: string, ...rest: Object[]) => {
+  const sunLog = {
+    apiKind: 'sunshine',
+  }
+  log(ctx, level, _.merge(sunLog, ...rest))
+}
