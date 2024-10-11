@@ -3,6 +3,7 @@ import { Context } from 'hono'
 
 import { log } from '~/features/prisms/prism.route'
 import { IPrismUseCase } from '~/features/prisms/prism.usecase'
+import { prismLog } from '~/libs/logger'
 
 export class PrismController {
   constructor(private prismUseCase: IPrismUseCase) {}
@@ -23,7 +24,11 @@ export class PrismController {
       throw result.error
     }
 
-    log(c, 'INFO', { userId: userId, text: dto.text, result: result.value })
+    prismLog(c, 'INFO', {
+      userId: userId,
+      text: dto.text,
+      result: result.value,
+    })
     return c.json(result.value)
   }
 }

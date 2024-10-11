@@ -8,26 +8,11 @@ import { getEnv } from '~/config/environment'
 import { guardianRoutes } from '~/features/guardians/guardian.route'
 import { prismRoutes } from '~/features/prisms/prism.route'
 import { sunshineRoutes } from '~/features/sunshines/sunshine.route'
+import { customLogger } from '~/libs/logger'
 import { authenticateMiddleware } from '~/middleware/authenticate.middleware'
 import { usageMiddleware } from '~/middleware/usage.middleware'
 const app = new Hono()
 
-// for Hono logger
-const _ = require('lodash')
-export const customLogger = (request: string, ...rest: Object[]) => {
-  const date = new Date().toISOString()
-  // 直定義したくないけどやり方わからん
-  // docusaurusもversion情報使うのでsource of truthにしたい
-  const apiVersion = '1.6.2'
-
-  const log = {
-    timestamp: date,
-    apiVersion: apiVersion,
-    request: request,
-  }
-
-  console.log(_.merge(log, ...rest))
-}
 app.use(logger(customLogger))
 app.use(
   '/*',
