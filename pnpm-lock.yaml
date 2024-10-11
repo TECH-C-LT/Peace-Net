@@ -40,7 +40,7 @@ importers:
         version: 0.0.66(zod@3.23.8)
       '@hono/zod-validator':
         specifier: ^0.4.0
-        version: 0.4.1(hono@4.6.3)(zod@3.23.8)
+        version: 0.4.1(hono@4.6.4)(zod@3.23.8)
       '@peace-net/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -52,7 +52,7 @@ importers:
         version: 3.4.9(openai@4.67.3(zod@3.23.8))(react@19.0.0-rc-fb9a90fa48-20240614)(sswr@2.1.0(svelte@4.2.18))(svelte@4.2.18)(vue@3.4.35(typescript@5.6.3))(zod@3.23.8)
       hono:
         specifier: ^4.5.6
-        version: 4.6.3
+        version: 4.6.4
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -262,7 +262,7 @@ importers:
         version: 4.2.0
       hono:
         specifier: ^4.5.6
-        version: 4.6.3
+        version: 4.6.4
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.5.3
@@ -5296,8 +5296,8 @@ packages:
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
-  hono@4.6.3:
-    resolution: {integrity: sha512-0LeEuBNFeSHGqZ9sNVVgZjB1V5fmhkBSB0hZrpqStSMLOWgfLy0dHOvrjbJh0H2khsjet6rbHfWTHY0kpYThKQ==}
+  hono@4.6.4:
+    resolution: {integrity: sha512-T5WqBkTOcIQblqBKB5mpzaH/A+dSpvVe938xZJCHOmOuYfF7DSwE/9/10+BMvwSPq9N/f6LiQ38HxrZSQOsXKw==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@2.8.9:
@@ -10787,9 +10787,9 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@hono/zod-validator@0.4.1(hono@4.6.3)(zod@3.23.8)':
+  '@hono/zod-validator@0.4.1(hono@4.6.4)(zod@3.23.8)':
     dependencies:
-      hono: 4.6.3
+      hono: 4.6.4
       zod: 3.23.8
 
   '@hookform/resolvers@3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-fb9a90fa48-20240614))':
@@ -15020,7 +15020,7 @@ snapshots:
     dependencies:
       react-is: 16.13.1
 
-  hono@4.6.3: {}
+  hono@4.6.4: {}
 
   hosted-git-info@2.8.9: {}
 
