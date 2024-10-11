@@ -13,6 +13,7 @@ import { UsageLogService } from '~/features/usageLogs/usageLog.service'
 import { UsageFacade } from '~/features/usages/usage.facade'
 import { UserPlanRepository } from '~/features/userPlans/userPlan.repository'
 import { UserPlanService } from '~/features/userPlans/userPlan.service'
+import { customLogger } from '~/index'
 import {
   AnthropicClient,
   GoogleClient,
