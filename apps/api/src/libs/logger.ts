@@ -36,3 +36,11 @@ const getModelFromContext = (ctx: Context) => {
   const model = ctx.req.json().model
   return model ? model : 'gpt-4o-mini'
 }
+
+export const guardianLog = (ctx: Context, level: string, ...rest: Object[]) => {
+  const gdLog = {
+    apiKind: 'guardian',
+    featureKind: ctx.get('featureKind'),
+  }
+  log(ctx, level, _.merge(gdLog, ...rest))
+}

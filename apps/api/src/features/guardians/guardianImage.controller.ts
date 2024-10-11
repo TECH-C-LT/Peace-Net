@@ -1,6 +1,8 @@
 import { GuardianImageDTO } from '@peace-net/shared/types/guardian'
 import { Context } from 'hono'
 
+import { guardianLog } from '~/libs/logger'
+
 import { IGuardianImageUseCase } from './guardianImage.usecase'
 
 /**
@@ -32,6 +34,12 @@ export class GuardianImageController {
       throw result.error
     }
 
+    guardianLog(c, 'INFO', {
+      userId: userId,
+      image: dto.image,
+      score_threshold: dto.score_threshold,
+      result: result.value,
+    })
     return c.json(result.value)
   }
 }
