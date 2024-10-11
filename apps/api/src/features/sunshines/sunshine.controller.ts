@@ -2,6 +2,7 @@ import { SunshineTextDTO } from '@peace-net/shared/types/sunshine'
 import { Context } from 'hono'
 
 import { ISunshineUseCase } from '~/features/sunshines/sunshine.usecase'
+import { sunshineLog } from '~/libs/logger'
 
 export class SunshineController {
   constructor(private sunshineUseCase: ISunshineUseCase) {}
@@ -22,6 +23,11 @@ export class SunshineController {
       throw result.error
     }
 
+    sunshineLog(c, 'INFO', {
+      userId: userId,
+      text: dto.text,
+      result: result.value,
+    })
     return c.json(result.value)
   }
 }

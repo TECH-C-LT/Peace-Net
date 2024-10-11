@@ -2,6 +2,7 @@ import { zValidator } from '@hono/zod-validator'
 import { sunshineTextRequestSchema } from '@peace-net/shared/schemas/sunshine'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
+import { requestId } from 'hono/request-id'
 
 import { getEnv } from '~/config/environment'
 import { SunshineController } from '~/features/sunshines/sunshine.controller'
@@ -26,6 +27,7 @@ import { SupabaseClient } from '~/libs/supabase'
  * - POST /text: テキスト変換
  */
 const sunshineRoutes = new Hono()
+sunshineRoutes.use('*', requestId())
 
 sunshineRoutes.post(
   '/text',
