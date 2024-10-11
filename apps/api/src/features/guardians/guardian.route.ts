@@ -5,6 +5,7 @@ import {
 } from '@peace-net/shared/schemas/guardian'
 import { handleError } from '@peace-net/shared/utils/error-handler'
 import { Hono } from 'hono'
+import { requestId } from 'hono/request-id'
 
 import { getEnv } from '~/config/environment'
 import { UsageLogRepository } from '~/features/usageLogs/usageLog.repository'
@@ -34,6 +35,7 @@ import { GuardianTextUseCase } from './guardianText.usecase'
  * - POST /image: 画像分析
  */
 const guardianRoutes = new Hono()
+guardianRoutes.use('*', requestId())
 
 guardianRoutes.post(
   '/text',
@@ -44,6 +46,7 @@ guardianRoutes.post(
     return
   }),
   async (c) => {
+    c.set('featureKind', 'text')
     return new GuardianTextController(
       new GuardianTextUseCase(
         new GuardianTextService(
@@ -84,6 +87,7 @@ guardianRoutes.post(
     return
   }),
   async (c) => {
+    c.set('featureKind', 'image')
     return new GuardianImageController(
       new GuardianImageUseCase(
         new GuardianImageService(OpenAIClient(getEnv(c).OPENAI_API_KEY)),

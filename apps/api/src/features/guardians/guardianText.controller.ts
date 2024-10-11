@@ -3,6 +3,7 @@ import { GuardianTextDTO } from '@peace-net/shared/types/guardian'
 import { Context } from 'hono'
 
 import { IGuardianTextUseCase } from '~/features/guardians/guardianText.usecase'
+import { guardianLog } from '~/libs/logger'
 
 /**
  * テキストの不適切な内容を分析し、カテゴリー別のスコアを提供するコントローラー
@@ -33,6 +34,12 @@ export class GuardianTextController {
       throw result.error
     }
 
+    guardianLog(c, 'INFO', {
+      userId: userId,
+      text: dto.text,
+      score_threshold: dto.score_threshold,
+      result: result.value,
+    })
     return c.json(result.value)
   }
 
