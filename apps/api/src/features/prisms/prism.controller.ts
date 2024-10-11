@@ -2,6 +2,7 @@ import { PrismTextDTO } from '@peace-net/shared/types/prism'
 import { Context } from 'hono'
 
 import { IPrismUseCase } from '~/features/prisms/prism.usecase'
+import { prismLog } from '~/libs/logger'
 
 export class PrismController {
   constructor(private prismUseCase: IPrismUseCase) {}
@@ -22,6 +23,11 @@ export class PrismController {
       throw result.error
     }
 
+    prismLog(c, 'INFO', {
+      userId: userId,
+      text: dto.text,
+      result: result.value,
+    })
     return c.json(result.value)
   }
 }
