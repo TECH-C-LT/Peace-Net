@@ -51,7 +51,7 @@
     "cmdk": "1.0.0",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.3.21",
-    "lucide-react": "^0.451.0",
+    "lucide-react": "^0.452.0",
     "next-themes": "^0.3.0",
     "react": "19.0.0-rc-fb9a90fa48-20240614",
     "react-day-picker": "8.10.1",
