@@ -26,7 +26,7 @@
     "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
     "react-hook-form": "^7.52.2",
     "react-ios-corners": "^1.0.0",
-    "react-syntax-highlighter": "^15.5.0",
+    "react-syntax-highlighter": "^16.0.0",
     "recharts": "2.13.0",
     "sonner": "^1.5.0",
     "uuid": "^10.0.0",
